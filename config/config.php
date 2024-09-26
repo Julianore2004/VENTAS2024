@@ -1,4 +1,5 @@
 <?php
+
 const BD_HOST = 'localhost';
 const BD_NAME = 'sistema_venta';
 const BD_USER = 'root';
