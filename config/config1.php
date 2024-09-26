@@ -1,10 +1,10 @@
 <?php
 const BD_HOST = 'localhost';
-const BD_NAME = 'sistema_venta';
-const BD_USER = 'root';
-const BD_PASSWORD = 'guardian.tale3';
+const BD_NAME = '';
+const BD_USER = '';
+const BD_PASSWORD = '';
 
-const BASE_URL = 'http://localhost/Ventas2024/';
+const BASE_URL = '';
 
 
 ?>
