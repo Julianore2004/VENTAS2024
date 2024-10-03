@@ -1,5 +1,4 @@
 <?php
-
 require_once "./controller/vistas_control.php";
 
 $mostrar = new vistasControlador();
@@ -13,4 +12,4 @@ if ($vista == "login" || $vista == "404") {
     include $vista;
     include "./views/include/footer.php";
 }
-?>
+?>x 

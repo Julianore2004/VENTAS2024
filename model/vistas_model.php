@@ -5,7 +5,21 @@ class vistaModelo
 
     protected static function obtener_vista($vista)
     {
-        $palabras_permitidas = ['login', 'usuario', 'producto'];
+        $palabras_permitidas = [
+            'login',
+            'usuarios',
+            'nuevo-usuario',
+            'modificar-usuario',
+            'productos',
+            'nuevo-producto',
+            'producto',
+            'carrito',
+            'index',
+            'ofertas',
+            'novedades',
+            'miperfil',
+            'accesorios'
+        ];
         if (in_array($vista, $palabras_permitidas)) {
             if (is_file("./views/" . $vista . ".php")) {
                 $contenido = "./views/" . $vista . ".php";
@@ -15,7 +29,8 @@ class vistaModelo
             }
         } elseif ($vista == "login" || $vista == "index") {
             $contenido = "login";
-
+        } elseif ($vista == "carrito") {
+            $contenido = "carrito";
         } else {
             $contenido = "Error 404, no existe la vista";
         }

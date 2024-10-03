@@ -1,0 +1,218 @@
+   /* QUITAR SCROLL */
+   body::-webkit-scrollbar {
+     display: none;
+   }
+
+   /* LOGIN */
+   body {
+     background-image: url("https://i.pinimg.com/564x/22/5d/71/225d71576031e09383aedd5225f48f63.jpg");
+     background-color: #f7f7f7;
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+     height: 100vh;
+   }
+
+   .cardlogin {
+     background: #B3E5FC;
+     border-radius: 15px;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+     width: 100%;
+     max-width: 400px;
+     height: 450px;
+     /* Altura fija */
+     display: flex;
+     flex-direction: column;
+   }
+
+   .form-group label {
+     color: #0d47a1;
+   }
+
+   .btn-custom {
+     background-color: #42a5f5;
+     border: none;
+     border-radius: 50px;
+     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+     color: white;
+     display: block;
+     width: 100%;
+     padding: 10px;
+     text-align: center;
+     text-decoration: none;
+   }
+
+   .text-center a {
+     color: #42a5f5;
+   }
+
+   .logo {
+     position: absolute;
+     top: 10px;
+     left: 10px;
+   }
+
+   /* index */
+   body {
+     font-family: sniglet;
+     background-color: #E0F7FA;
+   }
+
+   .rowindex img {
+     border-radius: 40%;
+   }
+
+   .cardindex {
+     border-radius: 30%;
+     background: #B3E5FC;
+   }
+
+   .row a {
+     cursor: pointer;
+     color: black;
+   }
+
+   /* Carrito */
+   body {
+     font-family: sniglet;
+     background: #E0F7FA;
+   }
+
+
+
+   .card {
+     background-color: #B2EBF2;
+   }
+
+   .btn-custom {
+     background-color: #0288D1;
+     color: rgb(0, 0, 0);
+   }
+
+   #cantidad i {
+
+     color: red;
+
+   }
+
+   .discount {
+     color: white;
+     background: red;
+   }
+
+   /* ofertas */
+   body {
+     font-family: sniglet;
+   }
+
+   .discount {
+     color: white;
+     background: red;
+   }
+
+   /* Novedades */
+   body {
+     font-family: sniglet;
+   }
+
+   .carousel-caption {
+     background-color: rgba(0, 0, 0, 0.5);
+     padding: 10px;
+   }
+
+
+   .card {
+     border: none;
+     /* Elimina el borde de la tarjeta */
+     border-radius: 15px;
+     /* Añade un borde redondeado */
+     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+     /* Sombra suave */
+   }
+
+   .discount {
+     color: white;
+     background: red;
+   }
+
+   /* accesorios */
+   body {
+     font-family: sniglet;
+     background: #FAE7A5;
+   }
+
+   .filter-card {
+     width: fit-content;
+     display: inline-block;
+   }
+
+   .filter-header {
+     display: flex;
+     align-items: center;
+   }
+
+   .filter-header svg {
+     margin-right: 5px;
+   }
+
+   .form-check-input:checked {
+     background-color: #ffd966;
+     border-color: #ffd966;
+   }
+
+   .product-card {
+     margin-bottom: 20px;
+     height: 100%;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+   }
+
+   .product-card img {
+     width: 100%;
+     height: 200px;
+     object-fit: cover;
+   }
+
+   .card-body {
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+   }
+
+   .product-grid {
+     display: flex;
+     flex-wrap: wrap;
+   }
+
+   .product-grid .product-item {
+     flex: 1 0 21%;
+     /* Ajusta el tamaño según sea necesario */
+     margin: 10px;
+     display: flex;
+   }
+
+   .color-box {
+     width: 30px;
+     height: 30px;
+     border: 1px solid #ccc;
+     display: inline-block;
+   }
+
+   .discount {
+     color: white;
+     background: red;
+   }
+
+   .menun a {
+     text-decoration: none;
+     color: black;
+   }
+
+   /* index */
+
+   /* index */
+
+   /* index */
+
+   /* index */
