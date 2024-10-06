@@ -68,11 +68,12 @@
     <div class="row mt-4" style="display: flex;">
       <div class="rowindex mt-4" style="justify-content: space-around; display: flex; gap: 10px; margin-top: 20px; margin-bottom: 20px;">
         <div class="col-3" style="width: 15rem; justify-content: center;">
-          <a href="html/celularessamsung.html">
+       
+          <a  href="<?php echo BASE_URL ?>celularessamsung" >
             <img src="https://rimage.ripley.com.pe/home.ripley/Attachment/MKP/2832/PMP20000153811/full_image-1.jpeg" class="card-img-top" alt="...">
           </a>
           <div class="cardindex-body">
-            <a href="html/celularessamsung.html" style="text-decoration: none;" class="card-text">Samsung</a>
+            <a  href="<?php echo BASE_URL ?>celularessamsung"  style="text-decoration: none;" class="card-text">Samsung</a>
           </div>
         </div>
         <div class="col-3" style="width: 15rem;">

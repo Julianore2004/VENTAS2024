@@ -18,7 +18,10 @@ class vistaModelo
             'ofertas',
             'novedades',
             'miperfil',
-            'accesorios'
+            'accesorios',
+            'celularessamsung',
+            'detalleproducto',
+            'comentarios'
         ];
         if (in_array($vista, $palabras_permitidas)) {
             if (is_file("./views/" . $vista . ".php")) {

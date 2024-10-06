@@ -3,10 +3,10 @@
             <button class="btn btn-info" > <a href="PPsesioninicida.html">Inicio/</a></button>
             <button class="btn btn-info"> <a href="accesorios.html">Catalogo</a></button>
         </div>
-        <div class="row  ">
+        <div class="row ">
             <!-- Filtros -->
-            <div style=" background-color: #E0F7FA; border: none; " class="col-12 col-md-4 col-lg-3 card filter-card mt-3">
-                <div class="card-body" style="background: #ffffff; border-radius: 10px;">
+            <div  style=" background-color: #E0F7FA; border: none; " class=" col-12 col-md-4 col-lg-3 card filter-card mt-3">
+                <div class="p-2 " style="background: #ffffff; border-radius: 10px;">
                     <h5 class="card-title filter-header">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-funnel" viewBox="0 0 16 16">
@@ -47,9 +47,9 @@
             </div>
             <!-- Productos -->
             <div class="col-12 col-md-8 col-lg-9 mt-3">
-                <div class="row mb-3" >
-                    <div class="col-12 col-sm-6 col-lg-4 mb-3">
-                        <div class="card product-card">
+                <div class="row mb-3 "  >
+                    <div class="col-12 col-sm-6 col-lg-4 mb-3 " >
+                        <div class="card product-card card h-100 " style="background-color: white;">
                             <img src="https://media-prod-use-1.mirakl.net/SOURCE/9b4140d2a8b246b3bc8d3a65a69bd959"
                                 class="card-img-top" alt="Producto 1">
                             <div class="card-body">
@@ -78,7 +78,7 @@
                     </div>
 
                     <div class="col-12 col-sm-6 col-lg-4 mb-3">
-                        <div class="card product-card">
+                        <div class="card product-card card h-100 " style="background-color: white;">
                             <img src="https://home.ripley.com.pe/Attachment/WOP_5/2065327966390/2065327966390_2.jpg"
                                 class="card-img-top" alt="Producto 1">
                             <div class="card-body">
@@ -106,7 +106,7 @@
                         </div>
                     </div>
                     <div class="col-12 col-sm-6 col-lg-4 mb-3">
-                        <div class="card product-card">
+                        <div class="card product-card card h-100 " style="background-color: white;">
                             <img src="https://rimage.ripley.com.pe/home.ripley/Attachment/MKP/1735/PMP20000036887/full_image-3.jpeg"
                                 class="card-img-top" alt="Producto 1">
                             <div class="card-body">
@@ -137,7 +137,7 @@
                 </div>
                 <div class="row  mb-3">
                     <div class="col-12 col-sm-6 col-lg-4 mb-3">
-                        <div class="card product-card">
+                        <div class="card product-card card h-100 " style="background-color: white;">
                             <img src="https://rimage.ripley.com.pe/home.ripley/Attachment/MKP/3943/PMP20000073518/imagen2-1.jpeg"
                                 class="card-img-top" alt="Producto 1">
                             <div class="card-body">
@@ -164,7 +164,7 @@
                         </div>
                     </div>
                     <div class="col-12 col-sm-6 col-lg-4 mb-3">
-                        <div class="card product-card">
+                        <div class="card product-card card h-100 " style="background-color: white;">
                             <img src="https://media-prod-use-1.mirakl.net/SOURCE/7af7555bc4c944bfa9c74f0393c4fe23"
                                 class="card-img-top" alt="Producto 1">
                             <div class="card-body">
@@ -191,7 +191,7 @@
                         </div>
                     </div>
                     <div class="col-12 col-sm-6 col-lg-4 mb-3">
-                        <div class="card product-card">
+                        <div class="card product-card card h-100 " style="background-color: white;">
                             <img src="https://rimage.ripley.com.pe/home.ripley/Attachment/MKP/2213/PMP00002889605/full_image-1.jpeg"
                                 class="card-img-top" alt="Producto 1">
                             <div class="card-body">
@@ -221,7 +221,7 @@
                 </div>
                 <div class="row  mb-3">
                     <div class="col-12 col-sm-6 col-lg-4 mb-3">
-                        <div class="card product-card">
+                        <div class="card product-card card h-100 " style="background-color: white;">
                             <img src="https://rimage.ripley.com.pe/home.ripley/Attachment/MKP/2958/PMP00003461122/full_image-1.jpg"
                                 class="card-img-top" alt="Producto 1">
                             <div class="card-body">
@@ -249,7 +249,7 @@
                     </div>
 
                     <div class="col-12 col-sm-6 col-lg-4 mb-3">
-                        <div class="card product-card">
+                        <div class="card product-card card h-100 " style="background-color: white;">
                             <img src="https://rimage.ripley.com.pe/home.ripley/Attachment/MKP/3846/PMP20000121748/full_image-1.jpeg"
                                 class="card-img-top" alt="Producto 1">
                             <div class="card-body">
@@ -274,7 +274,7 @@
                         </div>
                     </div>
                     <div class="col-12 col-sm-6 col-lg-4 mb-3">
-                        <div class="card product-card">
+                        <div class="card product-card card h-100 " style="background-color: white;">
                             <img src="https://rimage.ripley.com.pe/home.ripley/Attachment/MKP/373/PMP00001607428/full_image-1.jpeg"
                                 class="card-img-top" alt="Producto 1">
                             <div class="card-body">
@@ -304,7 +304,7 @@
                 </div>
                 <div class="row mb-4">
                     <div class="col-12 col-sm-6 col-lg-4  mb-3">
-                        <div class="card product-card">
+                        <div class="card product-card card h-100 " style="background-color: white;">
                             <img src="https://media-prod-use-1.mirakl.net/SOURCE/9b4140d2a8b246b3bc8d3a65a69bd959"
                                 class="card-img-top" alt="Producto 1">
                             <div class="card-body">
@@ -333,7 +333,7 @@
                     </div>
 
                     <div class="col-12 col-sm-6 col-lg-4 mb-3">
-                        <div class="card product-card">
+                        <div class="card product-card card h-100 " style="background-color: white;">
                             <img src="https://home.ripley.com.pe/Attachment/WOP_5/2065327966390/2065327966390_2.jpg"
                                 class="card-img-top" alt="Producto 1">
                             <div class="card-body">
@@ -361,7 +361,7 @@
                         </div>
                     </div>
                     <div class="col-12 col-sm-6 col-lg-4 mb-3">
-                        <div class="card product-card">
+                        <div class="card product-card card h-100 " style="background-color: white;">
                             <img src="https://rimage.ripley.com.pe/home.ripley/Attachment/MKP/1735/PMP20000036887/full_image-3.jpeg"
                                 class="card-img-top" alt="Producto 1">
                             <div class="card-body">
@@ -392,7 +392,7 @@
                 </div>
                 <div class="row  mb-3">
                     <div class="col-12 col-sm-6 col-lg-4 mb-3">
-                        <div class="card product-card">
+                        <div class="card product-card card h-100 " style="background-color: white;">
                             <img src="https://rimage.ripley.com.pe/home.ripley/Attachment/MKP/3943/PMP20000073518/imagen2-1.jpeg"
                                 class="card-img-top" alt="Producto 1">
                             <div class="card-body">
@@ -419,7 +419,7 @@
                         </div>
                     </div>
                     <div class="col-12 col-sm-6 col-lg-4 mb-3">
-                        <div class="card product-card">
+                        <div class="card product-card card h-100 " style="background-color: white;">
                             <img src="https://media-prod-use-1.mirakl.net/SOURCE/7af7555bc4c944bfa9c74f0393c4fe23"
                                 class="card-img-top" alt="Producto 1">
                             <div class="card-body">
@@ -446,7 +446,7 @@
                         </div>
                     </div>
                     <div class="col-12 col-sm-6 col-lg-4 mb-3">
-                        <div class="card product-card">
+                        <div class="card product-card card h-100 " style="background-color: white;">
                             <img src="https://rimage.ripley.com.pe/home.ripley/Attachment/MKP/2213/PMP00002889605/full_image-1.jpeg"
                                 class="card-img-top" alt="Producto 1">
                             <div class="card-body">
@@ -476,7 +476,7 @@
                 </div>
                 <div class="row  mb-3">
                     <div class="col-12 col-sm-6 col-lg-4 mb-3">
-                        <div class="card product-card">
+                        <div class="card product-card card h-100 " style="background-color: white;">
                             <img src="https://rimage.ripley.com.pe/home.ripley/Attachment/MKP/2958/PMP00003461122/full_image-1.jpg"
                                 class="card-img-top" alt="Producto 1">
                             <div class="card-body">
@@ -504,7 +504,7 @@
                     </div>
 
                     <div class="col-12 col-sm-6 col-lg-4 mb-3">
-                        <div class="card product-card">
+                        <div class="card product-card card h-100 " style="background-color: white;">
                             <img src="https://rimage.ripley.com.pe/home.ripley/Attachment/MKP/3846/PMP20000121748/full_image-1.jpeg"
                                 class="card-img-top" alt="Producto 1">
                             <div class="card-body">
@@ -529,7 +529,7 @@
                         </div>
                     </div>
                     <div class="col-12 col-sm-6 col-lg-4 mb-3">
-                        <div class="card product-card">
+                        <div class="card product-card card h-100 " style="background-color: white;">
                             <img src="https://rimage.ripley.com.pe/home.ripley/Attachment/MKP/373/PMP00001607428/full_image-1.jpeg"
                                 class="card-img-top" alt="Producto 1">
                             <div class="card-body">
