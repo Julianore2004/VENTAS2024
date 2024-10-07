@@ -48,7 +48,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <a href="../index.html">
+            <a href="<?php echo BASE_URL ?>login">
 
                     <button class="btn btn-danger btn-block">Cerrar sesión</button>
                 </a>

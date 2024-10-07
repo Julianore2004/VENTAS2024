@@ -66,10 +66,10 @@
                                     
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <a href="detalleaccesorio.html">
+                                    <a href="<?php echo BASE_URL ?>detalleaccesorio">
                                         <button class="btn btn-primary btn-sm">Ver Detalles</button>
                                     </a>
-                                    <a href="carrito.html">
+                                    <a href="<?php echo BASE_URL ?>carrito">
                                         <button class="btn btn-primary btn-sm">Agregar al carrito</button>
                                     </a>
                                 </div>
@@ -95,10 +95,10 @@
 
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <a href="detalleaccesorio.html">
+                                <a href="<?php echo BASE_URL ?>detalleaccesorio">
                                         <button class="btn btn-primary btn-sm">Ver Detalles</button>
                                     </a>
-                                    <a href="carrito.html">
+                                    <a href="<?php echo BASE_URL ?>carrito">
                                         <button class="btn btn-primary btn-sm">Agregar al carrito</button>
                                     </a>
                                 </div>
@@ -123,10 +123,10 @@
                                     <div class="color-box" style="background-color: rgb(18, 18, 22);"></div>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <a href="detalleaccesorio.html">
+                                <a href="<?php echo BASE_URL ?>detalleaccesorio">
                                         <button class="btn btn-primary btn-sm">Ver Detalles</button>
                                     </a>
-                                    <a href="carrito.html">
+                                    <a href="<?php echo BASE_URL ?>carrito">
                                         <button class="btn btn-primary btn-sm">Agregar al carrito</button>
                                     </a>
                                 </div>
@@ -153,10 +153,10 @@
                                     
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <a href="detalleaccesorio.html">
+                                <a href="<?php echo BASE_URL ?>detalleaccesorio">
                                         <button class="btn btn-primary btn-sm">Ver Detalles</button>
                                     </a>
-                                    <a href="carrito.html">
+                                    <a href="<?php echo BASE_URL ?>carrito">
                                         <button class="btn btn-primary btn-sm">Agregar al carrito</button>
                                     </a>
                                 </div>
@@ -180,10 +180,10 @@
                                     <div class="color-box" style="background-color: rgb(0, 0, 0);"></div>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <a href="detalleaccesorio.html">
+                                <a href="<?php echo BASE_URL ?>detalleaccesorio">
                                         <button class="btn btn-primary btn-sm">Ver Detalles</button>
                                     </a>
-                                    <a href="carrito.html">
+                                    <a href="<?php echo BASE_URL ?>carrito">
                                         <button class="btn btn-primary btn-sm">Agregar al carrito</button>
                                     </a>
                                 </div>
@@ -207,10 +207,10 @@
                                     <div class="color-box" style="background-color: rgb(255, 255, 255);"></div>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <a href="detalleaccesorio.html">
+                                <a href="<?php echo BASE_URL ?>detalleaccesorio">
                                         <button class="btn btn-primary btn-sm">Ver Detalles</button>
                                     </a>
-                                    <a href="carrito.html">
+                                    <a href="<?php echo BASE_URL ?>carrito">
                                         <button class="btn btn-primary btn-sm">Agregar al carrito</button>
                                     </a>
                                 </div>
@@ -237,10 +237,10 @@
                                     <div class="color-box" style="background-color: blue;"></div>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <a href="detalleaccesorio.html">
+                                <a href="<?php echo BASE_URL ?>detalleaccesorio">
                                         <button class="btn btn-primary btn-sm">Ver Detalles</button>
                                     </a>
-                                    <a href="carrito.html">
+                                    <a href="<?php echo BASE_URL ?>carrito">
                                         <button class="btn btn-primary btn-sm">Agregar al carrito</button>
                                     </a>
                                 </div>
@@ -263,10 +263,10 @@
                                     </div>
                                    </div>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <a href="detalleaccesorio.html">
+                                <a href="<?php echo BASE_URL ?>detalleaccesorio">
                                         <button class="btn btn-primary btn-sm">Ver Detalles</button>
                                     </a>
-                                    <a href="carrito.html">
+                                    <a href="<?php echo BASE_URL ?>carrito">
                                         <button class="btn btn-primary btn-sm">Agregar al carrito</button>
                                     </a>
                                 </div>
@@ -290,10 +290,10 @@
                                     <div class="color-box" style="background-color: rgb(0, 0, 0);"></div>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <a href="detalleaccesorio.html">
+                                <a href="<?php echo BASE_URL ?>detalleaccesorio">
                                         <button class="btn btn-primary btn-sm">Ver Detalles</button>
                                     </a>
-                                    <a href="carrito.html">
+                                    <a href="<?php echo BASE_URL ?>carrito">
                                         <button class="btn btn-primary btn-sm">Agregar al carrito</button>
                                     </a>
                                 </div>
@@ -321,10 +321,10 @@
                                     
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <a href="detalleaccesorio.html">
+                                <a href="<?php echo BASE_URL ?>detalleaccesorio">
                                         <button class="btn btn-primary btn-sm">Ver Detalles</button>
                                     </a>
-                                    <a href="carrito.html">
+                                    <a href="<?php echo BASE_URL ?>carrito">
                                         <button class="btn btn-primary btn-sm">Agregar al carrito</button>
                                     </a>
                                 </div>
@@ -350,10 +350,10 @@
 
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <a href="detalleaccesorio.html">
+                                <a href="<?php echo BASE_URL ?>detalleaccesorio">
                                         <button class="btn btn-primary btn-sm">Ver Detalles</button>
                                     </a>
-                                    <a href="carrito.html">
+                                    <a href="<?php echo BASE_URL ?>carrito">
                                         <button class="btn btn-primary btn-sm">Agregar al carrito</button>
                                     </a>
                                 </div>
@@ -378,10 +378,10 @@
                                     <div class="color-box" style="background-color: rgb(18, 18, 22);"></div>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <a href="detalleaccesorio.html">
+                                <a href="<?php echo BASE_URL ?>detalleaccesorio">
                                         <button class="btn btn-primary btn-sm">Ver Detalles</button>
                                     </a>
-                                    <a href="carrito.html">
+                                    <a href="<?php echo BASE_URL ?>carrito">
                                         <button class="btn btn-primary btn-sm">Agregar al carrito</button>
                                     </a>
                                 </div>
@@ -408,10 +408,10 @@
                                     
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <a href="detalleaccesorio.html">
+                                <a href="<?php echo BASE_URL ?>detalleaccesorio">
                                         <button class="btn btn-primary btn-sm">Ver Detalles</button>
                                     </a>
-                                    <a href="carrito.html">
+                                    <a href="<?php echo BASE_URL ?>carrito">
                                         <button class="btn btn-primary btn-sm">Agregar al carrito</button>
                                     </a>
                                 </div>
@@ -435,10 +435,10 @@
                                     <div class="color-box" style="background-color: rgb(0, 0, 0);"></div>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <a href="detalleaccesorio.html">
+                                <a href="<?php echo BASE_URL ?>detalleaccesorio">
                                         <button class="btn btn-primary btn-sm">Ver Detalles</button>
                                     </a>
-                                    <a href="carrito.html">
+                                    <a href="<?php echo BASE_URL ?>carrito">
                                         <button class="btn btn-primary btn-sm">Agregar al carrito</button>
                                     </a>
                                 </div>
@@ -492,10 +492,10 @@
                                     <div class="color-box" style="background-color: blue;"></div>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <a href="detalleaccesorio.html">
+                                <a href="<?php echo BASE_URL ?>detalleaccesorio">
                                         <button class="btn btn-primary btn-sm">Ver Detalles</button>
                                     </a>
-                                    <a href="carrito.html">
+                                    <a href="<?php echo BASE_URL ?>carrito">
                                         <button class="btn btn-primary btn-sm">Agregar al carrito</button>
                                     </a>
                                 </div>
@@ -518,10 +518,10 @@
                                     </div>
                                    </div>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <a href="detalleaccesorio.html">
+                                <a href="<?php echo BASE_URL ?>detalleaccesorio">
                                         <button class="btn btn-primary btn-sm">Ver Detalles</button>
                                     </a>
-                                    <a href="carrito.html">
+                                    <a href="<?php echo BASE_URL ?>carrito">
                                         <button class="btn btn-primary btn-sm">Agregar al carrito</button>
                                     </a>
                                 </div>
@@ -545,10 +545,10 @@
                                     <div class="color-box" style="background-color: rgb(0, 0, 0);"></div>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <a href="detalleaccesorio.html">
+                                <a href="<?php echo BASE_URL ?>detalleaccesorio">
                                         <button class="btn btn-primary btn-sm">Ver Detalles</button>
                                     </a>
-                                    <a href="carrito.html">
+                                    <a href="<?php echo BASE_URL ?>carrito">
                                         <button class="btn btn-primary btn-sm">Agregar al carrito</button>
                                     </a>
                                 </div>

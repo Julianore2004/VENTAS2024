@@ -90,19 +90,19 @@
 
         <div class="d-flex">
           <div class="m-3">
-            <a href="comentarios.html" style=" color: rgb(24, 175, 245); font-size: 20px;">
+          <a href="<?php echo BASE_URL ?>comentarios" style=" color: rgb(24, 175, 245); font-size: 20px;">
               <button class="btn btn-primary">Comentar</button>
             </a>
           </div>
         </div>
         <div class="d-flex">
           <div class="" style="margin-right: 10px;">
-            <a href="carrito.html">
+          <a href="<?php echo BASE_URL ?>carrito">
               <button class="btn btn-primary mr-2">Agregar al carrito</button>
             </a>
           </div>
           <div>
-            <a href="carrito.html">
+          <a href="<?php echo BASE_URL ?>carrito">
               <button class="btn btn-success">Comprar ahora</button></a>
           </div>
         </div>

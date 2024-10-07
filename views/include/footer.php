@@ -27,7 +27,8 @@
         <!-- Help section -->
         <div class="col-lg-4 col-md-12 mb-4 mb-md-0 text-center">
           <h5 class="text-uppercase">Ayuda</h5>
-          <a href="centroayuda.html" style=" cursor: pointer;
+          
+          <a href="<?php echo BASE_URL ?>centroayuda" style=" cursor: pointer;
       color: rgb(0, 174, 255);">Centro de Ayuda</a>
         </div>
       </div>
