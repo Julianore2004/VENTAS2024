@@ -45,8 +45,8 @@
   </style>
   <div class="container mt-1">
     <div class="menun col-12 mb-1 ">
-      <button class="btn btn-info"> <a href="PPsesioninicida.html">Inicio/</a></button>
-      <button class="btn btn-info"> <a href="celularesxiaomi.html">Catalogo/</a></button>
+      <button class="btn btn-info">  <a class="dropdown-item" href="<?php echo BASE_URL ?>index">Inicio/</a></button>
+      <button class="btn btn-info">  <a class="dropdown-item" href="<?php echo BASE_URL ?>celularessamsung">Catalogo/</a></button>
 
       <button class="btn btn-info"> <a href="#">Detalles</a></button>
 

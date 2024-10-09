@@ -1,6 +1,6 @@
 <div class="container">
         <div class="menun col-12 mt-1 " > 
-            <button class="btn btn-info" > <a href="PPsesioninicida.html">Inicio/</a></button>
+            <button class="btn btn-info" > <a class="dropdown-item" href="<?php echo BASE_URL ?>index">Inicio/</a></button>
             <button class="btn btn-info"> <a href="accesorios.html">Catalogo</a></button>
         </div>
         <div class="row ">
@@ -15,11 +15,11 @@
                         </svg> FILTROS
                     </h5>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="filter1">
+                        <input class="form-check-input" type="checkbox" id="filter1" checked>
                         <label class="form-check-label" for="filter1">Funda</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="filter2">
+                        <input class="form-check-input" type="checkbox" id="filter2" checked>
                         <label class="form-check-label" for="filter2">Protector de pantalla</label>
                     </div>
                     <div class="form-check">
@@ -27,19 +27,19 @@
                         <label class="form-check-label" for="filter3">Auriculares</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="filter4">
+                        <input class="form-check-input" type="checkbox" id="filter4" checked>
                         <label class="form-check-label" for="filter4">Cargador</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="filter5">
+                        <input class="form-check-input" type="checkbox" id="filter5" checked>
                         <label class="form-check-label" for="filter5">Soportes</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="filter6">
+                        <input class="form-check-input" type="checkbox" id="filter6" checked>
                         <label class="form-check-label" for="filter6">Tarjetas de memoria</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="filter7">
+                        <input class="form-check-input" type="checkbox" id="filter7" checked>
                         <label class="form-check-label" for="filter7">Adaptadores y cables</label>
                     </div>
                 </div>

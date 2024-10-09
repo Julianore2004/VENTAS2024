@@ -75,7 +75,11 @@
      color: white;
      background: red;
    }
-
+.cardcarrito{
+  width: 735px;
+  height: 230px;
+  background: #B3E5FC;
+}
    /* ofertas */
 
 
@@ -264,46 +268,103 @@
    }
 
    /* COMENTARIOS */
-   .star-rating {
-     direction: rtl;
-     display: inline-block;
-     padding: 20px;
+    .star-rating {
+       direction: rtl;
+       display: inline-block;
+       padding: 20px;
    }
-
    .star-rating input[type="radio"] {
-     display: none;
+       display: none;
    }
-
    .star-rating label {
-     color: #bbb;
-     font-size: 25px;
-     padding: 0;
-     cursor: pointer;
-     transition: all .3s ease-in-out;
+       color: #bbb;
+       font-size: 25px;
+       padding: 0;
+       cursor: pointer;
+       transition: all .3s ease-in-out;
    }
-
-   .star-rating input[type="radio"]:checked~label,
+   .star-rating input[type="radio"]:checked ~ label,
    .star-rating label:hover,
-   .star-rating label:hover~label {
-     color: #f2b600;
+   .star-rating label:hover ~ label {
+       color: #f2b600;
    }
-
    .comment-item {
-     margin-bottom: 15px;
+       margin-bottom: 15px;
    }
-
    .comment-item .rating {
-     color: #f2b600;
+       color: #f2b600;
    }
-
    .comment-section {
-     display: flex;
-     flex-direction: column;
-     align-items: center;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
    }
-
    .comment-list {
-     width: 75%;
+       width: 75%;
+   }
+   .container-custom {
+       margin-top: 40px;
+      
+      
+       display: flex;
+       justify-content: center;
+   }
+   .row-custom {
+       display: flex;
+       flex-wrap: wrap;
+       
+   }
+   .col-custom {
+       flex: 0 0 100%;
+       max-width: 100%;
+   }
+   .text-center-custom {
+       text-align: center;
+   }
+   .mb-4-custom {
+       margin-bottom: 24px;
+       
+     
+   }
+   .card-custom {
+       border: 1px solid #ddd;
+       border-radius: 5px;
+       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+       margin-bottom: 24px;
+       background: white;
+     
+   }
+   .card-body-custom {
+       padding: 16px;
+   }
+   .card-title-custom {
+       font-size: 1.25rem;
+       margin-bottom: 16px;
+   }
+   .form-group-custom {
+       margin-bottom: 16px;
+   }
+   .form-control-custom {
+       width: 100%;
+       padding: 8px;
+       border: 1px solid #ccc;
+       border-radius: 4px;
+   }
+   .btn-custom {
+       background-color: #007bff;
+       color: white;
+       border: none;
+       padding: 10px 20px;
+       border-radius: 4px;
+       cursor: pointer;
+       transition: background-color 0.3s ease;
+   }
+   .btn-custom:hover {
+       background-color: #0056b3;
+   }
+   .d-flex-custom {
+       display: flex;
+       justify-content: space-between;
    }
 
    /* DETALLE ACCSESORIO */
@@ -389,4 +450,7 @@
   }
 
 
-   /* index */
+   /* SSS */
+
+
+  

@@ -7,9 +7,10 @@
         Seguir comprando
       </a>
       <ul class="dropdown-menu" style="text-align: center;" >
-        <li><a class="dropdown-item" href="accesorios.html">Accesorios</a></li>
+    
+        <li><a class="dropdown-item" href="<?php echo BASE_URL ?>accesorios">Accesorios</a></li>
         <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="celularesxiaomi.html">Celulares</a></li>
+        <li><a class="dropdown-item" href="<?php echo BASE_URL ?>celularessamsung">Celulares</a></li>
        
        
       </ul>
@@ -19,7 +20,8 @@
       <div class="col-12 col-lg-8">
         <h2>Carrito</h2>
         <!-- Producto 1 -->
-        <div class="card mb-3" style="display: flex;">
+         
+        <div class="cardcarrito mb-3" style="display: flex; background: #B3E5FC;">
           <div class="row no-gutters">
             <div class="col-md-4">
               <img src="https://home.ripley.com.pe/Attachment/WOP_5/2065329981971/2065329981971_2.jpg" class="card-img"
@@ -61,7 +63,7 @@
         </div>
 
         <!-- Producto 2 -->
-        <div class="card mb-3">
+        <div class="cardcarrito mb-3" style="display: flex; background: #B3E5FC;">
           <div class="row no-gutters">
             <div class="col-md-4">
               <img src="https://media-prod-use-1.mirakl.net/SOURCE/9b4140d2a8b246b3bc8d3a65a69bd959" class="card-img"
@@ -108,7 +110,7 @@
         </div>
 
         <!-- Producto 3 -->
-        <div class="card mb-3">
+        <div class="cardcarrito mb-3" style="display: flex; background: #B3E5FC;">
           <div class="row no-gutters">
             <div class="col-md-4">
               <img src="https://plazavea.vteximg.com.br/arquivos/ids/26379855-1000-1000/null.jpg" class="card-img" alt="Producto 3" height="100%" width="100%">
@@ -172,7 +174,7 @@
         <div class="card mb-3">
           <div class="card-body">
             <h5 class="card-title">Los mejores celulares</h5>
-            <a href="novedades.html">
+            <a href="<?php echo BASE_URL ?>novedades">
               <img src="https://tecstore.pe/media/magefan_blog/1_76_1_.jpg" class="img-fluid" alt="Celulares Xiaomi">
 
             </a>
@@ -181,7 +183,7 @@
         <div class="card mb-3">
           <div class="card-body">
             <h5 class="card-title">Accesorios de celulares </h5>
-            <a href="accesorios.html">
+            <a href="<?php echo BASE_URL ?>accesorios">
               <img
                 src="https://www.ekipos.com/inventarios-img/339.jpg"
                 class="img-fluid" alt="Celulares Samsung">
