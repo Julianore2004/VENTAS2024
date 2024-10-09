@@ -6,5 +6,4 @@ const BD_PASSWORD = '';
 
 const BASE_URL = 'https://julian.importecsolutions.com/';
 
-
 ?>
