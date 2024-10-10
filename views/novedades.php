@@ -7,7 +7,7 @@
           <div class="row">
             <div class="col-md-3 col-6 mb-4">
               <div class="card h-100 ">
-                <a href="detallesproducto.html" style="cursor: pointer;">
+              <a href="<?php echo BASE_URL ?>detalleproducto" style="cursor: pointer;">
                 <img src="https://rimage.ripley.com.pe/home.ripley/Attachment/MKP/2832/PMP20000153816/full_image-1.jpeg" class="card-img-top" alt="Producto 1">
                 </a>
                 <div class="card-body " style="text-align: start;">
@@ -20,7 +20,7 @@
             </div>
             <div class="col-md-3 col-6 mb-4">
               <div class="card h-100 ">
-                <a href="detallesproducto.html " style="cursor: pointer;">
+                <a href="<?php echo BASE_URL ?>detalleproducto" style="cursor: pointer;">
                 <img src="https://home.ripley.com.pe/Attachment/WOP_5/2065323800117/2065323800117_2.jpg" class="card-img-top" alt="Producto 2">
               </a>
                 <div class="card-body " style="text-align: start;">
@@ -32,7 +32,7 @@
             </div>
             <div class="col-md-3 col-6 mb-4">
               <div class="card h-100">
-                <a href="detallesproducto.html " style="cursor: pointer;">
+                <a href="<?php echo BASE_URL ?>detalleproducto" style="cursor: pointer;">
                 <img src="https://http2.mlstatic.com/D_NQ_NP_746948-MLA74551247139_022024-O.webp" class="card-img-top" alt="Producto 3">
              </a>
                 <div class="card-body " style="text-align: start;">
@@ -45,7 +45,7 @@
             </div>
             <div class="col-md-3 col-6 mb-4">
               <div class="card h-100">
-                <a href="detallesproducto.html " style="cursor: pointer;">
+                <a href="<?php echo BASE_URL ?>detalleproducto" style="cursor: pointer;">
                 <img src="https://rimage.ripley.com.pe/home.ripley/Attachment/MKP/3325/PMP20000026932/full_image-1.jpeg" class="card-img-top" alt="Producto 4">
               </a>
                 <div class="card-body " style="text-align: start;">
@@ -63,7 +63,7 @@
             <div class="col-md-3 col-6 mb-4">
               <div class="card h-100">
 
-                <a href="detallesproducto.html " style="cursor: pointer;">
+                <a href="<?php echo BASE_URL ?>detalleproducto" style="cursor: pointer;">
                 <img src="https://http2.mlstatic.com/D_NQ_NP_672680-MPE77469356069_072024-O.webp" class="card-img-top" alt="Producto 5">
            </a>
                 <div class="card-body " style="text-align: start;">
@@ -76,7 +76,7 @@
             </div>
             <div class="col-md-3 col-6 mb-4">
               <div class="card h-100">
-                <a href="detallesproducto.html " style="cursor: pointer;">
+                <a href="<?php echo BASE_URL ?>detalleproducto" style="cursor: pointer;">
                 <img src="https://http2.mlstatic.com/D_NQ_NP_770666-MPE53343063549_012023-O.webp" class="card-img-top" alt="Producto 6">
              </a>
                 <div class="card-body " style="text-align: start;">
@@ -89,7 +89,7 @@
             </div>
             <div class="col-md-3 col-6 mb-4">
               <div class="card h-100">
-                <a href="detallesproducto.html " style="cursor: pointer;">
+                <a href="<?php echo BASE_URL ?>detalleproducto" style="cursor: pointer;">
                 <img src="https://http2.mlstatic.com/D_NQ_NP_811546-MPE71231099895_082023-O.webp" class="card-img-top" alt="Producto 7">
                 </a>
                 <div class="card-body " style="text-align: start;">
@@ -102,7 +102,7 @@
             </div>
             <div class="col-md-3 col-6 mb-4">
               <div class="card h-100">
-                <a href="detallesproducto.html " style="cursor: pointer;"></a>
+                <a href="<?php echo BASE_URL ?>detalleproducto" style="cursor: pointer;"></a>
                 <img src="https://home.ripley.com.pe/Attachment/WOP_5/2065331768867/2065331768867_2.jpg" class="card-img-top" alt="Producto 8">
                </a>
                 <div class="card-body " style="text-align: start;">
@@ -136,7 +136,7 @@
           <div class="row">
             <div class="col-md-3 col-6 mb-4">
               <div class="card h-100">
-                <a href="detalleaccesorio.html" style="cursor: pointer;">
+                <a href="<?php echo BASE_URL ?>detalleaccesorio" style="cursor: pointer;">
                 <img src="https://rimage.ripley.com.pe/home.ripley/Attachment/MKP/4048/PMP20000227102/full_image-1.jpeg" class="card-img-top" alt="Producto 1">
               </a>
                 <div class="card-body " style="text-align: start;">
@@ -149,7 +149,7 @@
             </div>
             <div class="col-md-3 col-6 mb-4">
               <div class="card h-100">
-                <a href="detalleaccesorio.html" style="cursor: pointer;">
+                <a href="<?php echo BASE_URL ?>detalleaccesorio" style="cursor: pointer;">
                 <img src="https://rimage.ripley.com.pe/home.ripley/Attachment/MKP/1498/PMP00001951431/full_image-1.jpeg" class="card-img-top" alt="Producto 2">
                 </a>
                 <div class="card-body " style="text-align: start;">
@@ -162,7 +162,7 @@
             </div>
             <div class="col-md-3 col-6 mb-4">
               <div class="card h-100">
-                <a href="detalleaccesorio.html" style="cursor: pointer;">
+                <a href="<?php echo BASE_URL ?>detalleaccesorio" style="cursor: pointer;">
                 <img src="https://rimage.ripley.com.pe/home.ripley/Attachment/MKP/2861/PMP00002056574/full_image-1.jpeg" class="card-img-top" alt="Producto 3">
                </a>
                 <div class="card-body " style="text-align: start;">
@@ -175,7 +175,7 @@
             </div>
             <div class="col-md-3 col-6 mb-4">
               <div class="card h-100">
-                <a href="detalleaccesorio.html" style="cursor: pointer;">
+                <a href="<?php echo BASE_URL ?>detalleaccesorio" style="cursor: pointer;">
                 <img src="https://rimage.ripley.com.pe/home.ripley/Attachment/MKP/3846/PMP20000316756/imagen2-1.jpeg" class="card-img-top" alt="Producto 4">
                 </a>
                 <div class="card-body " style="text-align: start;">
@@ -192,7 +192,7 @@
           <div class="row">
             <div class="col-md-3 col-6 mb-4">
               <div class="card h-100">
-                <a href="detalleaccesorio.html" style="cursor: pointer;">
+                <a href="<?php echo BASE_URL ?>detalleaccesorio" style="cursor: pointer;">
                 <img src="https://rimage.ripley.com.pe/home.ripley/Attachment/MKP/4016/PMP20000080825/full_image-1.jpeg" class="card-img-top" alt="Producto 5">
                 </a>
                 <div class="card-body " style="text-align: start;">
@@ -205,7 +205,7 @@
             </div>
             <div class="col-md-3 col-6 mb-4">
               <div class="card h-100">
-                <a href="detalleaccesorio.html" style="cursor: pointer;">
+                <a href="<?php echo BASE_URL ?>detalleaccesorio" style="cursor: pointer;">
                 <img src="https://rimage.ripley.com.pe/home.ripley/Attachment/MKP/2213/PMP00002857102/full_image-1.jpeg" class="card-img-top" alt="Producto 6">
               </a>
                 <div class="card-body " style="text-align: start;">
@@ -218,7 +218,7 @@
             </div>
             <div class="col-md-3 col-6 mb-4">
               <div class="card h-100">
-                <a href="detalleaccesorio.html" style="cursor: pointer;">
+                <a href="<?php echo BASE_URL ?>detalleaccesorio" style="cursor: pointer;">
                 <img src="https://rimage.ripley.com.pe/home.ripley/Attachment/MKP/3846/PMP20000106896/imagen2-1.jpeg" class="card-img-top" alt="Producto 7">
                </a>
                 <div class="card-body " style="text-align: start;">
@@ -231,7 +231,7 @@
             </div>
             <div class="col-md-3 col-6 mb-4">
               <div class="card h-100">
-                <a href="detalleaccesorio.html" style="cursor: pointer;">
+                <a href="<?php echo BASE_URL ?>detalleaccesorio" style="cursor: pointer;">
                 <img src="https://rimage.ripley.com.pe/home.ripley/Attachment/MKP/4520/PMP20000220667/full_image-1.jpeg" class="card-img-top" alt="Producto 8">
               </a>
                 <div class="card-body " style="text-align: start;">

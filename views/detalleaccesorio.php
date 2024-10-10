@@ -72,7 +72,8 @@
           <div class="row">
             <div class="col-md-3 col-6 mb-4">
               <div class="card h-100">
-                <a href="detalleaccesorio.html" style="cursor: pointer;">
+               
+              <a href="<?php echo BASE_URL ?>detalleaccesorio" style="cursor: pointer;">
                   <img
                     src="https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/falabellaPE/127001295_01/w=800,h=800,fit=pad"
                     class="card-img-top" alt="Producto 1">
@@ -87,7 +88,7 @@
             </div>
             <div class="col-md-3 col-6 mb-4">
               <div class="card h-100">
-                <a href="detalleaccesorio.html" style="cursor: pointer;">
+              <a href="<?php echo BASE_URL ?>detalleaccesorio" style="cursor: pointer;">
                   <img
                     src="https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/falabellaPE/132241209_01/w=800,h=800,fit=pad"
                     class="card-img-top" alt="Producto 2">
@@ -102,7 +103,7 @@
             </div>
             <div class="col-md-3 col-6 mb-4">
               <div class="card h-100">
-                <a href="detalleaccesorio.html" style="cursor: pointer;">
+              <a href="<?php echo BASE_URL ?>detalleaccesorio" style="cursor: pointer;">
                   <img
                     src="https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/falabellaPE/120861298_02/w=800,h=800,fit=pad"
                     class="card-img-top" alt="Producto 3">
@@ -117,7 +118,7 @@
             </div>
             <div class="col-md-3 col-6 mb-4">
               <div class="card h-100">
-                <a href="detalleaccesorio.html" style="cursor: pointer;">
+              <a href="<?php echo BASE_URL ?>detalleaccesorio" style="cursor: pointer;">
                   <img
                     src="https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/falabellaPE/117015992_01/w=800,h=800,fit=pad"
                     class="card-img-top" alt="Producto 4">
@@ -136,7 +137,7 @@
           <div class="row">
             <div class="col-md-3 col-6 mb-4">
               <div class="card h-100">
-                <a href="detalleaccesorio.html" style="cursor: pointer;">
+              <a href="<?php echo BASE_URL ?>detalleaccesorio" style="cursor: pointer;">
 
                   <img src="https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/falabellaPE/18179736_1/w=800,h=800,fit=pad"
                     class="card-img-top" alt="Producto 5">
@@ -151,7 +152,7 @@
             </div>
             <div class="col-md-3 col-6 mb-4">
               <div class="card h-100">
-                <a href="detalleaccesorio.html" style="cursor: pointer;">
+              <a href="<?php echo BASE_URL ?>detalleaccesorio" style="cursor: pointer;">
                   <img src="https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/falabellaPE/17592855_1/w=800,h=800,fit=pad"
                     class="card-img-top" alt="Producto 6">
                 </a>
@@ -165,7 +166,7 @@
             </div>
             <div class="col-md-3 col-6 mb-4">
               <div class="card h-100">
-                <a href="detalleaccesorio.html" style="cursor: pointer;">
+              <a href="<?php echo BASE_URL ?>detalleaccesorio" style="cursor: pointer;">
                   <img
                     src="https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/falabellaPE/114369081_01/w=800,h=800,fit=pad"
                     class="card-img-top" alt="Producto 7">
@@ -180,7 +181,7 @@
             </div>
             <div class="col-md-3 col-6 mb-4">
               <div class="card h-100">
-                <a href="detalleaccesorio.html" style="cursor: pointer;">
+              <a href="<?php echo BASE_URL ?>detalleaccesorio" style="cursor: pointer;">
                   <img
                     src="https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/falabellaPE/118000645_01/w=800,h=800,fit=pad"
                     class="card-img-top" alt="Producto 8">

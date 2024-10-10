@@ -121,7 +121,7 @@
             <div class="row ">
               <div class="col-md-3 col-6 mb-4">
                 <div class="card h-100 " style="background-color: white;">
-                  <a href="detallesproducto.html " style="cursor: pointer;">
+                <a href="<?php echo BASE_URL ?>detalleproducto" style="cursor: pointer;">
                   <img src="https://www.falabella.com.pe/cdn-cgi/imagedelivery/4fYuQyy-r8_rpBpcY7lH_A/falabellaPE/20178935_02/width=170,height=170,quality=70,format=webp,fit=pad"
                     class="card-img-top" alt="Producto 1">
                   </a>
@@ -135,7 +135,7 @@
               </div>
               <div class="col-md-3 col-6 mb-4">
                 <div class="card h-100" style="background-color: white;">
-                  <a href="detallesproducto.html " style="cursor: pointer;">
+                  <a href="<?php echo BASE_URL ?>detalleproducto"  style="cursor: pointer;">
                   <img
                     src="https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/falabellaPE/20185279_01/w=800,h=800,fit=pad"
                     class="card-img-top" alt="Producto 2">
@@ -150,7 +150,7 @@
               </div>
               <div class="col-md-3 col-6 mb-4">
                 <div class="card h-100" style="background-color: white;">
-                  <a href="detallesproducto.html " style="cursor: pointer;">
+                  <a href="<?php echo BASE_URL ?>detalleproducto"  style="cursor: pointer;">
                   <img src="https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/falabellaPE/20181323_1/w=800,h=800,fit=pad"
                     class="card-img-top" alt="Producto 3">
                   </a>
@@ -164,7 +164,7 @@
               </div>
               <div class="col-md-3 col-6 mb-4">
                 <div class="card h-100" style="background-color: white;">
-                  <a href="detallesproducto.html " style="cursor: pointer;">
+                  <a href="<?php echo BASE_URL ?>detalleproducto"  style="cursor: pointer;">
                   <img src="https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/falabellaPE/19316356_1/w=800,h=800,fit=pad"
                     class="card-img-top" alt="Producto 4">
                   </a>
@@ -182,7 +182,7 @@
             <div class="row ">
               <div class="col-md-3 col-6 mb-4">
                 <div class="card h-100" style="background-color: white;">
-                  <a href="detallesproducto.html " style="cursor: pointer;">
+                  <a href="<?php echo BASE_URL ?>detalleproducto"  style="cursor: pointer;">
                   <img src="https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/falabellaPE/20154189_1/w=800,h=800,fit=pad"
                     class="card-img-top" alt="Producto 5">
                   </a>
@@ -196,7 +196,7 @@
               </div>
               <div class="col-md-3 col-6 mb-4">
                 <div class="card h-100" style="background-color: white;">
-                  <a href="detallesproducto.html " style="cursor: pointer;">
+                  <a href="<?php echo BASE_URL ?>detalleproducto"  style="cursor: pointer;">
                   <img src="https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/tottusPE/43260237_2/w=800,h=800,fit=pad"
                     class="card-img-top" alt="Producto 6">
                   </a>
@@ -210,7 +210,7 @@
               </div>
               <div class="col-md-3 col-6 mb-4">
                 <div class="card h-100" style="background-color: white;">
-                  <a href="detallesproducto.html " style="cursor: pointer;">
+                  <a href="<?php echo BASE_URL ?>detalleproducto"  style="cursor: pointer;">
                   <img
                     src="https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/falabellaPE/128025704_01/w=800,h=800,fit=pad"
                     class="card-img-top" alt="Producto 7">
@@ -225,7 +225,7 @@
               </div>
               <div class="col-md-3 col-6 mb-4">
                 <div class="card h-100" style="background-color: white;">
-                  <a href="detallesproducto.html " style="cursor: pointer;">
+                  <a href="<?php echo BASE_URL ?>detalleproducto" style="cursor: pointer;">
                   <img
                     src="https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/falabellaPE/128397919_01/w=800,h=800,fit=pad"
                     class="card-img-top" alt="Producto 8">

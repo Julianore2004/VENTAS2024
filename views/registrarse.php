@@ -21,7 +21,7 @@
           <input type="password" class="form-control" id="confirm-password" placeholder="Confirmar Contraseña">
         </div>
         <div class="text-center mb-2">
-          <a href="PPsesioninicida.html" class="btn-custom" style="color: #e3f2fd; text-decoration: none; margin-top: 10px;">Registrarse</a>
+          <a href="<?php echo BASE_URL ?>index" class="btn-custom" style="color: #e3f2fd; text-decoration: none; margin-top: 10px;">Registrarse</a>
         </div>
       </form>
       <div class="text-center mb-2">
