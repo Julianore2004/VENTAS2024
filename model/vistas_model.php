@@ -24,7 +24,8 @@ class vistaModelo
             'comentarios',
             'detalleaccesorio',
             'centroayuda',
-            'registrarse'
+            'registrarse',
+            'indexadmin'
         ];
         if (in_array($vista, $palabras_permitidas)) {
             if (is_file("./views/" . $vista . ".php")) {
