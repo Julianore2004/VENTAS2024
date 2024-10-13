@@ -1,34 +1,33 @@
 <?php
-require_once '../../controller/categoria_control.php';
+require_once('../../../config/config.php');
+require_once('../../../controller/categoria_control.php'); // Desde listar.php a categoria_control.php
 
 $categoriaControl = new CategoriaControl();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nombre = $_POST['nombre'];
     $detalle = $_POST['detalle'];
-    $resultado = $categoriaControl->insertarCategoria($nombre, $detalle);
-    echo $resultado['message'];
-    // Redirigir a la lista de categorías o mostrar un mensaje
-}
+    
+    // Crear un array con los datos
+    $data = [
+        'nombre' => $nombre,
+        'detalle' => $detalle
+    ];
 
+    // Pasar el array a la función
+    $categoriaControl->insertarCategoria($data);
+    header('Location: listar.php');
+    exit();
+}
 ?>
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Insertar Categoría</title>
-</head>
-<body>
-    <h1>Insertar Nueva Categoría</h1>
-    <form method="POST">
-        <label>Nombre:</label>
-        <input type="text" name="nombre" required>
-        <br>
-        <label>Detalle:</label>
-        <input type="text" name="detalle" required>
-        <br>
-        <input type="submit" value="Insertar">
-    </form>
-</body>
-</html>
+<h2>Actualizar la Categoría</h2>
+<form method="post">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required>
+    
+    <label for="detalle">Detalle:</label>
+    <input type="text" id="detalle" name="detalle" required>
+    
+    <button type="submit">Agregar</button>
+</form>

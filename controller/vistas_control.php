@@ -10,15 +10,22 @@ class vistasControlador extends vistaModelo
         return require_once "./views/plantilla.php";
     }
     public function obtenerVistaControlador()
-    {
-        if (isset($_GET['views'])) {
-            $ruta = explode("/", $_GET['views']);
-            $respuesta = vistaModelo::obtener_vista($ruta[0]);
-        } else {
-            $respuesta = "login";
-        }
-        return $respuesta;
+{
+    if (isset($_GET['views'])) {
+        $ruta = explode("/", $_GET['views']);
+        $respuesta = vistaModelo::obtener_vista($ruta[0]);
+    } else {
+        $respuesta = "login";
     }
+    
+    // Verificar si la ruta es para la vista administrativa
+    if ($ruta[0] == "indexadmin") {
+        $respuesta = "indexadmin";
+    }
+
+    return $respuesta;
+}
+
 }
 
 ?>

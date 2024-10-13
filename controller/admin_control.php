@@ -1,5 +1,5 @@
 <?php
-require_once '../model/admin_model.php'; // Ajusta la ruta según sea necesario
+require_once './model/admin_model.php';
 
 class AdminControl {
     private $adminModel;
@@ -8,9 +8,16 @@ class AdminControl {
         $this->adminModel = new AdminModel();
     }
 
-    public function listarPersonas() {
-        return $this->adminModel->listarPersonas();
+    public function listarAdmins() {
+        return $this->adminModel->listar();
+    }
+
+    public function insertarAdmin($data) {
+        return $this->adminModel->insertar($data);
+    }
+
+    public function actualizarAdmin($id, $data) {
+        return $this->adminModel->actualizar($id, $data);
     }
 }
 ?>
-

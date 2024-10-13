@@ -1,40 +1,30 @@
 <?php
-require_once '../config/config.php'; // Ajusta la ruta según sea necesario
 
+require_once(__DIR__ . '../../config/config.php');
 class ComprasModel {
     private $conexion;
 
     public function __construct() {
-        global $conexion; // Utiliza la conexión global definida en config.php
-        $this->conexion = $conexion;
+        $this->conexion = $GLOBALS['conexion'];
     }
 
-    // Método para listar compras
-    public function listarCompras() {
-        $sql = "SELECT * FROM compras";
-        $resultado = $this->conexion->query($sql);
-
-        $compras = [];
-        while ($fila = $resultado->fetch_assoc()) {
-            $compras[] = $fila;
-        }
-
-        return $compras;
+    public function listar() {
+        $query = "SELECT * FROM compras";
+        $result = $this->conexion->query($query);
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    // Método para insertar una compra
-    public function insertarCompra($id_producto, $cantidad, $precio, $id_trabajador) {
-        $sql = "INSERT INTO compras (id_producto, cantidad, precio, id_trabajador) VALUES (?, ?, ?, ?)";
-        $stmt = $this->conexion->prepare($sql);
-        $stmt->bind_param("iidi", $id_producto, $cantidad, $precio, $id_trabajador);
+    public function insertar($data) {
+        $query = "INSERT INTO compras (id_producto, cantidad, precio, id_trabajador) VALUES (?, ?, ?, ?)";
+        $stmt = $this->conexion->prepare($query);
+        $stmt->bind_param("iidi", $data['id_producto'], $data['cantidad'], $data['precio'], $data['id_trabajador']);
         return $stmt->execute();
     }
 
-    // Método para actualizar una compra
-    public function actualizarCompra($id, $id_producto, $cantidad, $precio, $id_trabajador) {
-        $sql = "UPDATE compras SET id_producto = ?, cantidad = ?, precio = ?, id_trabajador = ? WHERE id = ?";
-        $stmt = $this->conexion->prepare($sql);
-        $stmt->bind_param("iidii", $id_producto, $cantidad, $precio, $id_trabajador, $id);
+    public function actualizar($id, $data) {
+        $query = "UPDATE compras SET id_producto = ?, cantidad = ?, precio = ? WHERE id = ?";
+        $stmt = $this->conexion->prepare($query);
+        $stmt->bind_param("iidi", $data['id_producto'], $data['cantidad'], $data['precio'], $id);
         return $stmt->execute();
     }
 }

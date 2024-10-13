@@ -1,5 +1,5 @@
 <?php
-require_once '../model/producto_model.php'; // Ajusta la ruta según sea necesario
+require_once __DIR__ . '/../model/producto_model.php';
 
 class ProductoControl {
     private $productoModel;
@@ -9,15 +9,15 @@ class ProductoControl {
     }
 
     public function listarProductos() {
-        return $this->productoModel->listarProductos();
+        return $this->productoModel->listar();
     }
 
-    public function insertarProducto($codigo, $nombre, $detalle, $precio, $stock, $id_categoria, $img, $id_proveedor) {
-        return $this->productoModel->insertarProducto($codigo, $nombre, $detalle, $precio, $stock, $id_categoria, $img, $id_proveedor);
+    public function insertarProducto($data) {
+        return $this->productoModel->insertar($data);
     }
 
-    public function actualizarProducto($id, $codigo, $nombre, $detalle, $precio, $stock, $id_categoria, $img, $id_proveedor) {
-        return $this->productoModel->actualizarProducto($id, $codigo, $nombre, $detalle, $precio, $stock, $id_categoria, $img, $id_proveedor);
+    public function actualizarProducto($id, $data) {
+        return $this->productoModel->actualizar($id, $data);
     }
 }
 ?>

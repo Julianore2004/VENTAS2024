@@ -1,43 +1,31 @@
 <?php
 
-require_once '../config/config.php'; // Asegúrate de ajustar la ruta según la ubicación del archivo
-
+require_once(__DIR__ . '../../config/config.php');
 class CategoriaModel {
     private $conexion;
 
     public function __construct() {
-        global $conexion; // Utiliza la conexión global definida en config.php
-        $this->conexion = $conexion;
+        $this->conexion = $GLOBALS['conexion'];
     }
 
-    // Método para listar categorías
-    public function listarCategorias() {
-        $sql = "SELECT * FROM categoria";
-        $resultado = $this->conexion->query($sql);
-
-        $categorias = [];
-        while ($fila = $resultado->fetch_assoc()) {
-            $categorias[] = $fila;
-        }
-
-        return $categorias;
+    public function listar() {
+        $query = "SELECT * FROM categoria";
+        $result = $this->conexion->query($query);
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    // Método para insertar una nueva categoría
-    public function insertarCategoria($nombre, $detalle) {
-        $sql = "INSERT INTO categoria (nombre, detalle) VALUES (?, ?)";
-        $stmt = $this->conexion->prepare($sql);
-        $stmt->bind_param("ss", $nombre, $detalle);
+    public function insertar($data) {
+        $query = "INSERT INTO categoria (nombre, detalle) VALUES (?, ?)";
+        $stmt = $this->conexion->prepare($query);
+        $stmt->bind_param("ss", $data['nombre'], $data['detalle']);
         return $stmt->execute();
     }
 
-    // Método para actualizar una categoría
-    public function actualizarCategoria($id, $nombre, $detalle) {
-        $sql = "UPDATE categoria SET nombre = ?, detalle = ? WHERE id = ?";
-        $stmt = $this->conexion->prepare($sql);
-        $stmt->bind_param("ssi", $nombre, $detalle, $id);
+    public function actualizar($id, $data) {
+        $query = "UPDATE categoria SET nombre = ?, detalle = ? WHERE id = ?";
+        $stmt = $this->conexion->prepare($query);
+        $stmt->bind_param("ssi", $data['nombre'], $data['detalle'], $id);
         return $stmt->execute();
     }
 }
 ?>
-

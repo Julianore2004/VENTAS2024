@@ -1,5 +1,5 @@
 <?php
-require_once '../model/venta_model.php'; // Ajusta la ruta según sea necesario
+require_once __DIR__ . '/../model/venta_model.php';
 
 class VentaControl {
     private $ventaModel;
@@ -9,15 +9,15 @@ class VentaControl {
     }
 
     public function listarVentas() {
-        return $this->ventaModel->listarVentas();
+        return $this->ventaModel->listar();
     }
 
-    public function insertarVenta($id_persona, $fecha, $total) {
-        return $this->ventaModel->insertarVenta($id_persona, $fecha, $total);
+    public function insertarVenta($data) {
+        return $this->ventaModel->insertar($data);
     }
 
-    public function actualizarVenta($id, $id_persona, $fecha, $total) {
-        return $this->ventaModel->actualizarVenta($id, $id_persona, $fecha, $total);
+    public function actualizarVenta($id, $data) {
+        return $this->ventaModel->actualizar($id, $data);
     }
 }
 ?>

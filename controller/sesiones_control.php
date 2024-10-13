@@ -1,5 +1,5 @@
 <?php
-require_once '../model/sesiones_model.php'; // Ajusta la ruta según sea necesario
+require_once __DIR__ . '/../model/sesiones_model.php';
 
 class SesionesControl {
     private $sesionesModel;
@@ -9,15 +9,15 @@ class SesionesControl {
     }
 
     public function listarSesiones() {
-        return $this->sesionesModel->listarSesiones();
+        return $this->sesionesModel->listar();
     }
 
-    public function insertarSesion($id_usuario, $fecha_inicio, $fecha_fin) {
-        return $this->sesionesModel->insertarSesion($id_usuario, $fecha_inicio, $fecha_fin);
+    public function insertarSesion($data) {
+        return $this->sesionesModel->insertar($data);
     }
 
-    public function actualizarSesion($id, $id_usuario, $fecha_inicio, $fecha_fin) {
-        return $this->sesionesModel->actualizarSesion($id, $id_usuario, $fecha_inicio, $fecha_fin);
+    public function actualizarSesion($id, $data) {
+        return $this->sesionesModel->actualizar($id, $data);
     }
 }
 ?>

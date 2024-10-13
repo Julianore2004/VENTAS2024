@@ -1,25 +1,31 @@
 <?php
-require_once '../config/config.php'; // Ajusta la ruta según sea necesario
+require_once './config/config.php';
 
 class AdminModel {
     private $conexion;
 
     public function __construct() {
-        global $conexion; // Utiliza la conexión global definida en config.php
-        $this->conexion = $conexion;
+        $this->conexion = $GLOBALS['conexion'];
     }
 
-    // Método para obtener todos los registros de la tabla persona
-    public function listarPersonas() {
-        $sql = "SELECT * FROM persona";
-        $resultado = $this->conexion->query($sql);
+    public function listar() {
+        $query = "SELECT * FROM admin";
+        $result = $this->conexion->query($query);
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 
-        $personas = [];
-        while ($fila = $resultado->fetch_assoc()) {
-            $personas[] = $fila;
-        }
+    public function insertar($data) {
+        $query = "INSERT INTO admin (nombre, email) VALUES (?, ?)";
+        $stmt = $this->conexion->prepare($query);
+        $stmt->bind_param("ss", $data['nombre'], $data['email']);
+        return $stmt->execute();
+    }
 
-        return $personas;
+    public function actualizar($id, $data) {
+        $query = "UPDATE admin SET nombre = ?, email = ? WHERE id = ?";
+        $stmt = $this->conexion->prepare($query);
+        $stmt->bind_param("ssi", $data['nombre'], $data['email'], $id);
+        return $stmt->execute();
     }
 }
 ?>

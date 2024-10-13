@@ -1,5 +1,5 @@
 <?php
-require_once '../model/pagos_model.php'; // Ajusta la ruta según sea necesario
+require_once __DIR__ . '/../model/pagos_model.php';
 
 class PagosControl {
     private $pagosModel;
@@ -9,16 +9,15 @@ class PagosControl {
     }
 
     public function listarPagos() {
-        return $this->pagosModel->listarPagos();
+        return $this->pagosModel->listar();
     }
 
-    public function insertarPago($id_venta, $monto, $metodo_pago, $estado) {
-        return $this->pagosModel->insertarPago($id_venta, $monto, $metodo_pago, $estado);
+    public function insertarPago($data) {
+        return $this->pagosModel->insertar($data);
     }
 
-    public function actualizarPago($id, $id_venta, $monto, $metodo_pago, $estado) {
-        return $this->pagosModel->actualizarPago($id, $id_venta, $monto, $metodo_pago, $estado);
+    public function actualizarPago($id, $data) {
+        return $this->pagosModel->actualizar($id, $data);
     }
 }
 ?>
-

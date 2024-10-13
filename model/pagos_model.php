@@ -1,40 +1,29 @@
 <?php
-require_once '../config/config.php'; // Ajusta la ruta según sea necesario
-
+require_once(__DIR__ . '../../config/config.php');
 class PagosModel {
     private $conexion;
 
     public function __construct() {
-        global $conexion; // Utiliza la conexión global definida en config.php
-        $this->conexion = $conexion;
+        $this->conexion = $GLOBALS['conexion'];
     }
 
-    // Método para listar pagos
-    public function listarPagos() {
-        $sql = "SELECT * FROM pagos";
-        $resultado = $this->conexion->query($sql);
-
-        $pagos = [];
-        while ($fila = $resultado->fetch_assoc()) {
-            $pagos[] = $fila;
-        }
-
-        return $pagos;
+    public function listar() {
+        $query = "SELECT * FROM pagos";
+        $result = $this->conexion->query($query);
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    // Método para insertar un pago
-    public function insertarPago($id_venta, $monto, $metodo_pago, $estado) {
-        $sql = "INSERT INTO pagos (id_venta, monto, metodo_pago, estado) VALUES (?, ?, ?, ?)";
-        $stmt = $this->conexion->prepare($sql);
-        $stmt->bind_param("idii", $id_venta, $monto, $metodo_pago, $estado);
+    public function insertar($data) {
+        $query = "INSERT INTO pagos (id_venta, monto, metodo) VALUES (?, ?, ?)";
+        $stmt = $this->conexion->prepare($query);
+        $stmt->bind_param("ids", $data['id_venta'], $data['monto'], $data['metodo']);
         return $stmt->execute();
     }
 
-    // Método para actualizar un pago
-    public function actualizarPago($id, $id_venta, $monto, $metodo_pago, $estado) {
-        $sql = "UPDATE pagos SET id_venta = ?, monto = ?, metodo_pago = ?, estado = ? WHERE id = ?";
-        $stmt = $this->conexion->prepare($sql);
-        $stmt->bind_param("idiii", $id_venta, $monto, $metodo_pago, $estado, $id);
+    public function actualizar($id, $data) {
+        $query = "UPDATE pagos SET id_venta = ?, monto = ?, metodo = ? WHERE id = ?";
+        $stmt = $this->conexion->prepare($query);
+        $stmt->bind_param("idii", $data['id_venta'], $data['monto'], $data['metodo'], $id);
         return $stmt->execute();
     }
 }

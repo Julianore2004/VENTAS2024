@@ -1,42 +1,30 @@
 <?php
-require_once '../config/config.php'; // Ajusta la ruta según sea necesario
-
+require_once(__DIR__ . '../../config/config.php');
 class DetVentaModel {
     private $conexion;
 
     public function __construct() {
-        global $conexion; // Utiliza la conexión global definida en config.php
-        $this->conexion = $conexion;
+        $this->conexion = $GLOBALS['conexion'];
     }
 
-    // Método para listar detalles de venta
-    public function listarDetVentas() {
-        $sql = "SELECT * FROM det_venta";
-        $resultado = $this->conexion->query($sql);
-
-        $det_ventas = [];
-        while ($fila = $resultado->fetch_assoc()) {
-            $det_ventas[] = $fila;
-        }
-
-        return $det_ventas;
+    public function listar() {
+        $query = "SELECT * FROM det_venta";
+        $result = $this->conexion->query($query);
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    // Método para insertar un detalle de venta
-    public function insertarDetVenta($id_venta, $id_producto, $cantidad) {
-        $sql = "INSERT INTO det_venta (id_venta, id_producto, cantidad) VALUES (?, ?, ?)";
-        $stmt = $this->conexion->prepare($sql);
-        $stmt->bind_param("iii", $id_venta, $id_producto, $cantidad);
+    public function insertar($data) {
+        $query = "INSERT INTO det_venta (id_venta, id_producto, cantidad, precio) VALUES (?, ?, ?, ?)";
+        $stmt = $this->conexion->prepare($query);
+        $stmt->bind_param("iidi", $data['id_venta'], $data['id_producto'], $data['cantidad'], $data['precio']);
         return $stmt->execute();
     }
 
-    // Método para actualizar un detalle de venta
-    public function actualizarDetVenta($id, $id_venta, $id_producto, $cantidad) {
-        $sql = "UPDATE det_venta SET id_venta = ?, id_producto = ?, cantidad = ? WHERE id = ?";
-        $stmt = $this->conexion->prepare($sql);
-        $stmt->bind_param("iiii", $id_venta, $id_producto, $cantidad, $id);
+    public function actualizar($id, $data) {
+        $query = "UPDATE det_venta SET id_venta = ?, id_producto = ?, cantidad = ?, precio = ? WHERE id = ?";
+        $stmt = $this->conexion->prepare($query);
+        $stmt->bind_param("iidii", $data['id_venta'], $data['id_producto'], $data['cantidad'], $data['precio'], $id);
         return $stmt->execute();
     }
 }
 ?>
-
