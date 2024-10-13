@@ -1,6 +1,6 @@
 <?php
-require_once '../../config/config.php';
-require_once '../../controller/producto_control.php';
+require_once '../../../config/config.php';
+require_once '../../../controller/producto_control.php';
 
 $productoControl = new ProductoControl();
 $productos = $productoControl->listarProductos();

@@ -27,5 +27,13 @@ class ComprasModel {
         $stmt->bind_param("iidi", $data['id_producto'], $data['cantidad'], $data['precio'], $id);
         return $stmt->execute();
     }
+    public function obtenerCompraPorId($id) {
+        $query = "SELECT * FROM compras WHERE id = ?";
+        $stmt = $this->conexion->prepare($query);
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc(); // Retorna una sola compra como un arreglo asociativo
+    }
 }
 ?>

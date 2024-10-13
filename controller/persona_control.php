@@ -19,5 +19,15 @@ class PersonaControl {
     public function actualizarPersona($id, $data) {
         return $this->personaModel->actualizar($id, $data);
     }
+  
+        public function obtenerPersona($id) {
+            return $this->personaModel->obtenerPersona($id);
+        
 }
+
+    public function listarTrabajadores() {
+        return $this->personaModel->listar();
+    }
+}
+
 ?>

@@ -1,6 +1,6 @@
 <?php
-require_once '../../config/config.php';
-require_once '../../controller/sesiones_control.php';
+require_once '../../../config/config.php';
+require_once '../../../controller/sesiones_control.php';
 
 $sesionesControl = new SesionesControl();
 $sesiones = $sesionesControl->listarSesiones();

@@ -1,6 +1,6 @@
 <?php
-require_once './../config/config.php';
-require_once './../controller/det_venta_control.php';
+require_once '../../../config/config.php';
+require_once '../../../controller/det_venta_control.php';
 
 $detVentaControl = new DetVentaControl();
 $detVentas = $detVentaControl->listarDetVentas();

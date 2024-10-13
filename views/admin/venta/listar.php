@@ -1,6 +1,6 @@
 <?php
-require_once '../../config/config.php';
-require_once '../../controller/venta_control.php';
+require_once '../../../config/config.php';
+require_once '../../../controller/venta_control.php';
 
 $ventaControl = new VentaControl();
 $ventas = $ventaControl->listarVentas();

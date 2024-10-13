@@ -1,10 +1,22 @@
-<?php 
+<?php  
 require_once '../../../config/config.php';
 require_once '../../../controller/compras_control.php';
+require_once '../../../controller/producto_control.php'; // Asegúrate de tener un controlador para productos
+require_once '../../../controller/persona_control.php'; // Asegúrate de tener un controlador para personas
 
 $comprasControl = new ComprasControl();
 $compras = $comprasControl->listarCompras();
+
+$productoControl = new ProductoControl(); // Controlador para obtener productos
+$productos = $productoControl->listarProductos(); // Suponiendo que hay un método para listar productos
+
+$personaControl = new PersonaControl(); // Controlador para obtener trabajadores
+$trabajadores = $personaControl->listarTrabajadores(); // Suponiendo que hay un método para listar trabajadores
+
+$personaControl = new PersonaControl();
+$personas = $personaControl->listarPersonas();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -12,6 +24,7 @@ $compras = $comprasControl->listarCompras();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Compras</title>
+    
     <style>
         /* Estilos Generales */
         body {
@@ -123,11 +136,11 @@ $compras = $comprasControl->listarCompras();
         <thead>
             <tr>
                 <th>ID</th>
-                <th>ID Producto</th>
+                <th>Producto</th>
                 <th>Cantidad</th>
                 <th>Precio</th>
                 <th>Fecha de Compra</th>
-                <th>ID Trabajador</th>
+                <th>Trabajador</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -135,14 +148,22 @@ $compras = $comprasControl->listarCompras();
             <?php foreach ($compras as $compra): ?>
             <tr>
                 <td><?php echo $compra['id']; ?></td>
-                <td><?php echo $compra['id_producto']; ?></td>
+                <td><?php 
+                    // Obtener el nombre del producto
+                    $producto = array_filter($productos, fn($p) => $p['id'] == $compra['id_producto']);
+                    echo $producto ? reset($producto)['nombre'] : 'No disponible'; 
+                ?></td>
                 <td><?php echo $compra['cantidad']; ?></td>
                 <td><?php echo $compra['precio']; ?></td>
                 <td><?php echo $compra['fecha_compra']; ?></td>
-                <td><?php echo $compra['id_trabajador']; ?></td>
+                <td><?php 
+                    // Obtener el nombre del trabajador
+                    $trabajador = array_filter($trabajadores, fn($t) => $t['id'] == $compra['id_trabajador']);
+                    echo $trabajador ? reset($trabajador)['razon_social'] : 'No disponible'; 
+                ?></td>
                 <td>
                     <a href="actualizar.php?id=<?php echo $compra['id']; ?>" class="btn-accion">Actualizar</a>
-                  </td>
+                </td>
             </tr>
             <?php endforeach; ?>
         </tbody>

@@ -1,21 +1,28 @@
-<?php
+<?php  
 require_once '../../../config/config.php';
 require_once '../../../controller/compras_control.php';
+require_once '../../../controller/producto_control.php';
+require_once '../../../controller/persona_control.php';
 
-// Obtener listas de productos y trabajadores para seleccionar
-$productos = $comprasControl->listarProductos(); // Función para obtener productos
-$trabajadores = $comprasControl->listarTrabajadores(); // Función para obtener trabajadores
+$comprasControl = new ComprasControl();
+$productoControl = new ProductoControl();
+$personaControl = new PersonaControl();
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Procesar la inserción
     $data = [
         'id_producto' => $_POST['id_producto'],
         'cantidad' => $_POST['cantidad'],
         'precio' => $_POST['precio'],
-        'id_trabajador' => $_POST['id_trabajador']
+        'id_trabajador' => $_POST['id_trabajador'],
     ];
     $comprasControl->insertarCompra($data);
-    header('Location: indexadmin.php');
+    header('Location: listar.php'); // Redirigir después de la inserción
+    exit();
 }
+
+$productos = $productoControl->listarProductos(); // Obtener todos los productos
+$trabajadores = $personaControl->listarPersonas(); // Obtener todos los trabajadores
 ?>
 
 <!DOCTYPE html>
@@ -23,78 +30,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insertar Compra</title>
+    <title>Agregar Compra</title>
     <style>
-        
-
-        /* Estilos Generales */
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        h2 {
-            color: #333;
-            margin-bottom: 10px;
-        }
-        .btn-retroceder {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            padding: 10px 20px;
-            background-color: #6c757d;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background-color 0.3s;
-        }
-        .btn-retroceder:hover {
-            background-color: #5a6268;
-        }
-        .formulario {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            width: 100%;
-        }
-        .formulario input {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .formulario button {
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .formulario button:hover {
-            background-color: #0056b3;
-        }
+        /* Agrega aquí tus estilos */
     </style>
-   
 </head>
 <body>
-    <a href="indexadmin.php" class="btn-retroceder">Retroceder</a>
+    <a href="listar.php" class="btn-retroceder">Retroceder</a>
     <h2>Agregar Nueva Compra</h2>
-
-    <form method="POST" action="insertar.php">
+    <form method="POST" action="">
         <label for="id_producto">Producto:</label>
         <select name="id_producto" required>
             <?php foreach ($productos as $producto): ?>
-                <option value="<?php echo $producto['id']; ?>"><?php echo $producto['nombre']; ?></option>
+                <option value="<?php echo $producto['id']; ?>">
+                    <?php echo $producto['nombre']; ?>
+                </option>
             <?php endforeach; ?>
         </select>
 
@@ -107,13 +57,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <label for="id_trabajador">Trabajador:</label>
         <select name="id_trabajador" required>
             <?php foreach ($trabajadores as $trabajador): ?>
-                <option value="<?php echo $trabajador['id']; ?>"><?php echo $trabajador['nombre']; ?></option>
+                <option value="<?php echo $trabajador['id']; ?>">
+                    <?php echo $trabajador['razon_social']; ?>
+                </option>
             <?php endforeach; ?>
         </select>
 
-        <button type="submit">Guardar</button>
+        <button type="submit">Agregar</button>
     </form>
 </body>
 </html>
-
-

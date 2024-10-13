@@ -1,22 +1,45 @@
-<?php
+<?php  
 require_once '../../../config/config.php';
 require_once '../../../controller/compras_control.php';
+require_once '../../../controller/producto_control.php';
+require_once '../../../controller/persona_control.php';
 
-$id = $_GET['id'];
-$compra = $comprasControl->obtenerCompra($id); // Función para obtener la compra específica
-$productos = $comprasControl->listarProductos();
-$trabajadores = $comprasControl->listarTrabajadores();
+$comprasControl = new ComprasControl();
+$productoControl = new ProductoControl();
+$personaControl = new PersonaControl();
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+// Verificar si se ha enviado el formulario
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Procesar la actualización
+    $id = $_POST['id']; // Obtener el ID de la compra a actualizar
     $data = [
         'id_producto' => $_POST['id_producto'],
         'cantidad' => $_POST['cantidad'],
         'precio' => $_POST['precio'],
-        'id_trabajador' => $_POST['id_trabajador']
+        'id_trabajador' => $_POST['id_trabajador'],
     ];
-    $comprasControl->actualizarCompra($id, $data);
-    header('Location: indexadmin.php');
+    $comprasControl->actualizarCompra($id, $data); // Llamar al método para actualizar
+    header('Location: listar.php'); // Redirigir después de la actualización
+    exit();
 }
+
+// Obtener el ID de la compra a actualizar
+$compraId = $_GET['id'];
+$compra = $comprasControl->listarCompras($compraId); // Obtener los datos de la compra
+
+// Verificar si la compra existe
+if (!$compra) {
+    echo "Compra no encontrada.";
+    exit(); // Detener la ejecución si no se encuentra la compra
+}
+
+// Depuración: mostrar contenido de la compra
+// Descomentar la siguiente línea para ver qué hay en $compra
+// var_dump($compra); 
+
+// Obtener todos los productos y trabajadores
+$productos = $productoControl->listarProductos();
+$trabajadores = $personaControl->listarPersonas();
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +48,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actualizar Compra</title>
-
     <style>
         /* Estilos Generales */
         body {
@@ -37,63 +59,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             flex-direction: column;
             align-items: center;
         }
-        h2 {
-            color: #333;
-            margin-bottom: 10px;
-        }
-        .btn-retroceder {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            padding: 10px 20px;
-            background-color: #6c757d;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background-color 0.3s;
-        }
-        .btn-retroceder:hover {
-            background-color: #5a6268;
-        }
-        .formulario {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            width: 100%;
-        }
-        .formulario input {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .formulario button {
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .formulario button:hover {
-            background-color: #0056b3;
-        }
+        
+        /* Otros estilos... */
     </style>
 </head>
 <body>
-    <a href="indexadmin.php" class="btn-retroceder">Retroceder</a>
+    <a href="listar.php" class="btn-retroceder">Retroceder</a>
     <h2>Actualizar Compra</h2>
-
-    <form method="POST" action="actualizar.php?id=<?php echo $id; ?>">
+    
+    <form method="POST" action="">
+        <input type="hidden" name="id" value="<?php echo $compra['id']; ?>"> <!-- Campo oculto para el ID -->
+        
         <label for="id_producto">Producto:</label>
         <select name="id_producto" required>
             <?php foreach ($productos as $producto): ?>
-                <option value="<?php echo $producto['id']; ?>" <?php echo ($producto['id'] == $compra['id_producto']) ? 'selected' : ''; ?>>
+                <option value="<?php echo $producto['id']; ?>" <?php echo $producto['id'] == $compra['id_producto'] ? 'selected' : ''; ?>>
                     <?php echo $producto['nombre']; ?>
                 </option>
             <?php endforeach; ?>
@@ -108,13 +88,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <label for="id_trabajador">Trabajador:</label>
         <select name="id_trabajador" required>
             <?php foreach ($trabajadores as $trabajador): ?>
-                <option value="<?php echo $trabajador['id']; ?>" <?php echo ($trabajador['id'] == $compra['id_trabajador']) ? 'selected' : ''; ?>>
-                    <?php echo $trabajador['nombre']; ?>
+                <option value="<?php echo $trabajador['id']; ?>" <?php echo $trabajador['id'] == $compra['id_trabajador'] ? 'selected' : ''; ?>>
+                    <?php echo $trabajador['razon_social']; ?>
                 </option>
             <?php endforeach; ?>
         </select>
 
-        <button type="submit">Guardar Cambios</button>
+        <button type="submit">Actualizar</button>
     </form>
 </body>
 </html>
+

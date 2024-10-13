@@ -1,6 +1,6 @@
 <?php
-require_once '../../config/config.php';
-require_once '../../controller/pagos_control.php';
+require_once '../../../config/config.php';
+require_once '../../../controller/pagos_control.php';
 
 $pagosControl = new PagosControl();
 $pagos = $pagosControl->listarPagos();
