@@ -5,7 +5,7 @@ require_once('../../../controller/categoria_control.php'); // Desde listar.php a
 $categoriaControl = new CategoriaControl();
 $categorias = $categoriaControl->listarCategorias();
 ?>
-
+  
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -88,7 +88,18 @@ $categorias = $categoriaControl->listarCategorias();
 
     <div style="width: 100%; display: flex; justify-content: space-between;">
         <a href="insertar.php" class="btn btn-agregar">Agregar Nueva Categoría</a>
-        <a href="../indexadmin.php" class="btn btn-retroceder">Retroceder</a>
+     
+<!-- Botón para retroceder -->
+<button onclick="goBack()">Volver al Panel</button>
+
+<script>
+    function goBack() {
+        // Redirigir a indexadmin.php
+        window.location.href = '../indexadmin.php';
+    }
+</script>
+
+
     </div>
 
     <table class="tabla-categorias">
