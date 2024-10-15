@@ -1,4 +1,3 @@
-
 <?php
 
 class vistaModelo
@@ -19,11 +18,14 @@ class vistaModelo
             'ofertas',
             'novedades',
             'miperfil',
-            
             'accesorios',
             'celularessamsung',
             'detalleproducto',
-            'comentarios'
+            
+            'comentarios',
+            'detalleaccesorio',
+            'centroayuda',
+            'registrarse'
         ];
         if (in_array($vista, $palabras_permitidas)) {
             if (is_file("./views/" . $vista . ".php")) {
