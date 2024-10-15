@@ -15,7 +15,6 @@ class vistaModelo
             'producto',
             'carrito',
             'index',
-            'indexadmin', // Agregar aquí la vista administrativa
             'ofertas',
             'novedades',
             'miperfil',
@@ -25,22 +24,24 @@ class vistaModelo
             'comentarios',
             'detalleaccesorio',
             'centroayuda',
-            'registrarse',
+            'registrarse'
         ];
-    
         if (in_array($vista, $palabras_permitidas)) {
             if (is_file("./views/" . $vista . ".php")) {
                 $contenido = "./views/" . $vista . ".php";
+
             } else {
                 $contenido = "Error 404, no existe la vista";
             }
+        } elseif ($vista == "login" || $vista == "index") {
+            $contenido = "login";
+        } elseif ($vista == "carrito") {
+            $contenido = "carrito";
         } else {
             $contenido = "Error 404, no existe la vista";
         }
-    
         return $contenido;
     }
-    
 }
 
 ?>
