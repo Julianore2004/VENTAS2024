@@ -1,4 +1,6 @@
+
 <?php
+
 require_once "./config/config.php";
 require_once "./model/vistas_model.php";
 
@@ -11,6 +13,7 @@ class vistasControlador extends vistaModelo
     }
     public function obtenerVistaControlador()
     {
+        if ($_GET['views']) {
         if (isset($_GET['views'])) {
             $ruta = explode("/", $_GET['views']);
             $respuesta = vistaModelo::obtener_vista($ruta[0]);
@@ -20,5 +23,5 @@ class vistasControlador extends vistaModelo
         return $respuesta;
     }
 }
-
+}
 ?>
