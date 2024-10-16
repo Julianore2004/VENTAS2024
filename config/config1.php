@@ -7,7 +7,7 @@ const BD_USER = 'root';
 const BD_PASSWORD = 'guardian.tale3';
 
 
-// URL base de la aplicación
-const BASE_URL = 'http://localhost/Ventas2024/';
+const BASE_URL = 'http://julian.importecsolutions.com/';
+
 
 ?>
