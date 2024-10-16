@@ -3,7 +3,7 @@
 class vistaModelo
 {
 
-    protected static function obtener_vista($vista)
+    protected static function obtener_vistas($vista)
     {
         $palabras_permitidas = [
             'login',
@@ -21,7 +21,7 @@ class vistaModelo
             'accesorios',
             'celularessamsung',
             'detalleproducto',
-            
+
             'comentarios',
             'detalleaccesorio',
             'centroayuda',
@@ -30,16 +30,13 @@ class vistaModelo
         if (in_array($vista, $palabras_permitidas)) {
             if (is_file("./views/" . $vista . ".php")) {
                 $contenido = "./views/" . $vista . ".php";
-
             } else {
-                $contenido = "Error 404, no existe la vista";
+                $contenido = "404";
             }
-        } elseif ($vista == "login" || $vista == "index") {
+        } elseif ($vista == "login" || $vista == "index" || $vista == "registrate") {
             $contenido = "login";
-        } elseif ($vista == "carrito") {
-            $contenido = "carrito";
         } else {
-            $contenido = "Error 404, no existe la vista";
+            $contenido = "404";
         }
         return $contenido;
     }
