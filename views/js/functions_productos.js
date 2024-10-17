@@ -11,7 +11,7 @@ async function registrar_producto() {
 
     if (codigo == "" || nombre == "" || detalle == "" ||
         precio == "" || stock == "" || categoria == "" ||
-        imagen == "" || proveedor == "") {
+        img == "" || proveedor == "") {
         alert("error, campos vacios")
         return;
 
