@@ -26,7 +26,6 @@ async function registrar_producto() {
             cache: 'no-cache',
             body: datos
         });
-        console.log(respuesta);
     } catch (e) {
         console.log("Oops, ocurrio un error" + e)
     }
