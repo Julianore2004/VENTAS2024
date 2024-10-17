@@ -9,9 +9,9 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
- <link rel="stylesheet" href="./footer.php">
+  <link rel="stylesheet" href="./footer.php">
   <link rel="stylesheet" href="../quitarescroll.css">
- 
+
   <style>
     body {
       font-family: sniglet;
@@ -40,13 +40,13 @@
       background: red;
     }
   </style>
-   <script>
- const base_url= <?php echo BASE_URL;?>
+  <script>
+    const base_url = <?php echo BASE_URL; ?>
   </script>
 </head>
 
 <body>
-  
+
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary p-0 text-center">
     <div class="container-fluid" style="background: #0288D1;">
@@ -81,8 +81,8 @@
             </a>
             <a href="<?php echo BASE_URL ?>miperfil">
               <img src="./views/plantilla/img/perfil.png" alt="" style="height: 40px;">
-          </a>
-            <div class="Ofer col-1 mr-0" >
+            </a>
+            <div class="Ofer col-1 mr-0">
               <ul class="navbar-nav me-auto  mb-2 mb-lg-0">
                 <li class="nav-item text-center" style="background: white; border-radius: 10px;">
                   <a class="nav-link active" aria-current="page" href="<?php echo BASE_URL ?>index">Inicio</a>
@@ -95,4 +95,3 @@
     </div>
   </nav>
   <!-- Navbar -->
-   
