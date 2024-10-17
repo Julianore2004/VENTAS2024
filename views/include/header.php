@@ -41,7 +41,7 @@
     }
   </style>
   <script>
-    const base_url = <?php echo BASE_URL; ?>
+    const base_url = '<?php echo BASE_URL; ?>';
   </script>
 </head>
 
