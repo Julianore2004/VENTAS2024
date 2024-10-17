@@ -2,12 +2,33 @@ async function registrar_producto() {
 
     let codigo = document.getElementById('codigo').value;
     let nombre = document.querySelector('#nombre').value;
-    console.log(codigo);
-    console.log(nombre);
     let detalle = document.querySelector('#detalle').value;
     let precio = document.querySelector('#precio').value;
-    let stock = "stock";
-    let categoria = "categoria";
-    let imagen = "imagen";
-    let proveedor = "proveedor";
+    let stock = document.getElementById('#stock').value;
+    let categoria = document.querySelector('#categoria').value;
+    let imagen = document.querySelector('#imagen').value;
+    let proveedor = document.querySelector('#proveedor').value;
+
+    if (codigo == "" || nombre == "" || detalle == "" ||
+        precio == "" || stock == "" || categoria == "" ||
+        imagen == "" || proveedor == "") {
+        alert("error, campos vacios")
+        return;
+
+    }
+    try {
+        // capturamos datos del formulario HTML
+        const datos = new FormData(frmRegistrar);
+        // envia datos hacia el controlador
+        let respuesta = await fetch(base_url + 'controller/Producto.php?tipo=registrar', {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            body: datos
+        });
+        console.log(respuesta);
+    } catch (e) {
+        console.log("Oops, ocurrio un error" + e)
+    }
+
 }
