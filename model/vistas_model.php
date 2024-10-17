@@ -25,7 +25,8 @@ class vistaModelo
             'comentarios',
             'detalleaccesorio',
             'centroayuda',
-            'registrarse'
+            'registrarse',
+            'nuevo-producto'
         ];
         if (in_array($vista, $palabras_permitidas)) {
             if (is_file("./views/" . $vista . ".php")) {
