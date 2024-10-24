@@ -66,43 +66,44 @@
     </div>
 
     <div class="row mt-4" style="display: flex;">
+      
+    
       <div class="rowindex mt-4" style="justify-content: space-around; display: flex; gap: 10px; margin-top: 20px; margin-bottom: 20px;">
-        <div class="col-3" style="width: 15rem; justify-content: center;">
-       
-          <a  href="<?php echo BASE_URL ?>celularessamsung" >
+        <div class="" style="width: 15rem; justify-content: center;">
+        <a  href="<?php echo BASE_URL ?>celularessamsung">
             <img src="https://rimage.ripley.com.pe/home.ripley/Attachment/MKP/2832/PMP20000153811/full_image-1.jpeg" class="card-img-top" alt="...">
           </a>
           <div class="cardindex-body">
-            <a  href="<?php echo BASE_URL ?>celularessamsung"  style="text-decoration: none;" class="card-text">Samsung</a>
+          <a  href="<?php echo BASE_URL ?>celularessamsung" src="./views/plantilla/img/samsung.jpg" style="text-decoration: none;" class="card-text" href="html/celulareshuawei.html">Huawei</a>
           </div>
         </div>
-        <div class="col-3" style="width: 15rem;">
+        <div class="" style="width: 15rem;">
         <a  href="<?php echo BASE_URL ?>celularessamsung">
             <img src="https://rimage.ripley.com.pe/home.ripley/Attachment/MKP/1453/PMP20000145424/full_image-1.png" class="card-img-top" alt="...">
           </a>
-           <div class="cardindex-body">
-           <a  href="<?php echo BASE_URL ?>celularessamsung" src="img/samsung.jpg" style="text-decoration: none;" class="card-text">Apple</a>
+          <div class="cardindex-body">
+          <a  href="<?php echo BASE_URL ?>celularessamsung" href="./views/plantilla/img/celularesgoogle.html" src="" style="text-decoration: none;" class="card-text">Google</a>
           </div>
         </div>
-        <div class="col-3" style="width: 15rem;">
-        <a  href="<?php echo BASE_URL ?>celularessamsung">
+        <div class="" style="width: 15rem;">
+          <a  href="<?php echo BASE_URL ?>celularessamsung">
             <img src="https://rimage.ripley.com.pe/home.ripley/Attachment/MKP/1579/PMP20000072674/full_image-1.jpeg" class="card-img-top" alt="...">
           </a>
           <div class="cardindex-body">
-          <a  href="<?php echo BASE_URL ?>celularessamsung" src="img/samsung.jpg" style="text-decoration: none;" class="card-text" href="html/celularesmotorola.html">Motorola</a>
+            <a  href="<?php echo BASE_URL ?>celularessamsung" src="" style="text-decoration: none;" class="card-text">Honor</a>
           </div>
         </div>
-        <div class="col-3" style="width: 15rem;">
-        <a  href="<?php echo BASE_URL ?>celularessamsung">
+        <div class="" style="width: 15rem;">
+          <a  href="<?php echo BASE_URL ?>celularessamsung">
             <img src="https://rimage.ripley.com.pe/home.ripley/Attachment/MKP/2832/PMP00003204853/full_image-1.jpeg" class="card-img-top" alt="...">
           </a>
           <div class="cardindex-body">
-            <a href="html/celularesxiaomi.html" style="text-decoration: none;" class="card-text">Xiaomi</a>
+            <a  href="<?php echo BASE_URL ?>celularessamsung" src="" style="text-decoration: none;" class="card-text">Asus</a>
           </div>
         </div>
       </div>
       <div class="rowindex mt-4" style="justify-content: space-around; display: flex; gap: 10px; margin-top: 20px; margin-bottom: 20px;">
-        <div class="" style="width: 15rem;">
+        <div class="" style="width: 15rem; justify-content: center;">
         <a  href="<?php echo BASE_URL ?>celularessamsung">
             <img src="https://rimage.ripley.com.pe/home.ripley/Attachment/MKP/373/PMP20000334773/full_image-1.jpeg" class="card-img-top" alt="...">
           </a>

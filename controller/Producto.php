@@ -1,6 +1,6 @@
 <?php
 
-require_once('./model/productomodel.php');
+require_once('../model/productomodel.php');
 // instanciar la clase modeloProducto
 $objproducto = new ProductoModel();
 
@@ -14,13 +14,13 @@ if ($tipo == "registrar") {
       $precio = $_POST['precio'];
       $stock = $_POST['stock'];
       $categoria = $_POST['categoria'];
-      $img = $_POST['img'];
+      $img = $_POST['imagen'];
       $proveedor = $_POST['proveedor'];
       if (
          $codigo == '' || $nombre == '' || $detalle == '' || $precio == '' ||
          $stock == '' || $categoria == '' || $img == '' || $proveedor == ''
       ) {
-         $arra_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacios');
+         $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacios');
       } else {
          $arrProducto = $objproducto->registrarProducto(
             $codigo,
@@ -32,8 +32,20 @@ if ($tipo == "registrar") {
             $img,
             $proveedor
          );
+
+         if ($arrProducto->id > 0) {
+            $arr_Respuesta = array(
+               'status' => true,
+               'mensaje' => 'Registro Exitoso'
+            );
+         } else {
+            $arr_Respuesta = array(
+               'status' => false,
+               'mensaje' => 'Error, intentelo de nuevo'
+            );
+         }
+         echo json_encode($arr_Respuesta);
       }
    }
 }
 
-?>

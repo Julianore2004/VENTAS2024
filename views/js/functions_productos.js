@@ -6,12 +6,12 @@ async function registrar_producto() {
     let precio = document.querySelector('#precio').value;
     let stock = document.querySelector('#stock').value;
     let categoria = document.querySelector('#categoria').value;
-    let img = document.querySelector('#img').value;
+    let imagen = document.querySelector('#imagen').value;
     let proveedor = document.querySelector('#proveedor').value;
 
     if (codigo == "" || nombre == "" || detalle == "" ||
         precio == "" || stock == "" || categoria == "" ||
-        img == "" || proveedor == "") {
+        imagen == "" || proveedor == "") {
         alert("error, campos vacios")
         return;
 
@@ -26,8 +26,34 @@ async function registrar_producto() {
             cache: 'no-cache',
             body: datos
         });
+        // convertimos la respuesta en formato JSON
+        json = await respuesta.json();
+        if (json.status) {
+            swal.fire("Registro exitoso", json.mensaje, 'success');
+
+        } else {
+            swal.fire("Registro fallido", json.mensaje, 'error');
+        }
+
+        //console.log(json);
+        console.log(json);
+
+
     } catch (e) {
-        console.log("Oops, ocurrio un error" + e)
+        console.e("Oops, ocurrio un error" + e)
     }
 
+}
+
+//  listar_categorias registrados en la base de datos
+
+async function listar_categorias() {
+    try {
+        // envia datos hacia el controlador
+        let respuesta = await fetch(base_url +
+            'controller/Categoria.php?tipo=listar');
+console.log(respuesta);
+    } catch (e) {
+        console.e("Error al cargar categorias" + e)
+    }
 }
