@@ -24,7 +24,9 @@
         </div>
         <div class="campo-contenedor">
             <label for="categoria" class="etiqueta-flotante">Categoría:</label>
-            <input type="text" name="categoria" id="categoria" class="entrada-destacada">
+            <select name="categoria" id="categoria"  class="entrada-destacada">
+                <option  class="entrada-destacada" >Seleccione</option>
+            </select>
         </div>
         <div class="campo-contenedor">
             <label for="imagen" class="etiqueta-flotante">Imagen del Producto:</label>
