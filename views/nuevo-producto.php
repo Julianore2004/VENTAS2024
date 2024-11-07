@@ -30,11 +30,14 @@
         </div>
         <div class="campo-contenedor">
             <label for="imagen" class="etiqueta-flotante">Imagen del Producto:</label>
-            <input type="text" name="imagen" id="imagen" class="entrada-destacada">
+            <input type="file" name="imagen" id="imagen" class="entrada-destacada">
         </div>
         <div class="campo-contenedor">
+            
             <label for="proveedor" class="etiqueta-flotante">Proveedor:</label>
-            <input type="text" name="proveedor" id="proveedor" class="entrada-destacada">
+            <select name="proveedor" id="proveedor"  class="entrada-destacada">
+                <option  class="entrada-destacada" >Seleccione</option>
+            </select>
         </div>
         <button type="button" class="boton-registro" onclick="registrar_producto();">Registrar</button>
     </form>
@@ -43,3 +46,5 @@
 
 <script src="<?php echo BASE_URL?>views/js/functions_productos.js"></script>
 <script>listar_categorias();</script>
+<script>listar_proveedores();</script>
+

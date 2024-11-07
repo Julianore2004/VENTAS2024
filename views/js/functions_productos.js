@@ -45,25 +45,70 @@ async function registrar_producto() {
 
 }
 
-//  listar_categorias registrados en la base de datos
+// //  listar_categorias registrados en la base de datos
+
+// async function listar_categorias() {
+//     try {
+//         // envia datos hacia el controlador
+//         let respuesta = await fetch(base_url +
+//             'controller/Categoria.php?tipo=listar');
+//         json = await respuesta.json();
+//         if (json.status) {
+//             let datos = json.contenido;
+//             datos.forEach(element => {
+//                 $('#categoria').append($('<option />', {
+//                     text: `${element.nombre}`,
+//                     value: `${element.id}`
+//                 })); 
+//             });
+//         }
+//         console.log(respuesta);
+//     } catch (e) {
+//         console.e("Error al cargar categorias" + e)
+//     }
+// }
+
 
 async function listar_categorias() {
     try {
         // envia datos hacia el controlador
+
         let respuesta = await fetch(base_url +
             'controller/Categoria.php?tipo=listar');
         json = await respuesta.json();
         if (json.status) {
             let datos = json.contenido;
+            let contenido_select = '<option value="">Seleccione</option>';
             datos.forEach(element => {
-                $('#categoria').append($('<option />', {
-                    text: `${element.nombre}`,
-                    value: `${element.id}`
-                })); 
+                contenido_select += '<option value="' + element.id + '">' + element.nombre + '</option>';
             });
+
+            document.getElementById('categoria').innerHTML =
+                contenido_select;
         }
         console.log(respuesta);
     } catch (e) {
         console.e("Error al cargar categorias" + e)
     }
+}
+
+async function listar_proveedores(){
+    try {
+        let respuesta = await fetch(base_url +
+            'controller/Proveedor.php?tipo=listar');
+        json = await respuesta.json();
+        if (json.status) {
+            let datos = json.contenido;
+            let contenido_select = '<option value="">Seleccione</option>';
+            datos.forEach(element => {
+                contenido_select += '<option value="' + element.id + '">' + element.razon_social + '</option>';
+            });
+            
+            document.getElementById('proveedor').innerHTML =
+            contenido_select;
+        }
+    } catch (e) {
+        console.error("Error al cargar proveedores: " + e);
+
+     }
 }
