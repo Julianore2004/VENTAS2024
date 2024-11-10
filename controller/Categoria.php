@@ -26,3 +26,28 @@ if ($tipo == "listar") {
 
     echo json_encode($arr_Respuesta);
 }
+
+// Instanciar la clase CategoriaModel
+
+$tipo = $_REQUEST['tipo'];
+
+if ($tipo == "registrar") {
+    if ($_POST) {
+        $nombre = $_POST['nombre'];
+        $detalle = $_POST['detalle'];
+
+        if ($nombre == '' || $detalle == '') {
+            $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacíos');
+        } else {
+            $arrCategoria = $objCategoria->registrarCategoria($nombre, $detalle);
+
+            if ($arrCategoria) {
+                $arr_Respuesta = array('status' => true, 'mensaje' => 'Registro Exitoso');
+            } else {
+                $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, inténtelo de nuevo');
+            }
+            echo json_encode($arr_Respuesta);
+        }
+    }
+}
+?>

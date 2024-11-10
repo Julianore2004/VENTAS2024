@@ -1,7 +1,9 @@
 <?php
 
 require_once('../model/proveedorModel.php');
-$objProveedor = new ProveedorModel();
+$objProveedor = new PersonaModelProveedor();
+
+// LISTAR PROVEEDORES EN PRODUCTOS
 $tipo = $_REQUEST['tipo'];
 
 if ($tipo == "listar") {
@@ -22,3 +24,5 @@ if (!empty($arr_Proveedores)) {
 
     echo json_encode($arr_Respuesta);
 }
+
+

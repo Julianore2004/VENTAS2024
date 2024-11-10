@@ -16,8 +16,25 @@ class CategoriaModel
         $respuesta = $this->conexion->query(" SELECT * FROM categoria");
         while ($objeto = $respuesta->fetch_object()) {
             array_push($arrRespuesta, $objeto);
-            
+
         }
         return $arrRespuesta;
     }
+
+    public function registrarCategoria($nombre, $detalle)
+    {
+        $sql = "INSERT INTO categoria (nombre, detalle) VALUES ('{$nombre}', '{$detalle}')";
+
+        $resultado = $this->conexion->query($sql);
+
+        if ($resultado) {
+            // Retorna el último ID insertado en caso de éxito
+            return $this->conexion->insert_id;
+        } else {
+            // Imprime un error si ocurre algún problema
+            print_r($this->conexion->error);
+            return false;
+        }
+    }
 }
+?>

@@ -21,12 +21,14 @@ class vistaModelo
             'accesorios',
             'celularessamsung',
             'detalleproducto',
-
             'comentarios',
             'detalleaccesorio',
             'centroayuda',
             'registrarse',
-            'nuevo-producto'
+            'nuevo-producto',
+            'nueva-categoria',
+            'nueva-compra',
+            'nueva-persona'
         ];
         if (in_array($vista, $palabras_permitidas)) {
             if (is_file("./views/" . $vista . ".php")) {
