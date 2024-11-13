@@ -78,8 +78,12 @@
             <a href="<?php echo BASE_URL ?>carrito">
               <img src="./views/plantilla/img/carrito.png" alt="" style="height: 40px;">
             </a>
+          
             <a href="<?php echo BASE_URL ?>miperfil">
               <img src="./views/plantilla/img/perfil.png" alt="" style="height: 40px;">
+            </a>
+            <a href="<?php echo BASE_URL ?>login">
+              <img src="./views/plantilla/img/IR.png" alt="" style="height: 40px;">
             </a>
             <div class="Ofer col-1 mr-0">
               <ul class="navbar-nav me-auto  mb-2 mb-lg-0">

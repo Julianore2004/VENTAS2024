@@ -35,8 +35,8 @@ class vistaModelo
             } else {
                 $contenido = "404";
             }
-        } elseif ($vista == "login" || $vista == "index" || $vista == "registrate") {
-            $contenido = "login";
+        } elseif ($vista == "index" || $vista == "index") {
+            $contenido = "index";
         } else {
             $contenido = "404";
         }

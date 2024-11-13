@@ -11,7 +11,7 @@ class vistasControlador extends vistaModelo{
             $ruta = explode("/",$_GET['views']);
             $respuesta = vistaModelo::obtener_vistas($ruta[0]);
         }else {
-            $respuesta = "login";
+            $respuesta = "index.php";
         }
 
         return $respuesta;
