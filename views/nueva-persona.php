@@ -109,19 +109,6 @@ function togglePassword() {
 }
 </script>
  
-        <div class="campo-contenedor">
-            <label for="estado" class="etiqueta-flotante">Estado:</label>
-            <!-- <input type="number" name="estado" id="estado" class="entrada-destacada"> -->
-            <select name="estado" id="estado"  class="entrada-destacada">
-                <option  class="entrada-destacada" >Activo</option>
-                <option  class="entrada-destacada" >Inactivo</option>
-            </select>
-        </div>
-        <div class="campo-contenedor">
-            
-            <label for="fecha_reg" class="etiqueta-flotante">Fecha_registro:</label>
-            <input type="date" name="fecha_reg" id="fecha_reg" class="entrada-destacada">
-        </div>
         <button type="button" class="boton-registro" onclick="registrar_personas();">Registrar</button>
     </form>
 </div>

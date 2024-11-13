@@ -1,13 +1,12 @@
 
 async function registrar_compras() {
-    let producto = document.querySelector('#producto').value;
+    let producto = document.getElementById('producto').value;
     let cantidad = document.querySelector('#cantidad').value;
     let precio = document.querySelector('#precio').value;
-    let fecha_compra = document.querySelector('#fecha_compra').value;
     let trabajador = document.querySelector('#trabajador').value;
 
-    if (producto == "" || cantidad == "" || precio == "" ||
-        fecha_compra == "" || trabajador == "") {
+    if (producto == "" || cantidad == "" ||
+        precio == "" || trabajador == "") {
         alert("error, campos vacios")
         return;
 

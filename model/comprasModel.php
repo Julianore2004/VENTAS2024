@@ -17,11 +17,10 @@ class comprasModel
         $producto,
         $cantidad,
         $precio,
-        $fecha_compra,
         $trabajador
     ) {
         $sql = $this->conexion->query("CALL insertar_compra
-        ('{$producto}','{$cantidad}','{$precio}','{$fecha_compra}','{$trabajador}')");
+        ('{$producto}','{$cantidad}','{$precio}','{$trabajador}')");
 
         if ($sql == false) {
             print_r(value: $this->conexion->error);

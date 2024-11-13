@@ -1,6 +1,6 @@
 async function registrar_categoria() {
     let nombre = document.getElementById('nombre').value;
-    let detalle = document.getElementById('detalle').value;
+    let detalle = document.querySelector('#detalle').value;
 
     if (nombre == "" || detalle == "") {
         alert("Error, campos vacíos");

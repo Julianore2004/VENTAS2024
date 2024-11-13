@@ -25,13 +25,12 @@ class PersonaModel
         $direccion,
         $rol,
         $password,
-        $estado,
+       
 
     ) {
         $sql = $this->conexion->query("CALL insertar_persona
         ('{$nro_identidad}','{$razon_social}','{$telefono}','{$correo}','{$departamento}',
-        '{$provincia}','{$distrito}','{$codigo_postal}','{$direccion}','{$rol}','{$password}',
-        '{$estado}')");
+        '{$provincia}','{$distrito}','{$codigo_postal}','{$direccion}','{$rol}','{$password}')");
 
         if ($sql == false) {
             print_r(value: $this->conexion->error);

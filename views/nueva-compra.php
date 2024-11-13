@@ -16,10 +16,7 @@
             <label for="precio" class="etiqueta-flotante">Precio:</label>
             <input type="number" name="precio" id="precio" class="entrada-destacada">
         </div>
-        <div class="campo-contenedor">
-            <label for="fecha_compra" class="etiqueta-flotante">Fecha_compra:</label>
-            <input type="date" name="fecha_compra" id="fecha_compra" class="entrada-destacada">
-        </div>
+    
         <div class="campo-contenedor">   
             <label for="trabajador" class="etiqueta-flotante">Trabajador:</label>
             <select name="trabajador" id="trabajador"  class="entrada-destacada">

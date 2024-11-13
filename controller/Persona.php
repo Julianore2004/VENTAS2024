@@ -21,13 +21,13 @@ if ($tipo == "registrar") {
         $direccion = $_POST['direccion'];
         $rol = $_POST['rol'];
         $password = $_POST['password'];
-        $estado = $_POST['estado'];
+       
         
         if (
             $nro_identidad == "" || $razon_social == "" || $telefono == "" ||
             $correo == "" || $departamento == "" || $provincia == "" ||
             $distrito == "" || $codigo_postal == "" || $razon_social == "" || $direccion == "" ||
-            $rol == "" || $password == "" || $estado == ""
+            $rol == "" || $password == "" 
         ) {
             $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacios');
         } else {
@@ -43,7 +43,7 @@ if ($tipo == "registrar") {
                 $direccion,
                 $rol,
                 $password,
-                $estado,
+             
               
             );
 
