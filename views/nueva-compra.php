@@ -24,7 +24,7 @@
             </select>
         </div>
         <button type="button" class="boton-registro" onclick="registrar_compras();">Registrar</button>
-    </form>
+         </form>
 </div>
 
 <script src="<?php echo BASE_URL?>views/js/functions_compras.js"></script>

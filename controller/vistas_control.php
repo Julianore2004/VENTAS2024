@@ -12,11 +12,14 @@ class vistasControlador extends vistaModelo{
             $respuesta = vistaModelo::obtener_vistas($ruta[0]);
         }else {
             $respuesta = "index.php";
-        }
-
-        return $respuesta;
-
+        } 
+    // Verificar si la ruta es para la vista administrativa
+if ($ruta[0] == "admin") {
+        $respuesta = "admin";
     }
-    
+
+    return $respuesta;
 }
+
+}  
 ?>

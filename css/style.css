@@ -451,11 +451,22 @@
 
 
    /* SSS */
-
+   
+/* Estilos personalizados para el formulario persona*/
+.fp{
+               
+  display: flex;
+  justify-content: space-evenly;
+  
+}
+.fp1,.fp2 {
+  width: 48%;
+  margin: 20px;
+}
 
       /* FORMILARIO PARA NUEVO PRODUCTO */ 
 
-         /* Estilos personalizados para el formulario */
+         
 .formulario-producto {
   background-color: #f9f9f9;
   padding: 20px;
@@ -533,5 +544,166 @@
   }
 }
 
-/* STYLO PARA OCULTAR Y MOSTRAR CONTRASEÑA*/
+/* STYLE PARA ADMIN*/
+ /* Estilos generales */
+ .bodyadmin {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f2f5;
+  margin: 0;
+  display: flex;
+  height: 100vh;
+  color: #333;
+}
 
+/* Barra lateral */
+.admin-sidebar {
+  width: 260px;
+  background: #42A5F5;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1), -5px -5px 15px rgba(255, 255, 255, 0.7);
+  border-radius: 15px;
+  margin: 20px;
+  overflow: hidden;
+}
+
+.admin-sidebar h2 {
+  font-size: 1.6em;
+  margin-bottom: 30px;
+  color: #B3E5FC;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.admin-menu-item {
+  width: 100%;
+  padding: 15px 20px;
+  margin-left: 30px;
+  cursor: pointer;
+  color: #FFF;
+  font-weight: 500;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  transition: background 0.3s, padding-left 0.3s;
+}
+
+.admin-menu-item:hover, .admin-menu-item.active {
+  background-color: #B3E5FC;
+  color: #333;
+  padding-left: 30px;
+}
+
+.admin-menu-icon {
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+
+/* Submenús */
+.admin-submenu {
+  display: none;
+  flex-direction: column;
+  padding: 10px 20px;
+  background-color: #B3E5FC;
+  border-radius: 8px;
+  margin: 5px 15px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.admin-submenu a {
+  color: #333;
+  text-decoration: none;
+  padding: 8px 0;
+  font-size: 0.9em;
+  transition: color 0.3s;
+}
+
+.admin-submenu a:hover {
+  color: #42A5F5;
+  font-weight: bold;
+}
+
+/* Contenedor principal */
+.admin-content {
+  flex-grow: 1;
+  padding: 40px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1), -5px -5px 15px rgba(255, 255, 255, 0.7);
+  margin: 20px;
+  border-radius: 15px;
+}
+
+h1 {
+  color: #333;
+  font-size: 2em;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #666;
+  font-size: 1.1em;
+  max-width: 600px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* Animación para submenús */
+.admin-submenu-active {
+  display: flex !important;
+  animation: slideDown 0.3s forwards;
+}
+
+/* Animación de submenús */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Fondo opaco */
+.fondo-opaco {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 10;
+}
+
+/* Contenedor del formulario */
+.contenedor-formulario {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 20px;
+  z-index: 11;
+  border-radius: 8px;
+  width: 400px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Botón de cancelar */
+.boton-cancelar {
+  display: block;
+  margin-top: 10px;
+  padding: 10px;
+  background: #f44336;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  border-radius: 5px;
+}

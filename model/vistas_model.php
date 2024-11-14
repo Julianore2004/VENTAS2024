@@ -27,7 +27,8 @@ class vistaModelo
             'nuevo-producto',
             'nueva-categoria',
             'nueva-compra',
-            'nueva-persona'
+            'nueva-persona',
+            'admin'
         ];
         if (in_array($vista, $palabras_permitidas)) {
             if (is_file("./views/" . $vista . ".php")) {
