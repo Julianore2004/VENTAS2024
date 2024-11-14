@@ -7,11 +7,11 @@ $mostrar = new vistasControlador();
 
 $vista = $mostrar->obtenerVistaControlador();
 
-if ($vista == "index" || $vista == "404") {
+if ( $vista == "404" || $vista == "login") {
     require_once "./views/$vista.php";
 } elseif ($vista == "admin") {
     // Cargar directamente la vista administrativa sin header y footer
-    include "./views/admin.php";
+    include "./views/admin/admin.php";
 }else {
     include "./views/include/header.php";
     include $vista;

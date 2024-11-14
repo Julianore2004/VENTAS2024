@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -8,9 +9,6 @@
   <link rel="stylesheet" href="css/style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
-
-
   <style>
     body {
       font-family: sniglet;
@@ -78,13 +76,25 @@
             <a href="<?php echo BASE_URL ?>carrito">
               <img src="./views/plantilla/img/carrito.png" alt="" style="height: 40px;">
             </a>
-          
+
             <a href="<?php echo BASE_URL ?>miperfil">
               <img src="./views/plantilla/img/perfil.png" alt="" style="height: 40px;">
             </a>
-            <a href="<?php echo BASE_URL ?>login">
-              <img src="./views/plantilla/img/IR.png" alt="" style="height: 40px;">
-            </a>
+            <div class=" " onclick="cerrar_sesion();">
+              <ul class="navbar-nav me-auto  mb-2 mb-lg-0">
+
+                <li onclick="cerrar_sesion();" class="nav-item text-center" style="background: white; border-radius: 10px;">
+                  <a onclick="cerrar_sesion();" class="nav-link active" aria-current="page">cerrar_sesion</a>
+                </li>
+              </ul>
+            </div>
+
+            <nav>
+              <i>
+
+              </i>
+            </nav>
+
             <div class="Ofer col-1 mr-0">
               <ul class="navbar-nav me-auto  mb-2 mb-lg-0">
                 <li class="nav-item text-center" style="background: white; border-radius: 10px;">

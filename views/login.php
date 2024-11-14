@@ -1,51 +1,142 @@
 <!DOCTYPE html>
-<html>
+
+
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="initial-scale=1, width=device-width" />
-  <link rel="stylesheet" href="./views/plantilla/style.css ">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <title>Login</title>
- 
+
+  <style>
+    /* From Uiverse.io by mahbowal */
+    .bodylogin {
+height: 100px !important;
+      background: linear-gradient(to right,  #B3E5FC, #0288D1);
+      font-family: Arial, sans-serif;
+    }
+    .cardlogin{
+      display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;     /* Centra verticalmente */
+    height: 100vh;           /* Asegura que ocupe la altura completa de la pantalla */
+    }
+    .containerlogin {
+      max-width: 350px;
+      background: #f8f9fd;
+      background: linear-gradient(0deg,
+          rgb(255, 255, 255) 0%,
+          rgb(244, 247, 251) 100%);
+      border-radius: 40px;
+      padding: 25px 35px;
+      border: 5px solid rgb(255, 255, 255);
+      box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 30px 30px -20px;
+      margin: 20px;
+      
+    }
+
+    .heading {
+      text-align: center;
+      font-weight: 900;
+      font-size: 30px;
+      color: rgb(16, 137, 211);
+    }
+
+    .form {
+      margin-top: 20px;
+    }
+
+    .form .input {
+      width: 100%;
+      background: white;
+      border: none;
+      padding: 15px 20px;
+      border-radius: 20px;
+      margin-top: 15px;
+      box-shadow: #cff0ff 0px 10px 10px -5px;
+      border-inline: 2px solid transparent;
+    }
+
+    .form .input::-moz-placeholder {
+      color: rgb(170, 170, 170);
+    }
+
+    .form .input::placeholder {
+      color: rgb(170, 170, 170);
+    }
+
+    .form .input:focus {
+      outline: none;
+      border-inline: 2px solid #12b1d1;
+    }
+
+    .form .forgot-password {
+      display: block;
+      margin-top: 10px;
+      margin-left: 10px;
+    }
+
+    .form .forgot-password a {
+      font-size: 11px;
+      color: #0099ff;
+      text-decoration: none;
+    }
+
+    .form .login-button {
+      display: block;
+      width: 100%;
+      font-weight: bold;
+      background: linear-gradient(45deg,
+          rgb(16, 137, 211) 0%,
+          rgb(18, 177, 209) 100%);
+      color: white;
+      padding-block: 15px;
+      margin: 20px auto;
+      border-radius: 20px;
+      box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 20px 10px -15px;
+      border: none;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .form .login-button:hover {
+      transform: scale(1.03);
+      box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 23px 10px -20px;
+    }
+
+    .form .login-button:active {
+      transform: scale(0.95);
+      box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 15px 10px -10px;
+    }
+
+  </style>
+  <script>
+    const base_url = '<?php echo BASE_URL; ?>';
+  </script>
 </head>
-<body style=" background-color: #E0F7FA;">
-  <div id="LR" class="container vh-100 d-flex justify-content-center align-items-center position-relative">
-   
-    <div class="cardlogin p-4">
-      <div class="text-center mb-3" style="color: #42a5f5;">
-        <h2>Hola</h2>
-      </div>
-      <form>
-        <div class="form-group">
-          <label for="email" class="font-weight-bold">Correo electrónico:</label>
-          <input type="email" class="form-control" id="email" placeholder="Correo electrónico">
-        </div>
-        <div class="form-group mb-3">
-          <label for="password" class="font-weight-bold">Contraseña:</label>
-          <input type="password" class="form-control" id="password" placeholder="Contraseña">
-        </div>
-        <div class="text-center mb-2">
-          <a href="<?php echo BASE_URL ?>index" class="btn-custom" style="color: #e3f2fd; text-decoration: none;">Entrar</a>
-        </div>
+
+<body class="bodylogin" style=" background-color: #E0F7FA;">
+  <div id="LR" class="cardlogin  d-flex justify-content-center ">
+
+    <div class="containerlogin">
+      <div class="heading">INICIAR SESION</div>
+      <form id="frmLogin" class="form" action="">
+        <input
+          placeholder="Usuario" id="usuario" name="usuario" type="text" class="input"  id="usuario" required="" />
+        <input
+          placeholder="Password"
+          id="password"
+          name="password"
+          type="password"
+          class="input"
+          required="" />
+
+        <span class="forgot-password"><a href="#">Forgot Password ?</a></span>
+
+<button value="" type="submit" class="login-button" >Registrarme</button>
+      
       </form>
-      <div class="text-center mb-2">
-      <a href="<?php echo BASE_URL ?>registrarse" class="" style="font-size: 20px;">Registrarme</a>
-      </div>
-      <div class="text-center mb-3" style="color: #0d47a1;">
-        <span>También puedes acceder con:</span>
-      </div>
-      <div class="d-flex justify-content-center">
-        <a href="https://www.facebook.com" class="pr-4">
-          <img src="./views/plantilla/img/facebook.png" alt="facebook" class="img-fluid" style="width: 40px; height: 40px; border-radius: 50%;">
-        </a>
-        <a href="https://myaccount.google.com/" class="ml-4">
-          <img src="./views/plantilla/img/GOOGLE.png" alt="google" class="img-fluid" style="width: 40px; height: 40px; border-radius: 50%;">
-        </a>
-      </div>
+
     </div>
-  </div>
-  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
+
+<script src="<?php echo BASE_URL ?>views/js/functions_login.js"></script>
 </html>

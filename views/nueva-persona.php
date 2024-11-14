@@ -23,12 +23,13 @@
             <label for="departamento" class="etiqueta-flotante">Departamento:</label>
             <input type="text" name="departamento" id="departamento" class="entrada-destacada">
         </div>
+       
+        </div>
+        <div class="fp2">
         <div class="campo-contenedor">
             <label for="provincia" class="etiqueta-flotante">Provincia:</label>
             <input type="text" name="provincia" id="provincia" class="entrada-destacada">
         </div>
-        </div>
-        <div class="fp2">
         <div class="campo-contenedor">
             <label for="distrito" class="etiqueta-flotante">Distrito:</label>
             <input type="text" name="distrito" id="distrito" class="entrada-destacada">
@@ -42,8 +43,7 @@
             <input type="text" name="direccion" id="direccion" class="entrada-destacada">
         </div>
         <div class="campo-contenedor">
-            <!-- <label for="rol" class="etiqueta-flotante">Rol:</label>
-            <input type="text" name="rol" id="rol" class="entrada-destacada"> -->
+        <label for="rol" class="etiqueta-flotante">Rol:</label>
             <select name="rol" id="rol" class="entrada-destacada">
 
                 <option class="entrada-destacada">Proveedor</option>
@@ -52,13 +52,13 @@
             </select>
         </div>
         <!-- Campo de contraseña con opción de mostrar -->
-        <div class="campo-contenedor">
+        <!-- <div class="campo-contenedor">
             <label for="password" class="etiqueta-flotante">Contraseña:</label>
             <div class="input-group">
                 <input type="password" name="password" id="password" class="entrada-destacada">
                 <button type="button" onclick="togglePassword()" id="togglePasswordButton"
                     class="toggle-password">👁️</button>
-            </div>
+            </div> -->
         </div>
         </div>
         </div>
@@ -102,20 +102,7 @@
             }
         </style>
 
-        <script>
-            function togglePassword() {
-                const passwordField = document.getElementById('password');
-                const toggleButton = document.getElementById('togglePasswordButton');
-
-                if (passwordField.type === 'password') {
-                    passwordField.type = 'text';
-                    toggleButton.textContent = '🙈';
-                } else {
-                    passwordField.type = 'password';
-                    toggleButton.textContent = '👁️';
-                }
-            }
-        </script>
+       
 
         <button type="button" class="boton-registro" onclick="registrar_personas();">Registrar</button>
     </form>

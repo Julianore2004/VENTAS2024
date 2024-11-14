@@ -1,4 +1,5 @@
 <?php
+session_start();
 class vistaModelo
 {
 
@@ -28,16 +29,21 @@ class vistaModelo
             'nueva-categoria',
             'nueva-compra',
             'nueva-persona',
-            'admin'
+            'admin',
+            'principal'
         ];
+        if (isset($_SESSION['sesion_ventas_id'])) {
+            return "login";
+        }
+
         if (in_array($vista, $palabras_permitidas)) {
             if (is_file("./views/" . $vista . ".php")) {
                 $contenido = "./views/" . $vista . ".php";
             } else {
                 $contenido = "404";
             }
-        } elseif ($vista == "index" || $vista == "index") {
-            $contenido = "index";
+        } elseif ($vista == "index" || $vista == "login") {
+            $contenido = "login";
         } else {
             $contenido = "404";
         }

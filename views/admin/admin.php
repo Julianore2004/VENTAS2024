@@ -5,12 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel Administrativo</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 
 </head>
 
 <body class="bodyadmin">
     <div class="admin-sidebar">
+
+
+        <a href="<?php echo BASE_URL ?>index">
+            <button class="button">
+                <svg class="svgIcon" viewBox="0 0 384 512">
+                    <path
+                        d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"></path>
+                </svg>
+            </button>
+        </a>
+
+
+
         <h2>Admin Panel</h2>
 
         <!-- Menú de Categorías -->
@@ -102,14 +115,15 @@
                     document.getElementById('contenedor-formulario').style.display = 'block';
 
                     // Ahora que el formulario está cargado, ejecutamos las funciones para listar productos y trabajadores
-                    listar_productos();  // Llamada para cargar los productos
-                    listar_trabajadores();  // Llamada para cargar los trabajadores
+                    listar_productos(); // Llamada para cargar los productos
+                    listar_trabajadores(); // Llamada para cargar los trabajadores
 
                     listar_categorias();
                     listar_proveedores();
                 })
                 .catch(error => console.error("Error al cargar el formulario:", error));
         }
+
         function ocultarFormulario() {
             document.getElementById('fondo-opaco').style.display = 'none';
             document.getElementById('contenedor-formulario').style.display = 'none';
@@ -123,7 +137,20 @@
             submenu.classList.toggle("admin-submenu-active");
         }
     </script>
+    <script>
+        function togglePassword() {
+            const passwordField = document.getElementById('password');
+            const toggleButton = document.getElementById('togglePasswordButton');
 
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                toggleButton.textContent = '🙈';
+            } else {
+                passwordField.type = 'password';
+                toggleButton.textContent = '👁️';
+            }
+        }
+    </script>
 
 </body>
 

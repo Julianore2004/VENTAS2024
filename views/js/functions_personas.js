@@ -10,8 +10,8 @@ async function registrar_personas() {
     let codigo_postal = document.querySelector('#codigo_postal').value;
     let direccion = document.querySelector('#direccion').value;
     let rol = document.querySelector('#rol').value;
-    let password = document.querySelector('#password').value;
-    const base_url = "/Ventas2024/"; // Asegúrate de usar el valor correcto para tu proyecto
+    let password = document.querySelector('#nro_identidad').value;
+    const base_url = "/Ventas2024/"; 
 
 
     if (nro_identidad == "" || razon_social == "" || telefono == "" ||

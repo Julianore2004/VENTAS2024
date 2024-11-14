@@ -20,7 +20,8 @@ if ($tipo == "registrar") {
         $razon_social = $_POST['razon_social'];
         $direccion = $_POST['direccion'];
         $rol = $_POST['rol'];
-        $password = $_POST['password'];
+        //cifrar contraseña
+        $password =  password_hash($_POST['nro_identidad'],PASSWORD_DEFAULT);
        
         
         if (
