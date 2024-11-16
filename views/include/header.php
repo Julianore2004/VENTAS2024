@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -72,37 +71,37 @@
             <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search">
             <button class="btn btn-light" type="submit" style="border:none;  ">Buscar</button>
           </form>
-          <div style="gap: 20px; margin-left: 20px; display: flex;">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div style="gap: 5px; margin-left: 20px; display: flex;">
             <a href="<?php echo BASE_URL ?>carrito">
               <img src="./views/plantilla/img/carrito.png" alt="" style="height: 40px;">
-            </a>
-
-            <a href="<?php echo BASE_URL ?>miperfil">
-              <img src="./views/plantilla/img/perfil.png" alt="" style="height: 40px;">
-            </a>
-            <div class=" " onclick="cerrar_sesion();">
-              <ul class="navbar-nav me-auto  mb-2 mb-lg-0">
-
-                <li onclick="cerrar_sesion();" class="nav-item text-center" style="background: white; border-radius: 10px;">
-                  <a onclick="cerrar_sesion();" class="nav-link active" aria-current="page">cerrar_sesion</a>
+            </a>           
+            <div class="dropdown ms-3"  style="margin-right: 15px;">
+              <button class="btn btn-light dropdown-toggle" type="button" id="userMenuButton" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <img src="./views/plantilla/img/perfil.png" alt="" style="height: 20px;">
+                <?php echo isset($_SESSION['sesion_venta_nombres']) ? $_SESSION['sesion_venta_nombres'] : 'Usuario'; ?>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenuButton">
+                <li><a class="dropdown-item" href="<?php echo BASE_URL ?>miperfil">Mi Perfil</a></li>
+                <li>
+                  <hr class="dropdown-divider">
                 </li>
+                <li><a class="dropdown-item" href="#" onclick="cerrar_sesion();">Cerrar Sesión</a></li>
               </ul>
             </div>
-
-            <nav>
-              <i>
-
-              </i>
-            </nav>
-
-            <div class="Ofer col-1 mr-0">
+            </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
+            <div class="Ofer mr-0" >
               <ul class="navbar-nav me-auto  mb-2 mb-lg-0">
                 <li class="nav-item text-center" style="background: white; border-radius: 10px;">
-                  <a class="nav-link active" aria-current="page" href="<?php echo BASE_URL ?>index">Inicio</a>
+                  <a class="nav-link active" aria-current="page" href="<?php echo BASE_URL ?>principal">Inicio</a>
                 </li>
               </ul>
             </div>
+            </div>
           </div>
+
         </div>
       </div>
     </div>

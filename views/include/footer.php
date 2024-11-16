@@ -38,6 +38,9 @@
     <a href="#" class="text-white">Términos y condiciones</a>
   </div>
 </footer>
+<script src="<?php echo BASE_URL?>views/js/functions_login.js"></script>
+
+
 </body>
 
 <style>

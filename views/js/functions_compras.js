@@ -38,7 +38,7 @@ async function registrar_compras() {
 async function listar_trabajadores() {
     try {
         let respuesta = await fetch(base_url +
-            'controller/Trabajador.php?tipo=listar');
+            'controller/Persona.php?tipo=listar_trabajadores');
         json = await respuesta.json();
         if (json.status) {
             let datos = json.contenido;

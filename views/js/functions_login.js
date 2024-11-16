@@ -44,22 +44,21 @@ if (document.querySelector('#frmLogin')) {
         iniciar_sesion();
     }
 }
+
 async function cerrar_sesion() {
     try {
-        let respuesta = await fetch(base_url + 'controller/login.php?tipo = cerrar_sesion', {
-
-                method: 'POST',
+        let respuesta = await fetch(base_url + 'controller/login.php?tipo=cerrar_sesion', {
+            method: 'POST',
             mode: 'cors',
             cache: 'no-cache',
-            body: datos
         });
-        json = await respuesta.json();
+        let json = await respuesta.json();
         if (json.status) {
-            location.replace(base_url + "login")
+            location.replace(base_url + "login");
         }
-      
     } catch (e) {
         console.error("Oops, ocurrió un error: " + e);
     }
-            }
-        
+}
+
+

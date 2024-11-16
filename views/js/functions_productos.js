@@ -96,7 +96,7 @@
     async function listar_proveedores(){
         try {
             let respuesta = await fetch(base_url +
-                'controller/Proveedor.php?tipo=listar');
+                'controller/Persona.php?tipo=listar_proveedores');
             json = await respuesta.json();
             if (json.status) {
                 let datos = json.contenido;

@@ -21,14 +21,14 @@ if ($tipo == "registrar") {
         $direccion = $_POST['direccion'];
         $rol = $_POST['rol'];
         //cifrar contraseña
-        $password =  password_hash($_POST['nro_identidad'],PASSWORD_DEFAULT);
-       
-        
+        $secure_password  = password_hash($nro_identidad, PASSWORD_DEFAULT);
+
+
         if (
             $nro_identidad == "" || $razon_social == "" || $telefono == "" ||
             $correo == "" || $departamento == "" || $provincia == "" ||
             $distrito == "" || $codigo_postal == "" || $razon_social == "" || $direccion == "" ||
-            $rol == "" || $password == "" 
+            $rol == "" || $secure_password  == ""
         ) {
             $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacios');
         } else {
@@ -44,8 +44,8 @@ if ($tipo == "registrar") {
                 $direccion,
                 $rol,
                 $password,
-             
-              
+
+
             );
 
             if ($arrProducto->id > 0) {
@@ -53,7 +53,7 @@ if ($tipo == "registrar") {
                     'status' => true,
                     'mensaje' => 'Registro Exitoso'
                 );
-            }else {
+            } else {
                 $arr_Respuesta = array(
                     'status' => false,
                     'mensaje' => 'Error, intentelo de nuevo'
@@ -62,5 +62,42 @@ if ($tipo == "registrar") {
             echo json_encode($arr_Respuesta);
         }
     }
+}
+
+
+
+if ($tipo == "listar_trabajadores") {
+    $arr_Respuesta = array('status' => false, 'contenido' => '');
+    $arr_Trabajadores = $objproducto->obtener_trabajadores();
+    if (!empty($arr_Trabajadores)) {
+        for ($i = 0; $i < count($arr_Trabajadores); $i++) {
+            $id_Trabajadores = $arr_Trabajadores[$i]->id;
+            $razon_social = $arr_Trabajadores[$i]->razon_social;
+            $opciones = '<a href="" class="btn btn-success"><i class="fa fa-pencil"> Editar</i></a>
+                     <a href="" class="btn btn-danger"><i class="fa fa-trash"> Eliminar</i></a>';
+            $arr_Trabajadores[$i]->options = $opciones;
+        }
+        $arr_Respuesta['status'] = true;
+        $arr_Respuesta['contenido'] = $arr_Trabajadores;
+    }
+    echo json_encode($arr_Respuesta);
+}
+
+
+if ($tipo == "listar_proveedores") {
+    $arr_Respuesta = array('status' => false, 'contenido' => '');
+    $arr_Proveedores = $objproducto->obtener_proveedores();
+    if (!empty($arr_Proveedores)) {
+        for ($i = 0; $i < count($arr_Proveedores); $i++) {
+            $id_Proveedores = $arr_Proveedores[$i]->id;
+            $razon_social = $arr_Proveedores[$i]->razon_social;
+            $opciones = '<a href="" class="btn btn-success"><i class="fa fa-pencil"> Editar</i></a>
+                     <a href="" class="btn btn-danger"><i class="fa fa-trash"> Eliminar</i></a>';
+            $arr_Proveedores[$i]->options = $opciones;
+        }
+        $arr_Respuesta['status'] = true;
+        $arr_Respuesta['contenido'] = $arr_Proveedores;
+    }
+    echo json_encode($arr_Respuesta);
 }
 
