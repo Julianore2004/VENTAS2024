@@ -32,7 +32,7 @@ class vistaModelo
             'admin',
             'principal'
         ];
-        if (!isset($_SESSION['sesion_venta_id'])) {
+        if (isset($_SESSION['sesion_venta_id'])) {
             return "login";
          }
 
