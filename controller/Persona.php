@@ -43,7 +43,7 @@ if ($tipo == "registrar") {
                 $codigo_postal,
                 $direccion,
                 $rol,
-                $password,
+                $secure_password,
 
 
             );
