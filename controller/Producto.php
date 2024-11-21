@@ -1,17 +1,49 @@
 <?php
 
 require_once('../model/productomodel.php');
+require_once('../model/personaModel.php');
+require_once('../model/categoriaModel.php');
 // instanciar la clase modeloProducto
 $objproducto = new ProductoModel();
-
+$objCategoria = new CategoriaModel();
+$objPersona = new PersonaModel();
 
 $tipo = $_REQUEST['tipo'];
+
+// listar productos
+if ($tipo == "listar") {
+   //respuesta 
+   $arr_Respuesta = array('status' => false, 'contenido' => '');
+   $arr_Producto = $objproducto->obtener_productos();
+   if (!empty($arr_Producto)) {
+
+      for ($i = 0; $i < count($arr_Producto); $i++) {
+
+         $id_categoria = $arr_Producto[$i]->id_categoria;
+         $r_categoria = $objCategoria->obtener_categoria_por_id($id_categoria);
+         $arr_Producto[$i]->categoria = $r_categoria;
+
+         $id_proveedor = $arr_Producto[$i]->id_proveedor;
+         $r_proveedor = $objPersona->obtener_proveedor_por_id($id_proveedor);
+         $arr_Producto[$i]->proveedor = $r_proveedor;
+
+         $id_Producto = $arr_Producto[$i]->id;
+         $nombre = $arr_Producto[$i]->nombre;
+
+         $opciones = '<a href="#" class="btn btn-success"><i class="fa fa-pencil"></i> </a>
+                     <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i> </a>';
+         $arr_Producto[$i]->options = $opciones;
+      }
+      $arr_Respuesta['status'] = true;
+      $arr_Respuesta['contenido'] = $arr_Producto;
+   }
+
+   echo json_encode($arr_Respuesta);
+}
 
 if ($tipo == "registrar") {
    //  print_r($_POST);
    //       echo $_FILES["imagen"]["name"];
-
-
 
    if ($_POST) {
       $codigo = $_POST['codigo'];
@@ -55,8 +87,6 @@ if ($tipo == "registrar") {
             $nombre = $arrProducto->id . "." . $tipoArchivo;
             if (move_uploaded_file($archivo, $destino . $nombre)) {
                $arr_imagen = $objproducto->actualizar_imagen($id, $nombre);
-
-
             } else {
                $arr_Respuesta = array(
                   'status' => true,
@@ -75,25 +105,3 @@ if ($tipo == "registrar") {
 }
 
 $tipo = $_REQUEST['tipo'];
-
-// listar productos
-if ($tipo == "listar") {
-   //respuesta 
-   $arr_Respuesta = array('status' => false, 'contenido' => '');
-   $arr_Producto = $objproducto->obtener_productos();
-   if (!empty($arr_Producto)) {
-
-      for ($i = 0; $i < count($arr_Producto); $i++) {
-         $id_Producto = $arr_Producto[$i]->id;
-         $nombre = $arr_Producto[$i]->nombre;
-         $opciones = '<a href="" class="btn btn-success" ><i class="fa fa-pencil"> wwss</i></a>
-             <a href="" class="btn btn-danger"><i class="fa fa-trash">wswsws</i></a>';
-         $arr_Producto[$i]->options = $opciones;
-      }
-      $arr_Respuesta['status'] = true;
-      $arr_Respuesta['contenido'] = $arr_Producto;
-
-   }
-
-   echo json_encode($arr_Respuesta);
-}

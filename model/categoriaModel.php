@@ -16,7 +16,6 @@ class CategoriaModel
         $respuesta = $this->conexion->query(" SELECT * FROM categoria");
         while ($objeto = $respuesta->fetch_object()) {
             array_push($arrRespuesta, $objeto);
-
         }
         return $arrRespuesta;
     }
@@ -36,5 +35,11 @@ class CategoriaModel
             return false;
         }
     }
+    public function obtener_categoria_por_id($id)
+    {
+        $respuesta = $this->conexion->query("SELECT nombre FROM categoria 
+        WHERE id = '{$id}'");
+        $objeto = $respuesta->fetch_object();
+        return $objeto;
+    }
 }
-?>

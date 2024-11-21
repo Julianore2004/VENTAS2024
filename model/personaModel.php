@@ -24,7 +24,7 @@ class PersonaModel
         $direccion,
         $rol,
         $password,
-       
+
 
     ) {
         $sql = $this->conexion->query("CALL insertar_persona
@@ -37,24 +37,26 @@ class PersonaModel
 
         $sql = $sql->fetch_object();
         return $sql;
-    
     }
-    public function buscarPersonaPorDNI($nro_identidad){
+    public function buscarPersonaPorDNI($nro_identidad)
+    {
         $sql = $this->conexion->query("SELECT * FROM persona WHERE nro_identidad = '{$nro_identidad}'");
-       $sql = $sql->fetch_object();
-       return $sql;
-}
-
-public function obtener_trabajadores() {
-    $arrRespuesta = array();
-    $respuesta = $this->conexion->query("SELECT * FROM persona WHERE rol = 'trabajador'");
-
-    while ($objeto = $respuesta->fetch_object()) {
-        array_push($arrRespuesta, $objeto);
+        $sql = $sql->fetch_object();
+        return $sql;
     }
-    return $arrRespuesta;
-}
-    public function obtener_proveedores() {
+
+    public function obtener_trabajadores()
+    {
+        $arrRespuesta = array();
+        $respuesta = $this->conexion->query("SELECT * FROM persona WHERE rol = 'trabajador'");
+
+        while ($objeto = $respuesta->fetch_object()) {
+            array_push($arrRespuesta, $objeto);
+        }
+        return $arrRespuesta;
+    }
+    public function obtener_proveedores()
+    {
         $arrRespuesta = array();
         $respuesta = $this->conexion->query("SELECT * FROM persona WHERE rol = 'proveedor'");
 
@@ -63,8 +65,13 @@ public function obtener_trabajadores() {
         }
         return $arrRespuesta;
     }
+    
+
+    public function obtener_proveedor_por_id($id)
+    {
+        $respuesta = $this->conexion->query("SELECT razon_social FROM 
+        persona WHERE id = '{$id}'AND rol = 'proveedor'");
+        $objeto = $respuesta->fetch_object();
+        return $objeto;
+    }
 }
-
-
-
-
