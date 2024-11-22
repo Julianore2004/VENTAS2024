@@ -55,10 +55,7 @@
      background: red;
    }
 
-   /* Novedades */
-   body {
-     font-family: sniglet;
-   }
+  
 
    .carousel-caption {
      background-color: rgba(0, 0, 0, 0.5);
@@ -161,7 +158,7 @@
    /* CELULARES */
    body {
      font-family: sniglet;
-     background: #FAE7A5;
+    
    }
 
    .product-card {

@@ -45,6 +45,16 @@ class PersonaModel
         return $sql;
     }
 
+    public function obtener_personas()
+    {
+        $arrRespuesta = array();
+        $respuesta = $this->conexion->query(" SELECT * FROM persona");
+        while ($objeto = $respuesta->fetch_object()) {
+            array_push($arrRespuesta, $objeto);
+        }
+        return $arrRespuesta;
+    }
+
     public function obtener_trabajadores()
     {
         $arrRespuesta = array();
@@ -74,4 +84,16 @@ class PersonaModel
         $objeto = $respuesta->fetch_object();
         return $objeto;
     }
+    public function obtener_trabajador_por_id($id)
+    {
+        $respuesta = $this->conexion->query("SELECT razon_social FROM 
+        persona WHERE id = '{$id}'AND rol = 'trabajador'");
+        $objeto = $respuesta->fetch_object();
+        return $objeto;
+    }
+
+
+   
+   
+
 }

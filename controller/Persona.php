@@ -1,11 +1,32 @@
 <?php
-
 require_once('../model/personaModel.php');
 // instanciar la clase modeloProducto
-$objproducto = new PersonaModel();
-
-
+$objPersona = new PersonaModel();
 $tipo = $_REQUEST['tipo'];
+
+// listar Personas
+if ($tipo == "listar_persona") {
+    //respuesta 
+    $arr_Respuesta = array('status' => false, 'contenido' => '');
+    $arr_Persona = $objPersona->obtener_personas();
+    if (!empty($arr_Persona)) {
+
+        for ($i = 0; $i < count($arr_Persona); $i++) {
+
+            $id_Persona = $arr_Persona[$i]->id;
+            $razon_social = $arr_Persona[$i]->razon_social;
+
+            $opciones = '<a href="#" class="btn btn-success"><i class="fa fa-pencil"></i> </a>
+                      <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i> </a>';
+            $arr_Persona[$i]->options = $opciones;
+        }
+        $arr_Respuesta['status'] = true;
+        $arr_Respuesta['contenido'] = $arr_Persona;
+    }
+
+    echo json_encode($arr_Respuesta);
+}
+
 
 if ($tipo == "registrar") {
     if ($_POST) {
@@ -68,7 +89,7 @@ if ($tipo == "registrar") {
 
 if ($tipo == "listar_trabajadores") {
     $arr_Respuesta = array('status' => false, 'contenido' => '');
-    $arr_Trabajadores = $objproducto->obtener_trabajadores();
+    $arr_Trabajadores = $objPersona->obtener_trabajadores();
     if (!empty($arr_Trabajadores)) {
         for ($i = 0; $i < count($arr_Trabajadores); $i++) {
             $id_Trabajadores = $arr_Trabajadores[$i]->id;
@@ -86,7 +107,7 @@ if ($tipo == "listar_trabajadores") {
 
 if ($tipo == "listar_proveedores") {
     $arr_Respuesta = array('status' => false, 'contenido' => '');
-    $arr_Proveedores = $objproducto->obtener_proveedores();
+    $arr_Proveedores = $objPersona->obtener_proveedores();
     if (!empty($arr_Proveedores)) {
         for ($i = 0; $i < count($arr_Proveedores); $i++) {
             $id_Proveedores = $arr_Proveedores[$i]->id;
@@ -100,4 +121,3 @@ if ($tipo == "listar_proveedores") {
     }
     echo json_encode($arr_Respuesta);
 }
-
