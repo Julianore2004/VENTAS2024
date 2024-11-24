@@ -87,6 +87,7 @@
     <table class="verproduct">
       <thead>
         <tr>
+        <th>Nro</th>
           <th>Nombre</th>
           <th>Detalle</th>
           <th>Acciones</th>

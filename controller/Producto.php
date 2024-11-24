@@ -104,4 +104,4 @@ if ($tipo == "registrar") {
    }
 }
 
-$tipo = $_REQUEST['tipo'];
+

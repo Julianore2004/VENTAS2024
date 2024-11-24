@@ -75,25 +75,17 @@ class PersonaModel
         }
         return $arrRespuesta;
     }
-    
 
     public function obtener_proveedor_por_id($id)
     {
-        $respuesta = $this->conexion->query("SELECT razon_social FROM 
-        persona WHERE id = '{$id}'AND rol = 'proveedor'");
+        $respuesta = $this->conexion->query("SELECT razon_social FROM persona WHERE id = '{$id}'");
         $objeto = $respuesta->fetch_object();
         return $objeto;
     }
     public function obtener_trabajador_por_id($id)
-    {
-        $respuesta = $this->conexion->query("SELECT razon_social FROM 
-        persona WHERE id = '{$id}'AND rol = 'trabajador'");
-        $objeto = $respuesta->fetch_object();
-        return $objeto;
-    }
-
-
-   
-   
+{
+    $respuesta = $this->conexion->query("SELECT razon_social FROM persona WHERE id = '{$id}'");
+    return $respuesta->fetch_object();
+}
 
 }

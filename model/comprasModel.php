@@ -33,7 +33,8 @@ class comprasModel
     public function obtener_compras()
     {
         $arrRespuesta = array();
-        $respuesta = $this->conexion->query("SELECT * FROM compras");
+        $respuesta = $this->conexion->query("SELECT id, id_producto, id_trabajador, cantidad, precio, fecha_compra 
+FROM compras;");
         while ($objeto = $respuesta->fetch_object()) {
             array_push($arrRespuesta, $objeto);
         }

@@ -13,17 +13,18 @@ async function listar_categorias() {
             datos.forEach(item => {
                 let nueva_fila = document.createElement("tr");
                 nueva_fila.id = "fila" + item.id;
-                cont+=1
+                cont += 1
                 nueva_fila.innerHTML = `
                  <tr>
+                        <th>${cont}</th>
                         <td>${item.nombre}</td>
                         <td>${item.detalle}</td>
                         <td>${item.options}</td>
                     </tr>
                 `;
                 document.querySelector("#tbl_categoria")
-                .appendChild(nueva_fila);
-                
+                    .appendChild(nueva_fila);
+
             });
         };
         console.log(json);
@@ -54,7 +55,7 @@ async function registrar_categoria() {
             cache: 'no-cache',
             body: datos
         });
-        
+
 
         json = await respuesta.json();
         if (json.status) {

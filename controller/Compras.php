@@ -19,17 +19,18 @@ if ($tipo == "listar_compras") {
 
       for ($i = 0; $i < count($arr_Compras); $i++) {
 
+         // Obtener producto
          $id_producto = $arr_Compras[$i]->id_producto;
          $r_producto = $objproducto->obtener_producto_por_id($id_producto);
-         $arr_Producto[$i]->producto = $r_producto;
+         $arr_Compras[$i]->producto = $r_producto;
 
-         $id_trabajador = $arr_Producto[$i]->id_trabajador;
+         // Obtener trabajador
+         $id_trabajador = $arr_Compras[$i]->id_trabajador;
          $r_trabajador = $objPersona->obtener_trabajador_por_id($id_trabajador);
-         $arr_Producto[$i]->trabajador = $r_trabajador;
+         $arr_Compras[$i]->trabajador = $r_trabajador;
 
          $id_Compras = $arr_Compras[$i]->id;
-         $nombre = $arr_Compras[$i]->nombre;
-
+        
          $opciones = '<a href="#" class="btn btn-success"><i class="fa fa-pencil"></i> </a>
                      <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i> </a>';
          $arr_Compras[$i]->options = $opciones;
