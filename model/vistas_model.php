@@ -33,7 +33,7 @@ class vistaModelo
             'principal',
             'productos',
             'categorias',
-            'personas',
+            'personasL',
             'compras',
         ];
         /*   if (!isset($_SESSION['sesion_venta_id'])) {
