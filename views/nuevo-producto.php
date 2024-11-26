@@ -30,7 +30,7 @@
         </div>
         <div class="campo-contenedor">
             <label for="imagen" class="etiqueta-flotante">Imagen del Producto:</label>
-            <input type="file" name="imagen" id="imagen" class="entrada-destacada">
+            <input type="file" name="imagen" id="imagen" class="form-control">
         </div>
         <div class="campo-contenedor">
             
