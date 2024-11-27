@@ -39,18 +39,20 @@ class vistaModelo
         /*   if (!isset($_SESSION['sesion_venta_id'])) {
             return "login";
          } */
-
+        // Comprobar si la vista es permitida
         if (in_array($vista, $palabras_permitidas)) {
-            if (is_file("./views/" . $vista . ".php")) {
-                $contenido = "./views/" . $vista . ".php";
-            } else {
-                $contenido = "404";
+            // Ruta específica para admin
+            if ($vista === 'admin') {
+                return "./views/admin/admin.php";
             }
-        } elseif ($vista == "index" || $vista == "login") {
-            $contenido = "login";
-        } else {
-            $contenido = "404";
+            
+            // Verificar si el archivo de la vista existe
+            if (is_file("./views/" . $vista . ".php")) {
+                return "./views/" . $vista . ".php";
+            }
+            return "404"; // Vista no encontrada
         }
-        return $contenido;
+        return ($vista === "index" || $vista === "login") ? "login" : "404";
     }
+
 }

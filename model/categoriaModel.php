@@ -2,43 +2,34 @@
 
 require_once "../library/conexion.php";
 
-class CategoriaModel
-{
+class CategoriasModel {
     private $conexion;
-    function __construct()
-    {
-        $this->conexion = new Conexion();
-        $this->conexion = $this->conexion->connect();
+
+    function __construct() {
+        $this->conexion = (new Conexion())->connect();
     }
-    public function obtener_categorias()
-    {
-        $arrRespuesta = array();
-        $respuesta = $this->conexion->query(" SELECT * FROM categoria");
-        while ($objeto = $respuesta->fetch_object()) {
-            array_push($arrRespuesta, $objeto);
+
+    public function registrarCategoria($nombre, $descripcion) {
+        $sql = "INSERT INTO categorias (nombre_categoria, descripcion_categoria, date_added) VALUES ('{$nombre}', '{$descripcion}', NOW())";
+        return $this->conexion->query($sql);
+    }
+
+    public function listarCategorias() {
+        $respuesta = $this->conexion->query("SELECT * FROM categorias");
+        $categorias = [];
+        while ($fila = $respuesta->fetch_object()) {
+            $categorias[] = $fila;
         }
-        return $arrRespuesta;
+        return $categorias;
     }
 
-    public function registrarCategoria($nombre, $detalle)
-    {
-        $sql = "INSERT INTO categoria (nombre, detalle) VALUES ('{$nombre}', '{$detalle}')";
-
-        $resultado = $this->conexion->query($sql);
-
-        if ($resultado) {
-            // Retorna el último ID insertado en caso de éxito
-            return $this->conexion->insert_id;
-        } else {
-            // Imprime un error si ocurre algún problema
-            print_r($this->conexion->error);
-            return false;
-        }
+    public function actualizarCategoria($id, $nombre, $descripcion) {
+        $sql = "UPDATE categorias SET nombre_categoria = '{$nombre}', descripcion_categoria = '{$descripcion}' WHERE id_categoria = '{$id}'";
+        return $this->conexion->query($sql);
     }
-    public function obtener_categoria_por_id($id)
-    {
-        $respuesta = $this->conexion->query("SELECT nombre FROM categoria WHERE id = '{$id}'");
-        $objeto = $respuesta->fetch_object();
-        return $objeto;
+
+    public function eliminarCategoria($id) {
+        $sql = "DELETE FROM categorias WHERE id_categoria = '{$id}'";
+        return $this->conexion->query($sql);
     }
 }
