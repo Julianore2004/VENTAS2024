@@ -54,12 +54,21 @@ if ($tipo == "registrar") {
       $categoria = $_POST['categoria'];
       $img = 'imagen';
       $proveedor = $_POST['proveedor'];
+
       if (
          $codigo == '' || $nombre == '' || $detalle == '' || $precio == '' ||
          $stock == '' || $categoria == '' || $img == '' || $proveedor == ''
       ) {
          $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacios');
       } else {
+
+         // cargar archivo
+         $archivo = $_FILES["imagen"]["tmp_name"];
+         $destino = './assets/img_productos/';
+         $tipoArchivo = strtolower(pathinfo(
+            $_FILES['imagen']['name'],
+            PATHINFO_EXTENSION
+         ));
          $arrProducto = $objproducto->registrarProducto(
             $codigo,
             $nombre,
@@ -68,29 +77,25 @@ if ($tipo == "registrar") {
             $stock,
             $categoria,
             $img,
-            $proveedor
+            $proveedor,
+            $tipoarchivo
+
          );
 
-         if ($arrProducto->id > 0) {
+         if ($arrProducto->id_n > 0) {
+            $newid = $arrProducto->id_n;
             $arr_Respuesta = array(
                'status' => true,
                'mensaje' => 'Registro Exitoso'
             );
-            // cargar archivo
-            $archivo = $_FILES["imagen"]["tmp_name"];
+            $nombre = $arrProducto->id_n . "." . $tipoarchivo;
 
-            $destino = './assets/img_productos/';
-            $tipoArchivo = strtolower(pathinfo(
-               $_FILES['imagen']['name'],
-               PATHINFO_EXTENSION
-            ));
-            $nombre = $arrProducto->id . "." . $tipoArchivo;
             if (move_uploaded_file($archivo, $destino . $nombre)) {
                $arr_imagen = $objproducto->actualizar_imagen($id, $nombre);
             } else {
                $arr_Respuesta = array(
                   'status' => true,
-                  'mensaje' => 'Registro extitoso'
+                  'mensaje' => 'Registro Exitoso'
                );
             }
          } else {
@@ -103,5 +108,3 @@ if ($tipo == "registrar") {
       }
    }
 }
-
-

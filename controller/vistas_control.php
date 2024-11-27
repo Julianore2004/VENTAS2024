@@ -27,4 +27,18 @@ class vistasControlador extends vistaModelo
 
         return $respuesta;
     }
+/*     public function obtenervistaadmin()
+    {
+     
+        if (isset($_GET['admin'])) {
+            $ruta = explode("/", $_GET['admin']);
+            $respuesta = vistaModelo::obtener_vistas($ruta[0]);
+        } else {
+            $respuesta = "admin";
+        }
+       
+
+        return $respuesta;
+    } */
 }
+
