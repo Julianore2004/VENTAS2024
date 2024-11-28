@@ -20,22 +20,18 @@ class ProductoModel
         $precio,
         $stock,
         $categoria,
-        $imagen,
+        $img,
         $proveedor,
         $tipoArchivo
+        
     ) {
         $sql = $this->conexion->query("CALL insertProducto
         ('{$codigo}','{$nombre}','{$detalle}','{$precio}','{$stock}',
-        '{$categoria}','{$imagen}','{$proveedor}'),'{$proveedor}','{$tipoArchivo}')");
-
-        if ($sql == false) {
-            print_r(value: $this->conexion->error);
-        }
-
-
+        '{$categoria}','{$img}','{$proveedor}','{$tipoArchivo}')");
         $sql = $sql->fetch_object();
         return $sql;
     }
+    
     public function actualizar_imagen($id, $imagen)
     {
         $sql = $this->conexion->query("UPDATE producto SET imagen='{$imagen}' WHERE id='{$id}'");

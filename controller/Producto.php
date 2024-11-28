@@ -52,7 +52,7 @@ if ($tipo == "registrar") {
       $precio = $_POST['precio'];
       $stock = $_POST['stock'];
       $categoria = $_POST['categoria'];
-      $img = 'imagen';
+      $img = 'img';
       $proveedor = $_POST['proveedor'];
 
       if (
@@ -64,7 +64,7 @@ if ($tipo == "registrar") {
 
          // cargar archivo
          $archivo = $_FILES["imagen"]["tmp_name"];
-         $destino = './assets/img_productos/';
+         $destino = '../assets/img_productos/';
          $tipoArchivo = strtolower(pathinfo(
             $_FILES['imagen']['name'],
             PATHINFO_EXTENSION
@@ -78,8 +78,7 @@ if ($tipo == "registrar") {
             $categoria,
             $img,
             $proveedor,
-            $tipoarchivo
-
+            $tipoArchivo
          );
 
          if ($arrProducto->id_n > 0) {
@@ -88,10 +87,13 @@ if ($tipo == "registrar") {
                'status' => true,
                'mensaje' => 'Registro Exitoso'
             );
-            $nombre = $arrProducto->id_n . "." . $tipoarchivo;
+            $nombre = $arrProducto->id_n . "." . $tipoArchivo;
 
             if (move_uploaded_file($archivo, $destino . $nombre)) {
-               $arr_imagen = $objproducto->actualizar_imagen($id, $nombre);
+               $arr_imagen = $objproducto->actualizar_imagen(
+                  $newid,
+                  $nombre
+               );
             } else {
                $arr_Respuesta = array(
                   'status' => true,

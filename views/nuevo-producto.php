@@ -29,8 +29,8 @@
             </select>
         </div>
         <div class="campo-contenedor">
-            <label for="imagen" class="etiqueta-flotante">Imagen del Producto:</label>
-            <input type="file" name="imagen" id="imagen" class="form-control">
+            <label for="img" class="etiqueta-flotante">Imagen del Producto:</label>
+            <input type="file" name="img" id="img" class="form-control">
         </div>
         <div class="campo-contenedor">
             
