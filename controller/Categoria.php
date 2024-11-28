@@ -33,7 +33,7 @@ if ($tipo == "listar") {
     echo json_encode($arr_Respuesta);
 }
 
-if ($tipo == "registrar") {
+if ($tipo == "registrar_categoria") {
     if ($_POST) {
         $nombre = $_POST['nombre'];
         $detalle = $_POST['detalle'];

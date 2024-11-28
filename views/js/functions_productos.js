@@ -49,7 +49,6 @@ async function registrar_producto() {
     let categoria = document.querySelector('#categoria').value;
     let imagen = document.querySelector('#imagen').value;
     let proveedor = document.querySelector('#proveedor').value;
-    const base_url = "/Ventas2024/"; // Asegúrate de usar el valor correcto para tu proyecto
 
     if (codigo == "" || nombre == "" || detalle == "" ||
         precio == "" || stock == "" || categoria == "" ||

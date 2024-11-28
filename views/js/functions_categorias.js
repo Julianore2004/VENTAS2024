@@ -37,19 +37,18 @@ if (document.querySelector('#tbl_categoria') != null) {
 }
 async function registrar_categoria() {
     let nombre = document.getElementById('nombre').value;
-    let detalle = document.querySelector('#detalle').value;
-    const base_url = "/Ventas2024/"; // Asegúrate de usar el valor correcto para tu proyecto
+    let detalle = document.getElementById('detalle').value;
 
 
     if (nombre == "" || detalle == "") {
-        alert("Error, campos vacíos");
+        swal.fire("Error, campos vacíos");
         return;
     }
 
     try {
         const datos = new FormData(document.getElementById('frmRegistrar'));
 
-        let respuesta = await fetch(`${base_url}controller/Categoria.php?tipo=registrar`, {
+        let respuesta = await fetch(`${base_url}controller/Categoria.php?tipo=registrar_categoria`, {
             method: 'POST',
             mode: 'cors',
             cache: 'no-cache',
