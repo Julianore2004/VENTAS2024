@@ -42,7 +42,7 @@ if ($tipo == "listar_compras") {
    echo json_encode($arr_Respuesta);
 }
 
-if ($tipo == "registrar") {
+if ($tipo == "registrar_compras") {
 
    if ($_POST) {
       $producto = $_POST['producto'];

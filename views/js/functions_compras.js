@@ -55,7 +55,7 @@ async function registrar_compras() {
     try {
         const datos = new FormData(frmRegistrar);
 
-        let respuesta = await fetch(base_url + 'controller/Compras.php?tipo=registrar', {
+        let respuesta = await fetch(base_url + 'controller/Compras.php?tipo=registrar_compras', {
             method: 'POST',
             mode: 'cors',
             cache: 'no-cache',

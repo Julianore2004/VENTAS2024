@@ -53,7 +53,7 @@ if ($tipo == "registrar") {
         ) {
             $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacios');
         } else {
-            $arrProducto = $objproducto->registrarPersona(
+            $arrProducto = $objPersona->registrarPersona(
                 $nro_identidad,
                 $razon_social,
                 $telefono,
