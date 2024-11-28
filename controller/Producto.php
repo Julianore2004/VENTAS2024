@@ -30,9 +30,9 @@ if ($tipo == "listar_producto") {
 
          $id_Producto = $arr_Producto[$i]->id;
          $nombre = $arr_Producto[$i]->nombre;
-
-         $opciones = '<a href="#" class="btn btn-success"><i class="fa fa-pencil"></i> </a>
-                     <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i> </a>';
+         // LOCALHOST/editar-producto/4
+         $opciones = '<a href="' . BASE_URL . 'editar-producto/' . $id_Producto . '" class="btn btn-success"><i class="fa fa-pencil"> </i> </a>
+                 <a href="" class="btn btn-danger"><i class="fa fa-trash"> <button onclick="eliminar-producto(' . $id_Producto . ');" class="fa fa-trash> </button></i> </a>';
 
          $arr_Producto[$i]->options = $opciones;
       }
@@ -92,10 +92,7 @@ if ($tipo == "registrar") {
             $nombre = $arrProducto->id_n . "." . $tipoArchivo;
 
             if (move_uploaded_file($archivo, $destino . $nombre)) {
-               $arr_imagen = $objproducto->actualizar_imagen(
-                  $id,
-                  $nombre
-               );
+               $arr_imagen = $objproducto->actualizar_imagen($id, $img);
             } else {
                $arr_Respuesta = array(
                   'status' => true,
