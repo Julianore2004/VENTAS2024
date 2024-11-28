@@ -13,7 +13,7 @@ async function listar_compras() {
             datos.forEach(item => {
                 let nueva_fila = document.createElement("tr");
                 nueva_fila.id = "fila" + item.id;
-                cont+=1
+                cont += 1
                 nueva_fila.innerHTML = `
                  <tr>
                         <th>${cont}</th>
@@ -27,8 +27,8 @@ async function listar_compras() {
                     </tr>
                 `;
                 document.querySelector("#tbl_compras")
-                .appendChild(nueva_fila);
-                
+                    .appendChild(nueva_fila);
+
             });
         };
         console.log(json);
@@ -41,13 +41,13 @@ if (document.querySelector('#tbl_compras')) {
 }
 async function registrar_compras() {
     let producto = document.getElementById('producto').value;
-    let cantidad = document.querySelector('#cantidad').value;
-    let precio = document.querySelector('#precio').value;
-    let trabajador = document.querySelector('#trabajador').value;
+    let cantidad = document.getElementById('cantidad').value;
+    let precio = document.getElementById('precio').value;
+    let trabajador = document.getElementById('trabajador').value;
 
     if (producto == "" || cantidad == "" ||
         precio == "" || trabajador == "") {
-        alert("error, campos vacios")
+        swal.fire("error, campos vacios")
         return;
 
     }

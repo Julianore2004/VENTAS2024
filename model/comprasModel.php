@@ -19,17 +19,21 @@ class comprasModel
         $precio,
         $trabajador
     ) {
-        $sql = $this->conexion->query("CALL insertar_compra
-        ('{$producto}','{$cantidad}','{$precio}','{$trabajador}')");
+        $sql = "INSERT INTO compras (id_producto, cantidad, precio, id_trabajador) VALUES ('{$producto}','{$cantidad}','{$precio}','{$trabajador}')";
+       
+        $resultado = $this->conexion->query($sql);
 
-        if ($sql == false) {
-            print_r(value: $this->conexion->error);
+        if ($resultado) {
+            // Retorna el último ID insertado en caso de éxito
+            return $this->conexion->insert_id;
+        } else {
+            // Imprime un error si ocurre algún problema
+            print_r($this->conexion->error);
+            return false;
         }
-
-
-        $sql = $sql->fetch_object();
-        return $sql;
     }
+    
+
     public function obtener_compras()
     {
         $arrRespuesta = array();

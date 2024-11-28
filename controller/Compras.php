@@ -30,7 +30,7 @@ if ($tipo == "listar_compras") {
          $arr_Compras[$i]->trabajador = $r_trabajador;
 
          $id_Compras = $arr_Compras[$i]->id;
-        
+
          $opciones = '<a href="#" class="btn btn-success"><i class="fa fa-pencil"></i> </a>
                      <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i> </a>';
          $arr_Compras[$i]->options = $opciones;
@@ -55,14 +55,13 @@ if ($tipo == "registrar_compras") {
       ) {
          $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacios');
       } else {
-         $arrProducto = $objCompra->registrarCompras(
+         $arr_Compras = $objCompra->registrarCompras(
             $producto,
             $cantidad,
             $precio,
             $trabajador
          );
-
-         if ($arrProducto->id > 0) {
+         if ($arr_Compras) {
             $arr_Respuesta = array(
                'status' => true,
                'mensaje' => 'Registro Exitoso'
@@ -77,4 +76,3 @@ if ($tipo == "registrar_compras") {
       }
    }
 }
-
