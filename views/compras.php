@@ -11,7 +11,7 @@
 
   /* Contenedor de la tabla */
   .table-container {
-    width: 90%;
+    width: auto;
     max-width: 1200px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);

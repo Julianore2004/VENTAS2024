@@ -11,7 +11,7 @@ $objPersona = new PersonaModel();
 $tipo = $_REQUEST['tipo'];
 
 // listar productos
-if ($tipo == "listar") {
+if ($tipo == "listar_producto") {
    //respuesta 
    $arr_Respuesta = array('status' => false, 'contenido' => '');
    $arr_Producto = $objproducto->obtener_productos();

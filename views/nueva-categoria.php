@@ -1,3 +1,4 @@
+
 <div class="formulario-producto">
     <p>FORMULARIO PARA INSERTAR CATEGORIA</p>
     <form action="" id="frmRegistrar">

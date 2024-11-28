@@ -11,9 +11,11 @@
   /* Estilo del contenedor responsivo */
   .tbc_table-container {
     overflow-x: auto;
+    width: auto;
     max-width: 100%;
+  
   }
-
+ 
   /* Estilo de la tabla */
   .tbc_table {
     width: 100%;
