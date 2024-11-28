@@ -84,7 +84,7 @@ if ($tipo == "registrar") {
          );
 
          if ($arrProducto->id_n > 0) {
-            $newid = $arrProducto->id_n;
+            $id = $arrProducto->id_n;
             $arr_Respuesta = array(
                'status' => true,
                'mensaje' => 'Registro Exitoso'
@@ -93,7 +93,7 @@ if ($tipo == "registrar") {
 
             if (move_uploaded_file($archivo, $destino . $nombre)) {
                $arr_imagen = $objproducto->actualizar_imagen(
-                  $newid,
+                  $id,
                   $nombre
                );
             } else {
