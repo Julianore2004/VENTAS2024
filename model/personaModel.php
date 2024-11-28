@@ -23,11 +23,13 @@ class PersonaModel
         $codigo_postal,
         $direccion,
         $rol,
+        $password,
+
 
     ) {
-        $sql = "INSERT INTO persona (nro_identidad, razon_social, telefono, correo, departamento, provincia, distrito, codigo_postal, direccion, rol) 
+        $sql = "INSERT INTO persona (nro_identidad, razon_social, telefono, correo, departamento, provincia, distrito, codigo_postal, direccion, rol, password) 
         VALUES ('{$nro_identidad}','{$razon_social}','{$telefono}','{$correo}','{$departamento}',
-        '{$provincia}','{$distrito}','{$codigo_postal}','{$direccion}','{$rol}')";
+        '{$provincia}','{$distrito}','{$codigo_postal}','{$direccion}','{$rol}','{$password}')";
 
         $resultado = $this->conexion->query($sql);
 
