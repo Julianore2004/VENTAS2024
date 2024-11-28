@@ -52,7 +52,7 @@
             <a href="/Ventas2024/views/admin/venta/insertar.php">Registrar Venta</a>
         </div>
 
-        <!-- Menú de Pagos -->
+      <!--  Menú de Pagos -->
         <div class="admin-menu-item" onclick="toggleMenu('pagos')">
             <span class="admin-menu-icon">💳</span>Pagos
         </div>
@@ -104,8 +104,8 @@
         <div id="contenido-formulario"></div>
         <button class="boton-cancelar" onclick="ocultarFormulario()">Cancelar</button>
     </div>
-
-    <script>
+ 
+   <!--  <script>
         function mostrarFormulario(url) {
             fetch(`/Ventas2024/views/${url}`)
                 .then(response => response.text())
@@ -128,16 +128,16 @@
             document.getElementById('fondo-opaco').style.display = 'none';
             document.getElementById('contenedor-formulario').style.display = 'none';
         }
-    </script>
-
+    </script> -->
+<!-- 
     <script>
         // Función para mostrar y ocultar submenús con animación suave
         function toggleMenu(id) {
             var submenu = document.getElementById(id);
             submenu.classList.toggle("admin-submenu-active");
         }
-    </script>
-    <script>
+    </script> -->
+  <!--   <script>
         function togglePassword() {
             const passwordField = document.getElementById('password');
             const toggleButton = document.getElementById('togglePasswordButton');
@@ -150,18 +150,18 @@
                 toggleButton.textContent = '👁️';
             }
         }
-    </script>
+    </script> -->
 
 </body>
 
-<script>
+<!-- <script>
     const base_url = "/Ventas2024/"; // Asegúrate de ajustar esta ruta según tu proyecto
-</script>
-<script src="/Ventas2024/views/js/functions_categorias.js"></script>
+</script> -->
+<!-- <script src="/Ventas2024/views/js/functions_categorias.js"></script>
 
 <script src="/Ventas2024/views/js/functions_compras.js"></script>
 <script src="<?php echo BASE_URL ?>views/js/functions_personas.js"></script>
 <script src="/Ventas2024/views/js/functions_productos.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
 
 </html>
