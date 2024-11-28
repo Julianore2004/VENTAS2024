@@ -32,9 +32,9 @@ class ProductoModel
         return $sql;
     }
     
-    public function actualizar_imagen($id, $imagen)
+    public function actualizar_imagen($id, $img)
     {
-        $sql = $this->conexion->query("UPDATE producto SET imagen='{$imagen}' WHERE id='{$id}'");
+        $sql = $this->conexion->query("UPDATE producto SET img='{$img}' WHERE id='{$id}'");
         return 1;
     }
 
