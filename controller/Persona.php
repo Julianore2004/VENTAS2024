@@ -69,7 +69,7 @@ if ($tipo == "registrar") {
 
             );
 
-            if ($arrProducto->id > 0) {
+            if ($arrProducto) {
                 $arr_Respuesta = array(
                     'status' => true,
                     'mensaje' => 'Registro Exitoso'

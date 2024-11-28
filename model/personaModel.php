@@ -23,20 +23,22 @@ class PersonaModel
         $codigo_postal,
         $direccion,
         $rol,
-        $password,
-
 
     ) {
-        $sql = $this->conexion->query("CALL insertar_persona
-        ('{$nro_identidad}','{$razon_social}','{$telefono}','{$correo}','{$departamento}',
-        '{$provincia}','{$distrito}','{$codigo_postal}','{$direccion}','{$rol}','{$password}')");
+        $sql = "INSERT INTO persona (nro_identidad, razon_social, telefono, correo, departamento, provincia, distrito, codigo_postal, direccion, rol) 
+        VALUES ('{$nro_identidad}','{$razon_social}','{$telefono}','{$correo}','{$departamento}',
+        '{$provincia}','{$distrito}','{$codigo_postal}','{$direccion}','{$rol}')";
 
-        if ($sql == false) {
-            print_r(value: $this->conexion->error);
+        $resultado = $this->conexion->query($sql);
+
+        if ($resultado) {
+            // Retorna el último ID insertado en caso de éxito
+            return $this->conexion->insert_id;
+        } else {
+            // Imprime un error si ocurre algún problema
+            print_r($this->conexion->error);
+            return false;
         }
-
-        $sql = $sql->fetch_object();
-        return $sql;
     }
     public function buscarPersonaPorDNI($nro_identidad)
     {
@@ -83,9 +85,8 @@ class PersonaModel
         return $objeto;
     }
     public function obtener_trabajador_por_id($id)
-{
-    $respuesta = $this->conexion->query("SELECT razon_social FROM persona WHERE id = '{$id}'");
-    return $respuesta->fetch_object();
-}
-
+    {
+        $respuesta = $this->conexion->query("SELECT razon_social FROM persona WHERE id = '{$id}'");
+        return $respuesta->fetch_object();
+    }
 }
