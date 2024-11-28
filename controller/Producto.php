@@ -21,17 +21,19 @@ if ($tipo == "listar_producto") {
 
          $id_categoria = $arr_Producto[$i]->id_categoria;
          $r_categoria = $objCategoria->obtener_categoria_por_id($id_categoria);
-         $arr_Producto[$i]->categoria = $r_categoria;
+         $arr_Producto[$i]->categoria = $r_categoria ? $r_categoria : 'Sin categoría';
 
          $id_proveedor = $arr_Producto[$i]->id_proveedor;
          $r_proveedor = $objPersona->obtener_proveedor_por_id($id_proveedor);
-         $arr_Producto[$i]->proveedor = $r_proveedor;
+         $arr_Producto[$i]->proveedor = $r_proveedor ? $r_proveedor : 'Sin proveedor';
+
 
          $id_Producto = $arr_Producto[$i]->id;
          $nombre = $arr_Producto[$i]->nombre;
 
          $opciones = '<a href="#" class="btn btn-success"><i class="fa fa-pencil"></i> </a>
                      <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i> </a>';
+
          $arr_Producto[$i]->options = $opciones;
       }
       $arr_Respuesta['status'] = true;
@@ -63,10 +65,10 @@ if ($tipo == "registrar") {
       } else {
 
          // cargar archivo
-         $archivo = $_FILES["imagen"]["tmp_name"];
+         $archivo = $_FILES["img"]["tmp_name"];
          $destino = '../assets/img_productos/';
          $tipoArchivo = strtolower(pathinfo(
-            $_FILES['imagen']['name'],
+            $_FILES['img']['name'],
             PATHINFO_EXTENSION
          ));
          $arrProducto = $objproducto->registrarProducto(
