@@ -55,4 +55,9 @@ class ProductoModel
         return $objeto;
     }
     
+    public function verProductos($id){
+        $sql = $this->conexion->query("SELECT * FROM producto WHERE id = '{$id}'");
+        $sql = $sql->fetch_object();
+        return $sql;
+    }
 }

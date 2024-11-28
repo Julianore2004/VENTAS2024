@@ -92,7 +92,7 @@ if ($tipo == "registrar") {
             $nombre = $arrProducto->id_n . "." . $tipoArchivo;
 
             if (move_uploaded_file($archivo, $destino . $nombre)) {
-               $arr_imagen = $objproducto->actualizar_imagen($id, $img);
+               $arr_imagen = $objproducto->actualizar_imagen($id_n, $arr_Respuesta);
             } else {
                $arr_Respuesta = array(
                   'status' => true,
@@ -108,4 +108,18 @@ if ($tipo == "registrar") {
          echo json_encode($arr_Respuesta);
       }
    }
+}
+
+if ($tipo == "ver_productos"){
+   /*  print_r($_POST); */
+    $id_Producto = $_POST['id_producto'];
+    $arr_Respuesta = $objproducto->verProductos($id_Producto);
+    /* print_r($arr_Respuesta); */
+    if (empty($arr_Respuesta)) {
+      $response = array('status' => false, 'mensaje' => 'Error, no hay informaion');
+    }else {
+      $response = array('status' => true, 'mensaje' => 'Datos encontrados', 'contenido' => $arr_Respuesta);
+    }
+    echo json_encode($response);
+    
 }
