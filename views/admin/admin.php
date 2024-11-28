@@ -1,13 +1,11 @@
-<?php
-/* session_start(); */
-?>
+<!DOCTYPE html>
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel Administrativo</title>
-
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 
 </head>
 
@@ -19,8 +17,7 @@
             <button class="button">
                 <svg class="svgIcon" viewBox="0 0 384 512">
                     <path
-                        d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z">
-                    </path>
+                        d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"></path>
                 </svg>
             </button>
         </a>
@@ -34,7 +31,7 @@
             <span class="admin-menu-icon">📁</span>Categorías
         </div>
         <div class="admin-submenu" id="categorias">
-            <a href="#" onclick="cargarVista('categorias.php')">Ver Compras</a>
+            <a href="/Ventas2024/views/admin/categoria/listar.php">Ver Categorías</a>
             <a href="#" onclick="mostrarFormulario('nueva-categoria.php')">Registrar Categoría</a>
         </div>
         <!-- Menú de Compras -->
@@ -42,8 +39,7 @@
             <span class="admin-menu-icon">🛒</span>Compras
         </div>
         <div class="admin-submenu" id="compras">
-            <a href="#" onclick="cargarVista('compras.php')">Ver Compras</a>
-
+            <a href="/Ventas2024/views/admin/compras/listar.php">Ver Compras</a>
             <a href="#" onclick="mostrarFormulario('nueva-compra.php')">Registrar Compra</a>
         </div>
 
@@ -110,26 +106,6 @@
     </div>
 
     <script>
-        function cargarVista(ruta) {
-            fetch(`/Ventas2024/views/${ruta}`)
-                .then((response) => {
-                    if (!response.ok) throw new Error("Error al cargar la vista");
-                    return response.text();
-                })
-                .then((html) => {
-                    document.querySelector('.admin-content').innerHTML = html;
-
-                    // Ejecuta funciones específicas después de cargar la vista
-                    if (ruta === 'compras.php') {
-                        console.log("Cargando funciones para la vista de compras...");
-                        listar_trabajadores();
-                        listar_productos();
-                    }
-                })
-                .catch((error) => console.error("Error al cargar la vista:", error));
-        }
-
-
         function mostrarFormulario(url) {
             fetch(`/Ventas2024/views/${url}`)
                 .then(response => response.text())
@@ -182,10 +158,10 @@
     const base_url = "/Ventas2024/"; // Asegúrate de ajustar esta ruta según tu proyecto
 </script>
 <script src="/Ventas2024/views/js/functions_categorias.js"></script>
-<script src="<?php echo BASE_URL ?>views/js/functions_categorias.js"></script>
-
 
 <script src="/Ventas2024/views/js/functions_compras.js"></script>
 <script src="<?php echo BASE_URL ?>views/js/functions_personas.js"></script>
 <script src="/Ventas2024/views/js/functions_productos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</html>
