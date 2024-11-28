@@ -48,15 +48,15 @@ if (document.querySelector('#tbl_personas')) {
 async function registrar_personas() {
 
     let nro_identidad = document.getElementById('nro_identidad').value;
-    let razon_social = document.querySelector('#razon_social').value;
-    let telefono = document.querySelector('#telefono').value;
-    let correo = document.querySelector('#correo').value;
-    let departamento = document.querySelector('#departamento').value;
-    let provincia = document.querySelector('#provincia').value;
-    let distrito = document.querySelector('#distrito').value;
-    let codigo_postal = document.querySelector('#codigo_postal').value;
-    let direccion = document.querySelector('#direccion').value;
-    let rol = document.querySelector('#rol').value;
+    let razon_social = document.getElementById('razon_social').value;
+    let telefono = document.getElementById('telefono').value;
+    let correo = document.getElementById('correo').value;
+    let departamento = document.getElementById('departamento').value;
+    let provincia = document.getElementById('provincia').value;
+    let distrito = document.getElementById('distrito').value;
+    let codigo_postal = document.getElementById('codigo_postal').value;
+    let direccion = document.getElementById('direccion').value;
+    let rol = document.getElementById('rol').value;
 
 
     if (nro_identidad == "" || razon_social == "" || telefono == "" ||
