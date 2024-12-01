@@ -82,6 +82,7 @@ if ($tipo == "registrar") {
             $proveedor,
             $tipoArchivo
          );
+         
 
          if ($arrProducto->id_n > 0) {
             $id = $arrProducto->id_n;
@@ -91,13 +92,10 @@ if ($tipo == "registrar") {
             );
             $nombre = $arrProducto->id_n . "." . $tipoArchivo;
 
-            if (move_uploaded_file($archivo, $destino . $nombre)) {
-               $arr_imagen = $objproducto->actualizar_imagen($id_n, $arr_Respuesta);
+            
+            if (move_uploaded_file($archivo, $destino . '' . $nombre)) {
             } else {
-               $arr_Respuesta = array(
-                  'status' => true,
-                  'mensaje' => 'Registro Exitoso'
-               );
+                $arr_Respuesta = array('status' => true, 'mensaje' => 'Registro Exitoso, error al subir imagen');
             }
          } else {
             $arr_Respuesta = array(

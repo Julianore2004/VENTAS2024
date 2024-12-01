@@ -99,7 +99,7 @@ async function listar_trabajadores() {
 async function listar_productos() {
     try {
         let respuesta = await fetch(base_url +
-            'controller/Producto.php?tipo=listar');
+            'controller/Producto.php?tipo=listar_producto');
         json = await respuesta.json();
         if (json.status) {
             let datos = json.contenido;

@@ -14,23 +14,31 @@ class ProductoModel
             $this->conexion->connect();
     }
     public function registrarProducto(
-        $codigo,
-        $nombre,
-        $detalle,
-        $precio,
-        $stock,
-        $categoria,
-        $img,
-        $proveedor,
-        $tipoArchivo
-        
-    ) {
-        $sql = $this->conexion->query("CALL insertProducto
-        ('{$codigo}','{$nombre}','{$detalle}','{$precio}','{$stock}',
-        '{$categoria}','{$img}','{$proveedor}','{$tipoArchivo}')");
-        $sql = $sql->fetch_object();
-        return $sql;
+    $codigo,
+    $nombre,
+    $detalle,
+    $precio,
+    $stock,
+    $categoria,
+    $img,
+    $proveedor,
+    $tipoArchivo
+) {
+    // Ejecutar la consulta
+    $sql = $this->conexion->query("CALL insertProducto(
+        '{$codigo}', '{$nombre}', '{$detalle}', '{$precio}', '{$stock}', 
+        '{$categoria}', '{$img}', '{$proveedor}', '{$tipoArchivo}')");
+
+    // Validar si la consulta fue exitosa
+    if (!$sql) {
+        // Imprimir el error de MySQL para depuración
+        die("Error en la consulta: " . $this->conexion->error);
     }
+
+    // Retornar los resultados si la consulta es válida
+    return $sql->fetch_object();
+}
+
     
     public function actualizar_imagen($id, $img)
     {
