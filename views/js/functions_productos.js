@@ -53,7 +53,7 @@ async function registrar_producto() {
     if (codigo == "" || nombre == "" || detalle == "" ||
         precio == "" || stock == "" || categoria == "" ||
         img == "" || proveedor == "") {
-        alert("error, campos vacios")
+            swal.fire("error, campos vacios");
         return;
 
     }

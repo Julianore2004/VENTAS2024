@@ -47,7 +47,7 @@ async function registrar_compras() {
 
     if (producto == "" || cantidad == "" ||
         precio == "" || trabajador == "") {
-        swal.fire("error, campos vacios")
+        swal.fire("error, campos vacios");
         return;
 
     }

@@ -48,7 +48,7 @@ async function registrar_categoria() {
     try {
         const datos = new FormData(document.getElementById('frmRegistrar'));
 
-        let respuesta = await fetch(`${base_url}controller/Categoria.php?tipo=registrar_categoria`, {
+        let respuesta = await fetch(base_url + 'controller/Categoria.php?tipo=registrar_categoria', {
             method: 'POST',
             mode: 'cors',
             cache: 'no-cache',

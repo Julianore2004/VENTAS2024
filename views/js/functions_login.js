@@ -3,7 +3,7 @@ async function iniciar_sesion() {
     let password = document.querySelector('#password');
 
     if (usuario == "" || password == "") {
-        alert("Error, campos vacíos");
+        swal.fire("error, campos vacios");
         return;
     }
     try {

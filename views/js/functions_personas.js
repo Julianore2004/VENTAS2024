@@ -63,7 +63,7 @@ async function registrar_personas() {
         correo == "" || departamento == "" || provincia == "" ||
         distrito == "" || codigo_postal == "" || razon_social == "" || direccion == "" ||
         rol == "" /* || password == "" */) {
-        alert("error, campos vacios")
+            swal.fire("error, campos vacios");
         return;
 
     }

@@ -1,21 +1,9 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
---
--- Servidor: localhost:3306
--- Tiempo de generación: 28-11-2024 a las 13:00:59
--- Versión del servidor: 10.6.18-MariaDB-cll-lve
--- Versión de PHP: 8.1.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de datos: `importec_ventas-julian`
@@ -309,11 +297,6 @@ END$$
 
 DELIMITER ;
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `categoria`
---
 
 CREATE TABLE `categoria` (
   `id` int(11) NOT NULL,
@@ -321,27 +304,6 @@ CREATE TABLE `categoria` (
   `detalle` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish2_ci;
 
---
--- Volcado de datos para la tabla `categoria`
---
-
-INSERT INTO `categoria` (`id`, `nombre`, `detalle`) VALUES
-(1, 'polos', 'fdfxasxhabsc'),
-(2, 'qwq', 'wq'),
-(3, 'xxx', 'wq'),
-(4, 'qwq', 'wq'),
-(5, 'qwq', 'wq'),
-(6, 'aa', 'wq'),
-(7, 'aa', 'wq'),
-(8, 'aa', 'wq'),
-(9, 'ASD', 'AD'),
-(10, 'SAMSUNGaa', '11');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `compras`
---
 
 CREATE TABLE `compras` (
   `id` int(11) NOT NULL,
@@ -352,19 +314,7 @@ CREATE TABLE `compras` (
   `id_trabajador` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish2_ci;
 
---
--- Volcado de datos para la tabla `compras`
---
 
-INSERT INTO `compras` (`id`, `id_producto`, `cantidad`, `precio`, `fecha_compra`, `id_trabajador`) VALUES
-(12, 3, 12, 12.00, '2024-11-26 00:00:00', 3),
-(13, 3, 10, 123.00, '2024-11-28 09:44:48', 3);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `det_venta`
---
 
 CREATE TABLE `det_venta` (
   `id` int(11) NOT NULL,
@@ -373,11 +323,6 @@ CREATE TABLE `det_venta` (
   `cantidad` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish2_ci;
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `pagos`
---
 
 CREATE TABLE `pagos` (
   `id` int(11) NOT NULL,
@@ -388,18 +333,10 @@ CREATE TABLE `pagos` (
   `estado` int(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish2_ci;
 
---
--- Volcado de datos para la tabla `pagos`
---
+
 
 INSERT INTO `pagos` (`id`, `id_venta`, `fecha`, `monto`, `metodo_pago`, `estado`) VALUES
 (4, 1, '0000-00-00 00:00:00', 45.00, 'zsxcfgh', 1);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `persona`
---
 
 CREATE TABLE `persona` (
   `id` int(11) NOT NULL,
@@ -418,24 +355,6 @@ CREATE TABLE `persona` (
   `fecha_reg` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish2_ci;
 
---
--- Volcado de datos para la tabla `persona`
---
-
-INSERT INTO `persona` (`id`, `nro_identidad`, `razon_social`, `telefono`, `correo`, `departamento`, `provincia`, `distrito`, `codigo_postal`, `direccion`, `rol`, `password`, `estado`, `fecha_reg`) VALUES
-(1, '71422955', 'hascansjic', '982120236', 'julianore79@gmail.com', 'ayacucho', 'huanta', 'luricocha', 6165661, 'pichiurara', 'proveedor', '123456', 1, '2024-09-19 12:18:28'),
-(3, '71422955', 'julian', '982120236', 'julianore79@gmail.com', 'Ayacucho', 'huanta', 'luricocha', 986598, 'e4sdrtyu', 'trabajador', '12', 0, '2024-09-25 15:43:03'),
-(4, '71422954', 'SSDFGHJ', '982120236', 'julianore79@gmail.com', 'Ayacucho', 'huanta', 'luricocha', 986598, 'e4sdrtyu', 'ADMIN', '12', 1, '2024-09-26 08:36:52'),
-(5, 'admin', 'julian', '23456', '2334', '2434', '2134', '2332', 12441, '12332', 'Trabajador', '$2y$10$G/Kt04GHci0Hx4yxpxjuaeKEBvaW3tB.jCnhQbxtz79WGD2W7l58i', 0, '2024-11-11 08:54:31'),
-(6, '71422955111', '1', '1', '1', '1', '1', '1', 1, '1', 'Trabajador', '$2y$10$G51SgjMAdOeF30ug2UYNRem1PCaDUwz0R2uNFEF/VX.el7z08lByy', 1, '2024-11-28 10:15:42'),
-(7, '71422955', 'Juan Julian', '54325230', 'julianore79@gmail.com', 'Ayacucho', 'Huanta', 'Luricocha', 212, 'Av.jose olaya 215', 'Trabajador', '$2y$10$6iVg1EaIfrnqtoN22CcEpOz2L3/1H0im9e1I9JGaisHIKPUpay3kq', 1, '2024-11-28 10:51:18');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `producto`
---
-
 CREATE TABLE `producto` (
   `id` int(11) NOT NULL,
   `codigo` varchar(20) NOT NULL,
@@ -449,28 +368,6 @@ CREATE TABLE `producto` (
   `tipoarchivo` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish2_ci;
 
---
--- Volcado de datos para la tabla `producto`
---
-
-INSERT INTO `producto` (`id`, `codigo`, `nombre`, `detalle`, `precio`, `stock`, `id_categoria`, `img`, `id_proveedor`, `tipoarchivo`) VALUES
-(3, '123454', 'polo', 'polo rojo', 60.99, 100, 1, '2024/12/12', 1, ''),
-(4, '101010', '101010', '101010', 100.00, 100, 1, 'imagen', 1, ''),
-(5, '12q', 'yea', '1', 123.00, 11, 10, '5.', 1, ''),
-(6, '12', 'admin', 'rojos', 123.00, 32, 10, '6.png', 1, 'png'),
-(7, '121', 'admin', 'rojos', 123.00, 32, 10, '7.png', 1, 'png'),
-(8, '1212', 'admin', 'rojos', 123.00, 32, 10, '8.png', 1, 'png'),
-(9, '121221', 'SAMSUNG', '21', 12.00, 12, 9, '9.png', 1, 'png'),
-(10, '1212211', 'SAMSUNG', '21', 12.00, 12, 9, '10.png', 1, 'png'),
-(11, '001aaaa', 'Julians', '12', 21.00, 12, 9, '11.png', 1, 'png'),
-(12, '12121212', '122', 'rojos', 12.00, 12, 8, '12.png', 1, 'png'),
-(13, '12qas', 'admin', 'aq', 21.00, 212, 10, '13.png', 1, 'png');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `sesiones`
---
 
 CREATE TABLE `sesiones` (
   `id` int(11) NOT NULL,
@@ -481,11 +378,6 @@ CREATE TABLE `sesiones` (
   `ip` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish2_ci;
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `venta`
---
 
 CREATE TABLE `venta` (
   `id` int(11) NOT NULL,
@@ -496,146 +388,83 @@ CREATE TABLE `venta` (
   `estado` int(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish2_ci;
 
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `categoria`
---
 ALTER TABLE `categoria`
   ADD PRIMARY KEY (`id`);
 
---
--- Indices de la tabla `compras`
---
 ALTER TABLE `compras`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_producto` (`id_producto`),
   ADD KEY `id_trabajador` (`id_trabajador`);
 
---
--- Indices de la tabla `det_venta`
---
+
 ALTER TABLE `det_venta`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_venta` (`id_venta`),
   ADD KEY `id_producto` (`id_producto`);
 
---
--- Indices de la tabla `pagos`
---
+
 ALTER TABLE `pagos`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_venta` (`id_venta`);
 
---
--- Indices de la tabla `persona`
---
 ALTER TABLE `persona`
   ADD PRIMARY KEY (`id`);
 
---
--- Indices de la tabla `producto`
---
+
 ALTER TABLE `producto`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_categoria` (`id_categoria`),
   ADD KEY `id_proveedor` (`id_proveedor`);
 
---
--- Indices de la tabla `sesiones`
---
 ALTER TABLE `sesiones`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_persona` (`id_persona`);
 
---
--- Indices de la tabla `venta`
---
 ALTER TABLE `venta`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_cliente` (`id_cliente`),
   ADD KEY `id_vendedor` (`id_vendedor`);
 
---
--- AUTO_INCREMENT de las tablas volcadas
---
 
---
--- AUTO_INCREMENT de la tabla `categoria`
---
 ALTER TABLE `categoria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
---
--- AUTO_INCREMENT de la tabla `compras`
---
 ALTER TABLE `compras`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
---
--- AUTO_INCREMENT de la tabla `det_venta`
---
+
 ALTER TABLE `det_venta`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT de la tabla `pagos`
---
 ALTER TABLE `pagos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
---
--- AUTO_INCREMENT de la tabla `persona`
---
 ALTER TABLE `persona`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
---
--- AUTO_INCREMENT de la tabla `producto`
---
 ALTER TABLE `producto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
---
--- AUTO_INCREMENT de la tabla `sesiones`
---
+
 ALTER TABLE `sesiones`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
---
--- AUTO_INCREMENT de la tabla `venta`
---
+
 ALTER TABLE `venta`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `compras`
---
 ALTER TABLE `compras`
   ADD CONSTRAINT `compras_ibfk_1` FOREIGN KEY (`id_trabajador`) REFERENCES `persona` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `compras_ibfk_2` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id`) ON UPDATE CASCADE;
 
---
--- Filtros para la tabla `det_venta`
---
+
 ALTER TABLE `det_venta`
   ADD CONSTRAINT `det_venta_ibfk_1` FOREIGN KEY (`id_venta`) REFERENCES `venta` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `det_venta_ibfk_2` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id`) ON UPDATE CASCADE;
 
---
--- Filtros para la tabla `producto`
---
+
 ALTER TABLE `producto`
   ADD CONSTRAINT `producto_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`id_proveedor`) REFERENCES `persona` (`id`) ON UPDATE CASCADE;
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+ 

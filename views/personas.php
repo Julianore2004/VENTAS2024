@@ -88,6 +88,7 @@
       color: #0078d7;
     }
   }
+
 </style>
 
 <div class="bodyverproducTBC">
@@ -95,7 +96,7 @@
     <table class="tbc_table">
       <thead>
         <tr>
-          <th>Id</th>
+          <th class="asas">Id</th>
           <th>Nro Identidad</th>
           <th>Razón Social</th>
           <th>Teléfono</th>

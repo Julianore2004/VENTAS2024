@@ -10,6 +10,8 @@ $objPersona = new PersonaModel();
 
 $tipo = $_REQUEST['tipo'];
 
+
+
 // listar productos
 if ($tipo == "listar_producto") {
    //respuesta 
