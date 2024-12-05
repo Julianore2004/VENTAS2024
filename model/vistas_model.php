@@ -35,7 +35,10 @@ class vistaModelo
             'categorias',
             'personas',
             'compras',
-            'editar-producto'
+            'editar-producto',
+            'editar-categoria',
+            'editar-persona',
+            'editar-compra'
         ];
         /*   if (!isset($_SESSION['sesion_venta_id'])) {
             return "login";

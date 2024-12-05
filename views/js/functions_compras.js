@@ -115,4 +115,33 @@ async function listar_productos() {
         console.error("Error al cargar producto: " + e);
 
     }
+}async function ver_compras(id) {
+
+    const formData = new FormData();
+
+    formData.append('id_compra', id);
+
+    try {
+        let respuesta = await fetch(base_url + 'controller/Compras.php?tipo=ver_compras', {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            body: formData
+        });
+        json = await respuesta.json();
+        if (json.status) {
+            document.getElementById('producto').value = json.contenido.id_producto;
+            document.getElementById('cantidad').value = json.contenido.cantidad;
+            document.getElementById('precio').value = json.contenido.precio;
+            document.getElementById('trabajador').value = json.contenido.id_trabajador;
+            
+        } else {
+            window.location = base_url + "compras";
+        }
+        console.log(json);
+    } catch (error) {
+        console.log("Ops ocurrio un error" + error);
+
+    }
+
 }

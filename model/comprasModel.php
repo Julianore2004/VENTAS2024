@@ -45,4 +45,10 @@ class comprasModel
         return $arrRespuesta;
     }
     
+    public function verCompras($id){
+        $sql = $this->conexion->query("SELECT * FROM compras WHERE id = '{$id}'");
+        $sql = $sql->fetch_object();
+        return $sql;
+    }
+    
 }

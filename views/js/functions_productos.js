@@ -53,7 +53,7 @@ async function registrar_producto() {
     if (codigo == "" || nombre == "" || detalle == "" ||
         precio == "" || stock == "" || categoria == "" ||
         img == "" || proveedor == "") {
-            swal.fire("error, campos vacios");
+        swal.fire("error, campos vacios");
         return;
 
     }
@@ -169,12 +169,13 @@ async function ver_producto(id) {
         });
         json = await respuesta.json();
         if (json.status) {
-          
+            document.querySelector('#codigo').value = json.contenido.codigo;
             document.querySelector('#nombre').value = json.contenido.nombre;
             document.querySelector('#detalle').value = json.contenido.detalle;
             document.querySelector('#precio').value = json.contenido.precio;
-            document.querySelector('#categoria').value = json.contenido.categoria;
-            document.querySelector('#proveedor').value = json.contenido.proveedor;
+            document.querySelector('#categoria').value = json.contenido.id_categoria;
+            document.querySelector('#proveedor').value = json.contenido.id_proveedor;
+
         } else {
             window.location = base_url + "productos";
         }
@@ -185,3 +186,35 @@ async function ver_producto(id) {
     }
 
 }
+
+async function actualizar_producto() {
+
+    try {
+        const datos = new FormData(document.getElementById('frmEditar'));
+        let respuesta = await fetch(base_url + 'controller/Producto.php?tipo=actualizar', {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            body: datos
+        });
+        // convertimos la respuesta en formato JSON
+        json = await respuesta.json();
+        if (json.status) {
+            swal.fire("Registro exitoso", json.mensaje, 'success');
+
+        } else {
+            swal.fire("Registro fallido", json.mensaje, 'error');
+        }
+
+        //console.log(json);
+        console.log(json);
+
+
+    } catch (e) {
+        console.log("Oops, ocurrio un error" + e)
+    }
+}
+
+
+
+

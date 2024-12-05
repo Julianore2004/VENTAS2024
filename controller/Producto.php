@@ -84,7 +84,7 @@ if ($tipo == "registrar") {
             $proveedor,
             $tipoArchivo
          );
-         
+
 
          if ($arrProducto->id_n > 0) {
             $id = $arrProducto->id_n;
@@ -94,10 +94,10 @@ if ($tipo == "registrar") {
             );
             $nombre = $arrProducto->id_n . "." . $tipoArchivo;
 
-            
+
             if (move_uploaded_file($archivo, $destino . '' . $nombre)) {
             } else {
-                $arr_Respuesta = array('status' => true, 'mensaje' => 'Registro Exitoso, error al subir imagen');
+               $arr_Respuesta = array('status' => true, 'mensaje' => 'Registro Exitoso, error al subir imagen');
             }
          } else {
             $arr_Respuesta = array(
@@ -110,16 +110,74 @@ if ($tipo == "registrar") {
    }
 }
 
-if ($tipo == "ver_productos"){
+if ($tipo == "ver_productos") {
    /*  print_r($_POST); */
-    $id_Producto = $_POST['id_producto'];
-    $arr_Respuesta = $objproducto->verProductos($id_Producto);
-    /* print_r($arr_Respuesta); */
-    if (empty($arr_Respuesta)) {
+   $id_Producto = $_POST['id_producto'];
+   $arr_Respuesta = $objproducto->verProductos($id_Producto);
+   /* print_r($arr_Respuesta); */
+   if (empty($arr_Respuesta)) {
       $response = array('status' => false, 'mensaje' => 'Error, no hay informaion');
-    }else {
+   } else {
       $response = array('status' => true, 'mensaje' => 'Datos encontrados', 'contenido' => $arr_Respuesta);
-    }
-    echo json_encode($response);
-    
+   }
+   echo json_encode($response);
+}
+
+if ($tipo == "actualizar") {
+   /*  print_r($_POST);
+   print_r($_FILES['img']['tmp_name']);
+ */
+   if ($_POST) {
+
+      $id_Producto = $_POST['id_producto'];
+      $img = $_POST['img'];
+      /* $codigo = $_POST['codigo']; */
+      $nombre = $_POST['nombre'];
+      $detalle = $_POST['detalle'];
+      $precio = $_POST['precio'];
+      $categoria = $_POST['categoria'];
+      $img = 'img';
+      $proveedor = $_POST['proveedor'];
+
+      if (
+         /* $codigo == '' ||  */$nombre == '' || $detalle == '' || $precio == '' ||
+         $categoria == '' || $img == '' || $proveedor == ''
+      ) {
+         $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacios');
+      } else {
+
+         $arrProducto = $objproducto->editarProducto(
+            $id_Producto,
+            $nombre,
+            $detalle,
+            $precio,        
+            $categoria,
+            $proveedor,
+         );
+         if ($arrProducto->p_id > 0) {
+            $id = $arrProducto->p_id;
+            $arr_Respuesta = array(
+               'status' => true,
+               'mensaje' => 'Registro Exitoso'
+            );
+            if ($_FILES['img']['tmp_name'] != "") {
+               unlink('../assets/img_productos/' . $img);
+            }
+
+            // cargar archivo
+            $archivo = $_FILES["img"]["tmp_name"];
+            $destino = '../assets/img_productos/';
+            $tipoArchivo = strtolower(pathinfo(
+               $_FILES['img']['name'],
+               PATHINFO_EXTENSION
+            ));
+            if (move_uploaded_file($archivo, $destino . '' . $nombre/*  . '.' . $id_Producto . '.' . $tipoArchivo */)) {
+            }
+         } else {
+            $arr_Respuesta = array('status' => true, 'mensaje' => 'Registro Exitoso, error al subir imagen');
+         }
+      }
+
+      echo json_encode($arr_Respuesta);
+   }
 }

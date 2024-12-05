@@ -16,8 +16,9 @@ if ($tipo == "listar_persona") {
             $id_Persona = $arr_Persona[$i]->id;
             $razon_social = $arr_Persona[$i]->razon_social;
 
-            $opciones = '<a href="#" class="btn btn-success"><i class="fa fa-pencil"></i> </a>
-                      <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i> </a>';
+            $opciones = '<a href="' . BASE_URL . 'editar-persona/' . $id_Persona . '" class="btn btn-success"><i class="fa fa-pencil"> </i> </a>
+            <a href="" class="btn btn-danger"><i class="fa fa-trash"> <button onclick="eliminar-producto(' . $id_Persona . ');" class="fa fa-trash> </button></i> </a>';
+
             $arr_Persona[$i]->options = $opciones;
         }
         $arr_Respuesta['status'] = true;
@@ -121,3 +122,18 @@ if ($tipo == "listar_proveedores") {
     }
     echo json_encode($arr_Respuesta);
 }
+
+
+if ($tipo == "ver_persona"){
+    /*  print_r($_POST); */
+     $id_Persona = $_POST['id_persona'];
+     $arr_Respuesta = $objPersona->verPersonas($id_Persona);
+     /* print_r($arr_Respuesta); */
+     if (empty($arr_Respuesta)) {
+       $response = array('status' => false, 'mensaje' => 'Error, no hay informaion');
+     }else {
+       $response = array('status' => true, 'mensaje' => 'Datos encontrados', 'contenido' => $arr_Respuesta);
+     }
+     echo json_encode($response);
+     
+ }

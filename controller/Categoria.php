@@ -6,9 +6,6 @@ $objCategoria = new CategoriaModel();
 
 $tipo = $_REQUEST['tipo'];
 
-// Instanciar la clase CategoriaModel
-
-$tipo = $_REQUEST['tipo'];
 
 
 if ($tipo == "listar") {
@@ -21,8 +18,9 @@ if ($tipo == "listar") {
             $id_categoria = $arr_Categorias[$i]->id;
             $nombre = $arr_Categorias[$i]->nombre;
 
-            $opciones = '<a href="#" class="btn btn-success"><i class="fa fa-pencil"></i> </a>
-         <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i> </a>';
+            $opciones = '<a href="' . BASE_URL . 'editar-categoria/' . $id_categoria . '" class="btn btn-success"><i class="fa fa-pencil"> </i> </a>
+            <a href="" class="btn btn-danger"><i class="fa fa-trash"> <button onclick="eliminar-producto(' . $id_categoria . ');" class="fa fa-trash> </button></i> </a>';
+
             $arr_Categorias[$i]->options = $opciones;
         }
         $arr_Respuesta['status'] = true;
@@ -53,5 +51,17 @@ if ($tipo == "registrar_categoria") {
         }
     }
 }
-
+if ($tipo == "ver_categorias"){
+    /*  print_r($_POST); */
+     $id_categoria = $_POST['id_categoria'];
+     $arr_Respuesta = $objCategoria->verCategorias($id_categoria);
+     /* print_r($arr_Respuesta); */
+     if (empty($arr_Respuesta)) {
+       $response = array('status' => false, 'mensaje' => 'Error, no hay informaion');
+     }else {
+       $response = array('status' => true, 'mensaje' => 'Datos encontrados', 'contenido' => $arr_Respuesta);
+     }
+     echo json_encode($response);
+     
+ }
 ?>

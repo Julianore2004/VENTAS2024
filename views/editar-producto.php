@@ -1,7 +1,17 @@
 <link rel="stylesheet" href="../css/style.css">
 <div class="formulario-producto">
     <p>FORMULARIO PARA EDITAR PRODUCTO</p>
-    <form action="" id="frmRegistrar">
+    <form action="" id="frmEditar">
+        <div class="campo-contenedor">
+            <input type="hidden" name="id_producto" id="id_producto">
+        </div>
+        <div class="campo-contenedor">
+            <input type="hidden" name="img" id="img">
+        </div>
+            <div class="campo-contenedor">
+            <label for="codigo" class="etiqueta-flotante">Código:</label>
+            <input type="text" name="codigo" id="codigo" class="entrada-destacada" readonly>
+        </div>
         <div class="campo-contenedor">
             <label for="nombre" class="etiqueta-flotante">Nombre:</label>
             <input type="text" name="nombre" id="nombre" class="entrada-destacada">
@@ -28,10 +38,10 @@
 
             <label for="proveedor" class="etiqueta-flotante">Proveedor:</label>
             <select name="proveedor" id="proveedor" class="entrada-destacada">
-                <option class="entrada-destacada">Seleccione</option>
+
             </select>
         </div>
-        <button type="button" class="boton-registro" onclick="registrar_producto();">Registrar</button>
+        <button type="button" class="boton-registro" onclick="actualizar_producto();">Actualizar</button>
     </form>
 </div>
 

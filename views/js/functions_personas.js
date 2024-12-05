@@ -83,3 +83,37 @@ async function registrar_personas() {
         console.error("Oops, ocurrió un error", e);
     }
 }
+async function ver_persona(id) {
+
+    const formData = new FormData();
+
+    formData.append('id_persona', id);
+
+    try {
+        let respuesta = await fetch(base_url + 'controller/Persona.php?tipo=ver_persona', {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            body: formData
+        });
+        json = await respuesta.json();
+        if (json.status) {
+            document.querySelector('#nro_identidad').value = json.contenido.nro_identidad;
+            document.querySelector('#razon_social').value = json.contenido.razon_social;
+            document.querySelector('#telefono').value = json.contenido.telefono;
+            document.querySelector('#correo').value = json.contenido.correo;
+            document.querySelector('#departamento').value = json.contenido.departamento;
+            document.querySelector('#provincia').value = json.contenido.provincia;
+            document.querySelector('#distrito').value = json.contenido.distrito;
+            document.querySelector('#codigo_postal').value = json.contenido.codigo_postal;
+            document.querySelector('#direccion').value = json.contenido.direccion;
+            document.querySelector('#rol').value = json.contenido.rol;
+        } else {
+            window.location = base_url + "personas";
+        }
+        console.log(json);
+    } catch (error) {
+        console.log("Ops ocurrio un error" + error);
+
+    }
+}

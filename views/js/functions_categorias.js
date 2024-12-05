@@ -69,3 +69,33 @@ async function registrar_categoria() {
 
 
 }
+async function ver_categoria(id) {
+
+    const formData = new FormData();
+
+    formData.append('id_categoria', id);
+
+    try {
+        let respuesta = await fetch(base_url + 'controller/Categoria.php?tipo=ver_categorias', {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            body: formData
+        });
+        json = await respuesta.json();
+        if (json.status) {
+          
+            document.querySelector('#nombre').value = json.contenido.nombre;
+            document.querySelector('#detalle').value = json.contenido.detalle;
+   
+        } else {
+            window.location = base_url + "categorias";
+        }
+        console.log(json);
+    } catch (error) {
+        console.log("Ops ocurrio un error" + error);
+
+    }
+
+}
+
