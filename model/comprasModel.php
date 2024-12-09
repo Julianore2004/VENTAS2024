@@ -45,21 +45,32 @@ class comprasModel
     }
 
     
-    public function verCompras($id){
+    public function verCompras($id) {
         $sql = $this->conexion->query("SELECT * FROM compras WHERE id = '{$id}'");
-        $sql = $sql->fetch_object();
-        return $sql;
+        return $sql->fetch_object();
     }
-    public function actualizarCompra($id, $producto, $cantidad, $precio, $trabajador)
-    {
-        $sql = $this->conexion->query("CALL actualizarCompra('{$id}', '{$producto}', '{$cantidad}', '{$precio}', '{$trabajador}')");
     
+    public function actualizarCompra($id, $producto, $cantidad, $precio, $trabajador)
+{
+    $sql = $this->conexion->query("UPDATE compras SET id_producto = '{$producto}', cantidad = '{$cantidad}', precio = '{$precio}', id_trabajador = '{$trabajador}' WHERE id = '{$id}'");
+
+    if (!$sql) {
+        die("Error en la consulta: " . $this->conexion->error);
+    }
+
+    return $sql;
+}
+
+
+    
+    public function eliminarCompra($id)
+    {
+        $sql = $this->conexion->query("CALL eliminar_compra('{$id}')");
+
         if (!$sql) {
             die("Error en la consulta: " . $this->conexion->error);
         }
-    
+
         return $sql;
     }
-    
-
 }

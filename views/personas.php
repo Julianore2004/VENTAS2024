@@ -90,9 +90,17 @@
   }
 
 </style>
-
+<link rel="stylesheet" href="../css/style.css"> 
 <div class="bodyverproducTBC">
+
   <div class="tbc_table-container">
+  <a href="<?php echo BASE_URL ?>nueva-persona">
+ 
+      </svg>
+      <span>REGISTRAR NUEVA PERSONA</span>
+   
+  
+  </a>
     <table class="tbc_table">
       <thead>
         <tr>

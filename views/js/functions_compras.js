@@ -1,6 +1,5 @@
 
-// Función para listar los productos
-// Función para listar los productos
+
 async function listar_compras() {
     try {
         let respuesta = await fetch(base_url + 'controller/Compras.php?tipo=listar_compras');
@@ -71,52 +70,42 @@ async function registrar_compras() {
         console.log("Oops, ocurrió un error: " + e);
     }
 }
-
-// listar proveedores en compras
 async function listar_trabajadores() {
     try {
-        let respuesta = await fetch(base_url +
-            'controller/Persona.php?tipo=listar_trabajadores');
-        json = await respuesta.json();
+        let respuesta = await fetch(base_url + 'controller/Persona.php?tipo=listar_trabajadores');
+        let json = await respuesta.json();
         if (json.status) {
             let datos = json.contenido;
             let contenido_select = '<option value="">Seleccione</option>';
             datos.forEach(element => {
                 contenido_select += '<option value="' + element.id + '">' + element.razon_social + '</option>';
             });
-
-            document.getElementById('trabajador').innerHTML =
-                contenido_select;
+            document.getElementById('trabajador').innerHTML = contenido_select;
         }
     } catch (e) {
-        console.log("Error al cargar trabajador: " + e);
-
+        console.log("Error al cargar trabajadores: " + e);
     }
 }
-// listar productos en compras
+
 async function listar_productos() {
     try {
-        let respuesta = await fetch(base_url +
-            'controller/Producto.php?tipo=listar_producto');
-        json = await respuesta.json();
+        let respuesta = await fetch(base_url + 'controller/Producto.php?tipo=listar_producto');
+        let json = await respuesta.json();
         if (json.status) {
             let datos = json.contenido;
             let contenido_select = '<option value="">Seleccione</option>';
             datos.forEach(element => {
                 contenido_select += '<option value="' + element.id + '">' + element.nombre + '</option>';
             });
-
-            document.getElementById('producto').innerHTML =
-                contenido_select;
+            document.getElementById('producto').innerHTML = contenido_select;
         }
     } catch (e) {
-        console.log("Error al cargar producto: " + e);
-
+        console.log("Error al cargar productos: " + e);
     }
-}async function ver_compras(id) {
+}
 
+async function ver_compras(id) {
     const formData = new FormData();
-
     formData.append('id_compra', id);
 
     try {
@@ -126,25 +115,26 @@ async function listar_productos() {
             cache: 'no-cache',
             body: formData
         });
-        json = await respuesta.json();
+        let json = await respuesta.json();
         if (json.status) {
+            document.getElementById('id_compra').value = json.contenido.id;
             document.getElementById('producto').value = json.contenido.id_producto;
             document.getElementById('cantidad').value = json.contenido.cantidad;
             document.getElementById('precio').value = json.contenido.precio;
             document.getElementById('trabajador').value = json.contenido.id_trabajador;
-            
         } else {
             window.location = base_url + "compras";
         }
         console.log(json);
     } catch (error) {
-        console.log("Ops ocurrio un error" + error);
-
+        console.log("Ops ocurrió un error: " + error);
     }
-
 }
+
+
 async function actualizar_compra() {
     const datos = new FormData(document.getElementById('frm_editar'));
+    datos.append('id_compra', document.getElementById('id_compra').value); // Asegúrate de que el id_compra se envíe
 
     try {
         let respuesta = await fetch(base_url + 'controller/Compras.php?tipo=actualizar_compra', {
@@ -153,7 +143,7 @@ async function actualizar_compra() {
             cache: 'no-cache',
             body: datos
         });
-        json = await respuesta.json();
+        let json = await respuesta.json();
         if (json.status) {
             swal.fire("Actualización exitosa", json.mensaje, 'success');
         } else {
@@ -164,3 +154,30 @@ async function actualizar_compra() {
         console.error("Oops, ocurrió un error: " + e);
     }
 }
+
+
+async function eliminar_compra(id) {
+    const formData = new FormData();
+    formData.append('id_compra', id);
+
+    try {
+        let respuesta = await fetch(base_url + 'controller/Compras.php?tipo=eliminar_compra', {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            body: formData
+        });
+        let json = await respuesta.json();
+        if (json.status) {
+            swal.fire("Eliminación exitosa", json.mensaje, 'success');
+            document.querySelector(`#fila${id}`).remove();
+        } else {
+            swal.fire("Eliminación fallida", json.mensaje, 'error');
+        }
+        console.log(json);
+    } catch (error) {
+        console.error("Error al eliminar compra: " + error);
+    }
+}
+
+// Resto de tus funciones...

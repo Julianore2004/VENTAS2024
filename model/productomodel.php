@@ -64,12 +64,11 @@ class ProductoModel
         return $objeto;
     }
 
-    public function verProductos($id)
-    {
+    public function verProductos($id) {
         $sql = $this->conexion->query("SELECT * FROM producto WHERE id = '{$id}'");
-        $sql = $sql->fetch_object();
-        return $sql;
+        return $sql->fetch_object();
     }
+    
 
     //editar producto
     public function editarProducto(
@@ -97,6 +96,15 @@ class ProductoModel
     }
     
     
-    
+    public function eliminarProducto($id)
+    {
+        $sql = $this->conexion->query("CALL eliminarproducto('{$id}')");
+
+        if (!$sql) {
+            die("Error en la consulta: " . $this->conexion->error);
+        }
+
+        return $sql;
+    }
     
 }

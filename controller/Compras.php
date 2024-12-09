@@ -32,7 +32,7 @@ if ($tipo == "listar_compras") {
          $id_Compras = $arr_Compras[$i]->id;
 
          $opciones = '<a href="' . BASE_URL . 'editar-compra/' . $id_Compras . '" class="btn btn-success"><i class="fa fa-pencil"> </i> </a>
-         <a href="" class="btn btn-danger"><i class="fa fa-trash"> <button onclick="eliminar-producto(' . $id_Compras . ');" class="fa fa-trash> </button></i> </a>';
+         <button onclick="eliminar_compra(' . $id_Compras . ');" class="btn btn-danger"><i class="fa fa-trash"></i></button>';
 
          $arr_Compras[$i]->options = $opciones;
       }
@@ -77,6 +77,7 @@ if ($tipo == "registrar_compras") {
       }
    }
 }
+
 if ($tipo == "ver_compras") {
    $id_Compras = $_POST['id_compra'];
    $arr_Respuesta = $objCompra->verCompras($id_Compras);
@@ -87,6 +88,8 @@ if ($tipo == "ver_compras") {
    }
    echo json_encode($response);
 }
+
+
 if ($tipo == "actualizar_compra") {
    if ($_POST) {
        $id_compra = $_POST['id_compra'];
@@ -104,6 +107,23 @@ if ($tipo == "actualizar_compra") {
            } else {
                $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, inténtelo de nuevo');
            }
+       }
+       echo json_encode($arr_Respuesta);
+   }
+}
+
+
+
+
+if ($tipo == "eliminar_compra") {
+   if ($_POST) {
+       $id_compra = $_POST['id_compra'];
+       $arrCompra = $objCompra->eliminarCompra($id_compra);
+
+       if ($arrCompra) {
+           $arr_Respuesta = array('status' => true, 'mensaje' => 'Eliminación Exitosa');
+       } else {
+           $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, inténtelo de nuevo');
        }
        echo json_encode($arr_Respuesta);
    }

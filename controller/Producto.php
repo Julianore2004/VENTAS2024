@@ -34,7 +34,7 @@ if ($tipo == "listar_producto") {
          $nombre = $arr_Producto[$i]->nombre;
          // LOCALHOST/editar-producto/4
          $opciones = '<a href="' . BASE_URL . 'editar-producto/' . $id_Producto . '" class="btn btn-success"><i class="fa fa-pencil"> </i> </a>
-                 <a href="" class="btn btn-danger"><i class="fa fa-trash"> <button onclick="eliminar-producto(' . $id_Producto . ');" class="fa fa-trash> </button></i> </a>';
+         <button onclick="eliminar_producto(' . $id_Producto . ');" class="btn btn-danger"><i class="fa fa-trash"></i></button>';
 
          $arr_Producto[$i]->options = $opciones;
       }
@@ -111,17 +111,16 @@ if ($tipo == "registrar") {
 }
 
 if ($tipo == "ver_productos") {
-   /*  print_r($_POST); */
    $id_Producto = $_POST['id_producto'];
    $arr_Respuesta = $objproducto->verProductos($id_Producto);
-   /* print_r($arr_Respuesta); */
    if (empty($arr_Respuesta)) {
-      $response = array('status' => false, 'mensaje' => 'Error, no hay informaion');
+       $response = array('status' => false, 'mensaje' => 'Error, no hay información');
    } else {
-      $response = array('status' => true, 'mensaje' => 'Datos encontrados', 'contenido' => $arr_Respuesta);
+       $response = array('status' => true, 'mensaje' => 'Datos encontrados', 'contenido' => $arr_Respuesta);
    }
    echo json_encode($response);
 }
+
 
 
 if ($tipo == "actualizar") {
@@ -185,6 +184,19 @@ if ($tipo == "actualizar") {
            }
        }
 
+       echo json_encode($arr_Respuesta);
+   }
+}
+if ($tipo == "eliminar_producto") {
+   if ($_POST) {
+       $id_producto = $_POST['id_producto'];
+       $arrProducto = $objproducto->eliminarProducto($id_producto);
+
+       if ($arrProducto) {
+           $arr_Respuesta = array('status' => true, 'mensaje' => 'Eliminación Exitosa');
+       } else {
+           $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, inténtelo de nuevo');
+       }
        echo json_encode($arr_Respuesta);
    }
 }

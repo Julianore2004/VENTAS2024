@@ -83,6 +83,13 @@
 </style>
 
 <div class="bodyverproduc">
+<a href="<?php echo BASE_URL ?>nueva-categoria">
+ 
+ </svg>
+ <span>REGISTRAR NUEVA CATEGORIA</span>
+
+
+</a>
   <!-- Tabla de productos -->
   <div class="table-container">
     <table class="verproduct">

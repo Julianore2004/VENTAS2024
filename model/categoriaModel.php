@@ -47,10 +47,21 @@ class CategoriaModel
         $sql = $sql->fetch_object();
         return $sql;
     }
-
+     
     public function actualizarCategoria($id, $nombre, $detalle)
     {
         $sql = $this->conexion->query("CALL actualizarCategoria('{$id}', '{$nombre}', '{$detalle}')");
+
+        if (!$sql) {
+            die("Error en la consulta: " . $this->conexion->error);
+        }
+
+        return $sql;
+    }
+
+    public function eliminarCategoria($id)
+    {
+        $sql = $this->conexion->query("CALL eliminar_categoria('{$id}')");
 
         if (!$sql) {
             die("Error en la consulta: " . $this->conexion->error);

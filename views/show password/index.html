@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>password</title>
+</head>
+<body>
+    <div class="inputbox">
+        <input type="password" required id = "password">
+        <span>password</span>
+        <div id="toggle" onclick="showhide()"></div>
+    </div>
+    <script>
+        let password = document.getElementById('password');
+        let togglepassword = document.getElementById('toggle');
+        function showhide(){
+            if(password.type === 'password'){
+                password.setAttribute('type', 'text');
+                togglepassword.classList.add('hide')
+            }
+            else{
+                password.setAttribute('type', 'password');
+                togglepassword.classList.remove('hide')
+            }
+        }
+    </script>
+</body>
+</html>

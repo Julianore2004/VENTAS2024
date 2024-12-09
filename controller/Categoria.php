@@ -14,7 +14,7 @@ if ($tipo == "listar") {
             $nombre = $arr_Categorias[$i]->nombre;
 
             $opciones = '<a href="' . BASE_URL . 'editar-categoria/' . $id_categoria . '" class="btn btn-success"><i class="fa fa-pencil"> </i> </a>
-            <a href="" class="btn btn-danger"><i class="fa fa-trash"> <button onclick="eliminar-producto(' . $id_categoria . ');" class="fa fa-trash> </button></i> </a>';
+         <button onclick="eliminar_categoria(' . $id_categoria . ');" class="btn btn-danger value="sss"><i class="fa fa-trash"></i></button>';
 
             $arr_Categorias[$i]->options = $opciones;
         }
@@ -71,6 +71,20 @@ if ($tipo == "actualizar_categoria") {
             } else {
                 $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, inténtelo de nuevo');
             }
+        }
+        echo json_encode($arr_Respuesta);
+    }
+}
+
+if ($tipo == "eliminar_categoria") {
+    if ($_POST) {
+        $id_categoria = $_POST['id_categoria'];
+        $arrCategoria = $objCategoria->eliminarCategoria($id_categoria);
+
+        if ($arrCategoria) {
+            $arr_Respuesta = array('status' => true, 'mensaje' => 'Eliminación Exitosa');
+        } else {
+            $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, inténtelo de nuevo');
         }
         echo json_encode($arr_Respuesta);
     }

@@ -1,4 +1,5 @@
 <style>
+  
   .bodyverproduc {
     background: #f4f4f9;
     margin: 0;
@@ -79,10 +80,11 @@
     font-size: 0.9em;
     color: #ff5722;
   }
-
 </style>
-
 <div class="bodyverproduc">
+  <a href="<?php echo BASE_URL ?>nueva-compra">
+    <span>REGISTRAR NUEVA COMPRA</span>
+  </a>
   <!-- Tabla de productos -->
   <div class="table-container">
     <table class="verproduct">
@@ -103,7 +105,6 @@
     </table>
   </div>
 </div>
-<script src="<?php echo BASE_URL?>views/js/functions_compras.js"></script>
+<script src="<?php echo BASE_URL ?>views/js/functions_compras.js"></script>
 <script>listar_trabajadores();</script>
 <script>listar_productos();</script>
-<!-- <script>listar_compras();</script> -->

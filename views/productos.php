@@ -82,6 +82,9 @@
 </style>
 
 <div class="bodyverproduc">
+  <a href="<?php echo BASE_URL ?>nuevo-producto">
+    <span>REGISTRAR NUEVA PRODUCTOS</span>
+  </a>
   <!-- Tabla de productos -->
   <div class="table-container">
     <table class="verproduct">
@@ -102,8 +105,6 @@
     </table>
   </div>
 </div>
-
-<script src="<?php echo BASE_URL?>views/js/functions_productos.js"></script>
+<script src="<?php echo BASE_URL ?>views/js/functions_productos.js"></script>
 <script>listar_categorias();</script>
 <script>listar_proveedores();</script>
-

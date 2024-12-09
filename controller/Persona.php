@@ -6,18 +6,16 @@ $tipo = $_REQUEST['tipo'];
 
 // listar Personas
 if ($tipo == "listar_persona") {
-    //respuesta 
+    //respuesta
     $arr_Respuesta = array('status' => false, 'contenido' => '');
     $arr_Persona = $objPersona->obtener_personas();
     if (!empty($arr_Persona)) {
-
         for ($i = 0; $i < count($arr_Persona); $i++) {
-
             $id_Persona = $arr_Persona[$i]->id;
             $razon_social = $arr_Persona[$i]->razon_social;
 
             $opciones = '<a href="' . BASE_URL . 'editar-persona/' . $id_Persona . '" class="btn btn-success"><i class="fa fa-pencil"> </i> </a>
-            <a href="" class="btn btn-danger"><i class="fa fa-trash"> <button onclick="eliminar-producto(' . $id_Persona . ');" class="fa fa-trash> </button></i> </a>';
+            <button onclick="eliminar_persona(' . $id_Persona . ');" class="btn btn-danger"><i class="fa fa-trash"></i></button>';
 
             $arr_Persona[$i]->options = $opciones;
         }
@@ -27,7 +25,6 @@ if ($tipo == "listar_persona") {
 
     echo json_encode($arr_Respuesta);
 }
-
 
 if ($tipo == "registrar") {
     if ($_POST) {
@@ -44,7 +41,6 @@ if ($tipo == "registrar") {
         $rol = $_POST['rol'];
         //cifrar contraseña
         $secure_password  = password_hash($nro_identidad, PASSWORD_DEFAULT);
-
 
         if (
             $nro_identidad == "" || $razon_social == "" || $telefono == "" ||
@@ -66,8 +62,6 @@ if ($tipo == "registrar") {
                 $direccion,
                 $rol,
                 $secure_password,
-
-
             );
 
             if ($arrProducto) {
@@ -86,8 +80,6 @@ if ($tipo == "registrar") {
     }
 }
 
-
-
 if ($tipo == "listar_trabajadores") {
     $arr_Respuesta = array('status' => false, 'contenido' => '');
     $arr_Trabajadores = $objPersona->obtener_trabajadores();
@@ -105,7 +97,6 @@ if ($tipo == "listar_trabajadores") {
     echo json_encode($arr_Respuesta);
 }
 
-
 if ($tipo == "listar_proveedores") {
     $arr_Respuesta = array('status' => false, 'contenido' => '');
     $arr_Proveedores = $objPersona->obtener_proveedores();
@@ -122,7 +113,6 @@ if ($tipo == "listar_proveedores") {
     }
     echo json_encode($arr_Respuesta);
 }
-
 
 if ($tipo == "ver_persona") {
     $id_Persona = $_POST['id_persona'];
@@ -183,3 +173,18 @@ if ($tipo == "actualizar_persona") {
         echo json_encode($arr_Respuesta);
     }
 }
+
+if ($tipo == "eliminar_persona") {
+    if ($_POST) {
+        $id_persona = $_POST['id_persona'];
+        $arrPersona = $objPersona->eliminarPersona($id_persona);
+
+        if ($arrPersona) {
+            $arr_Respuesta = array('status' => true, 'mensaje' => 'Eliminación Exitosa');
+        } else {
+            $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, inténtelo de nuevo');
+        }
+        echo json_encode($arr_Respuesta);
+    }
+}
+?>

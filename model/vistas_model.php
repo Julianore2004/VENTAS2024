@@ -40,6 +40,7 @@ class vistaModelo
             'editar-categoria',
             'editar-persona',
             'editar-compra',
+            'Fish Animation'
       
         ];
         /*   if (!isset($_SESSION['sesion_venta_id'])) {
