@@ -27,12 +27,8 @@
     </form>
 </div>
 <script src="<?php echo BASE_URL ?>views/js/functions_compras.js"></script>
-<script>
-    listar_trabajadores();
-</script>
-<script>
-    listar_productos();
-</script>
+<script>listar_trabajadores();</script>
+<script>listar_productos();</script>
 <script>
     const id_c = <?php $pagina = explode("/", $_GET['views']); echo $pagina['1']; ?>;
     ver_compras(id_c);

@@ -106,4 +106,4 @@
 <script src="<?php echo BASE_URL?>views/js/functions_compras.js"></script>
 <script>listar_trabajadores();</script>
 <script>listar_productos();</script>
-<script>listar_compras();</script>
+<!-- <script>listar_compras();</script> -->

@@ -77,16 +77,34 @@ if ($tipo == "registrar_compras") {
       }
    }
 }
-if ($tipo == "ver_compras"){
-   /*  print_r($_POST); */
-    $id_Compras = $_POST['id_compra'];
-    $arr_Respuesta = $objCompra->verCompras($id_Compras);
-    /* print_r($arr_Respuesta); */
-    if (empty($arr_Respuesta)) {
-      $response = array('status' => false, 'mensaje' => 'Error, no hay informaion');
-    }else {
-      $response = array('status' => true, 'mensaje' => 'Datos encontrados', 'contenido' => $arr_Respuesta);
-    }
-    echo json_encode($response);
-    
+if ($tipo == "ver_compras") {
+   $id_Compras = $_POST['id_compra'];
+   $arr_Respuesta = $objCompra->verCompras($id_Compras);
+   if (empty($arr_Respuesta)) {
+       $response = array('status' => false, 'mensaje' => 'Error, no hay información');
+   } else {
+       $response = array('status' => true, 'mensaje' => 'Datos encontrados', 'contenido' => $arr_Respuesta);
+   }
+   echo json_encode($response);
+}
+if ($tipo == "actualizar_compra") {
+   if ($_POST) {
+       $id_compra = $_POST['id_compra'];
+       $producto = $_POST['producto'];
+       $cantidad = $_POST['cantidad'];
+       $precio = $_POST['precio'];
+       $trabajador = $_POST['trabajador'];
+
+       if ($producto == '' || $cantidad == '' || $precio == '' || $trabajador == '') {
+           $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacíos');
+       } else {
+           $arrCompra = $objCompra->actualizarCompra($id_compra, $producto, $cantidad, $precio, $trabajador);
+           if ($arrCompra) {
+               $arr_Respuesta = array('status' => true, 'mensaje' => 'Actualización Exitosa');
+           } else {
+               $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, inténtelo de nuevo');
+           }
+       }
+       echo json_encode($arr_Respuesta);
+   }
 }

@@ -50,5 +50,16 @@ class comprasModel
         $sql = $sql->fetch_object();
         return $sql;
     }
+    public function actualizarCompra($id, $producto, $cantidad, $precio, $trabajador)
+    {
+        $sql = $this->conexion->query("CALL actualizarCompra('{$id}', '{$producto}', '{$cantidad}', '{$precio}', '{$trabajador}')");
     
+        if (!$sql) {
+            die("Error en la consulta: " . $this->conexion->error);
+        }
+    
+        return $sql;
+    }
+    
+
 }

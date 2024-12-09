@@ -143,3 +143,24 @@ async function listar_productos() {
     }
 
 }
+async function actualizar_compra() {
+    const datos = new FormData(document.getElementById('frm_editar'));
+
+    try {
+        let respuesta = await fetch(base_url + 'controller/Compras.php?tipo=actualizar_compra', {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            body: datos
+        });
+        json = await respuesta.json();
+        if (json.status) {
+            swal.fire("Actualización exitosa", json.mensaje, 'success');
+        } else {
+            swal.fire("Actualización fallida", json.mensaje, 'error');
+        }
+        console.log(json);
+    } catch (e) {
+        console.error("Oops, ocurrió un error: " + e);
+    }
+}
