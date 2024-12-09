@@ -124,16 +124,62 @@ if ($tipo == "listar_proveedores") {
 }
 
 
-if ($tipo == "ver_persona"){
-    /*  print_r($_POST); */
-     $id_Persona = $_POST['id_persona'];
-     $arr_Respuesta = $objPersona->verPersonas($id_Persona);
-     /* print_r($arr_Respuesta); */
-     if (empty($arr_Respuesta)) {
-       $response = array('status' => false, 'mensaje' => 'Error, no hay informaion');
-     }else {
-       $response = array('status' => true, 'mensaje' => 'Datos encontrados', 'contenido' => $arr_Respuesta);
-     }
-     echo json_encode($response);
-     
- }
+if ($tipo == "ver_persona") {
+    $id_Persona = $_POST['id_persona'];
+    $arr_Respuesta = $objPersona->verPersonas($id_Persona);
+    if (empty($arr_Respuesta)) {
+        $response = array('status' => false, 'mensaje' => 'Error, no hay información');
+    } else {
+        $response = array('status' => true, 'mensaje' => 'Datos encontrados', 'contenido' => $arr_Respuesta);
+    }
+    echo json_encode($response);
+}
+
+if ($tipo == "actualizar_persona") {
+    if ($_POST) {
+        $id_persona = $_POST['id_persona'];
+        $nro_identidad = $_POST['nro_identidad'];
+        $razon_social = $_POST['razon_social'];
+        $telefono = $_POST['telefono'];
+        $correo = $_POST['correo'];
+        $departamento = $_POST['departamento'];
+        $provincia = $_POST['provincia'];
+        $distrito = $_POST['distrito'];
+        $codigo_postal = $_POST['codigo_postal'];
+        $direccion = $_POST['direccion'];
+        $rol = $_POST['rol'];
+
+        if ($nro_identidad == "" || $razon_social == "" || $telefono == "" ||
+            $correo == "" || $departamento == "" || $provincia == "" ||
+            $distrito == "" || $codigo_postal == "" || $direccion == "" ||
+            $rol == "") {
+            $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacíos');
+        } else {
+            $arrPersona = $objPersona->actualizarPersona(
+                $id_persona,
+                $nro_identidad,
+                $razon_social,
+                $telefono,
+                $correo,
+                $departamento,
+                $provincia,
+                $distrito,
+                $codigo_postal,
+                $direccion,
+                $rol
+            );
+            if ($arrPersona) {
+                $arr_Respuesta = array(
+                    'status' => true,
+                    'mensaje' => 'Actualización Exitosa'
+                );
+            } else {
+                $arr_Respuesta = array(
+                    'status' => false,
+                    'mensaje' => 'Error, inténtelo de nuevo'
+                );
+            }
+        }
+        echo json_encode($arr_Respuesta);
+    }
+}

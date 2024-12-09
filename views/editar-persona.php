@@ -2,11 +2,12 @@
 <div class="formulario-producto">
     <p>FORMULARIO PARA EDITAR PERSONA</p>
     <form action="" id="frm_editar">
+        <input type="hidden" name="id_persona" id="id_persona">
         <div class="fp">
             <div class="fp1">
                 <div class="campo-contenedor">
                     <label for="nro_identidad" class="etiqueta-flotante">Nro_identidad:</label>
-                    <input type="text" name="nro_identidad" id="nro_identidad" class="entrada-destacada">
+                    <input type="text" name="nro_identidad" id="nro_identidad" class="entrada-destacada" readonly>
                 </div>
                 <div class="campo-contenedor">
                     <label for="razon_social" class="etiqueta-flotante">Razon_social:</label>
@@ -24,7 +25,6 @@
                     <label for="departamento" class="etiqueta-flotante">Departamento:</label>
                     <input type="text" name="departamento" id="departamento" class="entrada-destacada">
                 </div>
-
             </div>
             <div class="fp2">
                 <div class="campo-contenedor">
@@ -45,23 +45,21 @@
                 </div>
                 <div class="campo-contenedor">
                     <label for="rol" class="etiqueta-flotante">Rol:</label>
-                    <input type="text" name="rol" id="rol" class="entrada-destacada">
+                    <select name="rol" id="rol" class="entrada-destacada">
+                        <option value="Proveedor">Proveedor</option>
+                        <option value="Trabajador">Trabajador</option>
+                        <option value="Administrador">Administrador</option>
+                    </select>
                 </div>
-                <!-- Campo de contraseña con opción de mostrar -->
-
             </div>
-
         </div>
         <div>
-
-            <button type="button" class="boton-registro" onclick="registrar_personas();">Actualizar</button>
+            <button type="button" class="boton-registro" onclick="actualizar_persona();">Actualizar</button>
         </div>
     </form>
 </div>
 <script src="<?php echo BASE_URL ?>views/js/functions_personas.js"></script>
 <script>
-    //localhost/VENTAS2024/editar-producto/3
-    const id_p = <?php $pagina = explode("/", $_GET['views']);
-                    echo $pagina['1']; ?>;
+    const id_p = <?php $pagina = explode("/", $_GET['views']); echo $pagina['1']; ?>;
     ver_persona(id_p);
 </script>

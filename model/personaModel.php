@@ -91,9 +91,33 @@ class PersonaModel
         $respuesta = $this->conexion->query("SELECT razon_social FROM persona WHERE id = '{$id}'");
         return $respuesta->fetch_object();
     }
-    public function verPersonas($id){
+    public function verPersonas($id)
+    {
         $sql = $this->conexion->query("SELECT * FROM persona WHERE id = '{$id}'");
         $sql = $sql->fetch_object();
+        return $sql;
+    }
+    public function actualizarPersona(
+        $id,
+        $nro_identidad,
+        $razon_social,
+        $telefono,
+        $correo,
+        $departamento,
+        $provincia,
+        $distrito,
+        $codigo_postal,
+        $direccion,
+        $rol
+    ) {
+        $sql = $this->conexion->query("CALL actualizarPersona(
+            '{$id}', '{$nro_identidad}', '{$razon_social}', '{$telefono}', '{$correo}',
+            '{$departamento}', '{$provincia}', '{$distrito}', '{$codigo_postal}', '{$direccion}', '{$rol}')");
+
+        if (!$sql) {
+            die("Error en la consulta: " . $this->conexion->error);
+        }
+
         return $sql;
     }
 }

@@ -84,9 +84,7 @@ async function registrar_personas() {
     }
 }
 async function ver_persona(id) {
-
     const formData = new FormData();
-
     formData.append('id_persona', id);
 
     try {
@@ -98,6 +96,7 @@ async function ver_persona(id) {
         });
         json = await respuesta.json();
         if (json.status) {
+            document.querySelector('#id_persona').value = json.contenido.id;
             document.querySelector('#nro_identidad').value = json.contenido.nro_identidad;
             document.querySelector('#razon_social').value = json.contenido.razon_social;
             document.querySelector('#telefono').value = json.contenido.telefono;
@@ -113,7 +112,28 @@ async function ver_persona(id) {
         }
         console.log(json);
     } catch (error) {
-        console.log("Ops ocurrio un error" + error);
+        console.log("Ops ocurrió un error: " + error);
+    }
+}
 
+async function actualizar_persona() {
+    const datos = new FormData(document.getElementById('frm_editar'));
+
+    try {
+        let respuesta = await fetch(base_url + 'controller/Persona.php?tipo=actualizar_persona', {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            body: datos
+        });
+        json = await respuesta.json();
+        if (json.status) {
+            swal.fire("Actualización exitosa", json.mensaje, 'success');
+        } else {
+            swal.fire("Actualización fallida", json.mensaje, 'error');
+        }
+        console.log(json);
+    } catch (e) {
+        console.error("Oops, ocurrió un error: " + e);
     }
 }

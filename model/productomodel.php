@@ -40,11 +40,12 @@ class ProductoModel
     }
 
 
-    public function actualizar_imagen($id, $img)
-    {
+  
+    public function actualizar_imagen($id, $img) {
         $sql = $this->conexion->query("UPDATE producto SET img='{$img}' WHERE id='{$id}'");
-        return 1;
+        return $sql;
     }
+    
 
     public function obtener_productos()
     {
@@ -73,23 +74,29 @@ class ProductoModel
     //editar producto
     public function editarProducto(
         $id,
+        $codigo,
         $nombre,
         $detalle,
         $precio,
         $categoria,
+        $img,
         $proveedor
     ) {
-        $sql = $this->conexion->query("CALL actualizar_producto(
-            '{$id}','{$nombre}', '{$detalle}', '{$precio}', 
-            '{$categoria}','{$proveedor}')");
-
+        $sql = $this->conexion->query("CALL actualizarProducto(
+            '{$id}', '{$codigo}', '{$nombre}', '{$detalle}', '{$precio}',
+            '{$categoria}', '{$img}', '{$proveedor}')");
+    
         // Validar si la consulta fue exitosa
         if (!$sql) {
             // Imprimir el error de MySQL para depuración
             die("Error en la consulta: " . $this->conexion->error);
         }
-
+    
         // Retornar los resultados si la consulta es válida
-        return $sql->fetch_object();
+        return $sql;
     }
+    
+    
+    
+    
 }

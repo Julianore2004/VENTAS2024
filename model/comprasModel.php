@@ -33,7 +33,6 @@ class comprasModel
         }
     }
     
-
     public function obtener_compras()
     {
         $arrRespuesta = array();
@@ -44,6 +43,7 @@ class comprasModel
         }
         return $arrRespuesta;
     }
+
     
     public function verCompras($id){
         $sql = $this->conexion->query("SELECT * FROM compras WHERE id = '{$id}'");

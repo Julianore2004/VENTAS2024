@@ -8,7 +8,7 @@
         <div class="campo-contenedor">
             <input type="hidden" name="img" id="img">
         </div>
-            <div class="campo-contenedor">
+        <div class="campo-contenedor">
             <label for="codigo" class="etiqueta-flotante">Código:</label>
             <input type="text" name="codigo" id="codigo" class="entrada-destacada" readonly>
         </div>
@@ -38,7 +38,7 @@
 
             <label for="proveedor" class="etiqueta-flotante">Proveedor:</label>
             <select name="proveedor" id="proveedor" class="entrada-destacada">
-
+                <option class="entrada-destacada" value="Seleccione"></option>
             </select>
         </div>
         <button type="button" class="boton-registro" onclick="actualizar_producto();">Actualizar</button>
@@ -56,6 +56,6 @@
 <script>
     //localhost/VENTAS2024/editar-producto/3
     const id_p = <?php $pagina = explode("/", $_GET['views']);
-                    echo $pagina['1']; ?>;
+    echo $pagina['1']; ?>;
     ver_producto(id_p);
 </script>

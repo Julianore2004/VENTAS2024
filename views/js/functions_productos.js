@@ -32,7 +32,7 @@ async function listar_productos() {
         };
         console.log(json);
     } catch (error) {
-        console.error("Error al listar productos" + error);
+        console.log("Error al listar productos" + error);
     }
 }
 if (document.querySelector('#tbl_product')) {
@@ -169,13 +169,14 @@ async function ver_producto(id) {
         });
         json = await respuesta.json();
         if (json.status) {
+            document.querySelector('#id_producto').value = json.contenido.id;
             document.querySelector('#codigo').value = json.contenido.codigo;
             document.querySelector('#nombre').value = json.contenido.nombre;
             document.querySelector('#detalle').value = json.contenido.detalle;
             document.querySelector('#precio').value = json.contenido.precio;
             document.querySelector('#categoria').value = json.contenido.id_categoria;
             document.querySelector('#proveedor').value = json.contenido.id_proveedor;
-
+            document.querySelector('#img').value = json.contenido.img;
         } else {
             window.location = base_url + "productos";
         }
@@ -188,9 +189,9 @@ async function ver_producto(id) {
 }
 
 async function actualizar_producto() {
-
+    const datos = new FormData(frmEditar);
     try {
-        const datos = new FormData(document.getElementById('frmEditar'));
+
         let respuesta = await fetch(base_url + 'controller/Producto.php?tipo=actualizar', {
             method: 'POST',
             mode: 'cors',
