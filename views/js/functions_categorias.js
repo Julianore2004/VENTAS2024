@@ -111,7 +111,7 @@ async function actualizar_categoria() {
 async function eliminar_categoria(id) {
     const formData = new FormData();
     formData.append('id_categoria', id);
-
+      
     try {
         let respuesta = await fetch(base_url + 'controller/Categoria.php?tipo=eliminar_categoria', {
             method: 'POST',
@@ -119,16 +119,20 @@ async function eliminar_categoria(id) {
             cache: 'no-cache',
             body: formData
         });
+
         let json = await respuesta.json();
+
         if (json.status) {
+
             swal.fire("Eliminación exitosa", json.mensaje, 'success');
             document.querySelector(`#fila${id}`).remove();
+
         } else {
             swal.fire("Eliminación fallida", json.mensaje, 'error');
         }
         console.log(json);
     } catch (error) {
-        console.error("Error al eliminar categoría: " + error);
+        console.log("Error al eliminar categoría: " + error);
     }
 }
 

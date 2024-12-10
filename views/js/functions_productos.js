@@ -81,7 +81,7 @@ async function registrar_producto() {
 
 
     } catch (e) {
-        console.e("Oops, ocurrio un error" + e)
+        console.log("Oops, ocurrio un error" + e)
     }
 
 }
@@ -124,7 +124,7 @@ async function listar_categorias() {
         }
         console.log(respuesta);
     } catch (e) {
-        console.error("Error al cargar categorias: " + e);
+        console.log("Error al cargar categorias: " + e);
     }
 }
 
@@ -141,7 +141,7 @@ async function listar_proveedores() {
             document.getElementById('proveedor').innerHTML = contenido_select;
         }
     } catch (e) {
-        console.error("Error al cargar proveedores: " + e);
+        console.log("Error al cargar proveedores: " + e);
     }
 }
 
@@ -206,30 +206,50 @@ async function actualizar_producto() {
 }
 
 async function eliminar_producto(id) {
-    const formData = new FormData();
-    formData.append('id_producto', id);
+    swal.fire({
+        title: '¿Está seguro de eliminar el producto?',
+        text: "",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, eliminar!',
+        cancelButtonText: 'Cancelar',
+       buttons: true,
+       dangerMode: true
 
-    try {
-        let respuesta = await fetch(base_url + 'controller/Producto.php?tipo=eliminar_producto', {
-            method: 'POST',
-            mode: 'cors',
-            cache: 'no-cache',
-            body: formData
-        });
-        let json = await respuesta.json();
-        if (json.status) {
-            swal.fire("Eliminación exitosa", json.mensaje, 'success');
-            document.querySelector(`#fila${id}`).remove();
-        } else {
-            swal.fire("Eliminación fallida", json.mensaje, 'error');
+    }).then((willDelete) => {
+        if (willDelete) {
+            fnt_eliminar(id);
         }
-        console.log(json);
-    } catch (error) {
-        console.error("Error al eliminar producto: " + error);
+    })
+
+    async function fnt_eliminar(id) {
+        /*  swal.fire("Producto eliminado: id =" + id); */
+        const formdata = new FormData();
+        formdata.append('id_producto', id);
+
+        try {
+            let respuesta = await fetch(base_url + 'controller/Producto.php?tipo=eliminar_producto', {
+                method: 'POST',
+                mode: 'cors',
+                cache: 'no-cache',
+                body: formdata
+            });
+            let json = await respuesta.json();
+            if (json.status) {
+                swal.fire("Eliminación exitosa", json.mensaje, 'success');
+                document.querySelector('#fila'+id).remove();
+            } else {
+                swal.fire("Eliminación fallida", json.mensaje, 'error');
+            }
+            console.log(json);
+        } catch (error) {
+            console.log("Error al eliminar producto: " + error);
+        }
     }
 }
 
-// Resto de tus funciones...
 
 
 
