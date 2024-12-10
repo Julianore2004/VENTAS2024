@@ -13,7 +13,8 @@
     <div class="admin-sidebar">
 
 
-        <a href="<?php echo BASE_URL ?>index">
+        <a href="<?php echo BASE_URL ?>
+        ">
             <button class="button">
                 <svg class="svgIcon" viewBox="0 0 384 512">
                     <path

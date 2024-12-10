@@ -29,7 +29,7 @@ class vistaModelo
             'nueva-categoria',
             'nueva-compra',
             'nueva-persona',
-            'admin',
+           
             'principal',
             'productos',
             'categorias',
@@ -42,22 +42,26 @@ class vistaModelo
             'editar-compra',
            
         ];
-        /*   if (!isset($_SESSION['sesion_venta_id'])) {
+          if (!isset($_SESSION['sesion_venta_id'])) {
             return "login";
-         } */
+         }
 
         if (in_array($vista, $palabras_permitidas)) {
             if (is_file("./views/" . $vista . ".php")) {
                 $contenido = "./views/" . $vista . ".php";
+
             } else {
+                       
                 $contenido = "404";
             }
-        } elseif ($vista == "index" || $vista == "login") {
-            $contenido = "login";
-        } else {
+        } elseif ($vista == "admin") {
+            $contenido = "admin";
+        
+            
+        }else{
+
             $contenido = "404";
         }
         return $contenido;
     }
-
 }
