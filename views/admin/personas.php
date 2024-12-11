@@ -1,110 +1,98 @@
-<!-- Incluye estilos en línea para una solución rápida o un archivo CSS externo para mantener el código ordenado -->
 <style>
-  /* Estilo del contenedor de la tabla */
-  .bodyverproducTBC {
+  .bodyverproduc {
+    background: #f4f4f9;
+    margin: 0;
     padding: 20px;
-    background: linear-gradient(135deg, #f0f0f0, #e6e6e6);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
   }
 
-  /* Estilo del contenedor responsivo */
-  .tbc_table-container {
-    overflow-x: auto;
+  /* Contenedor de la tabla */
+  .table-container {
     width: auto;
-    max-width: 100%;
-  
+    max-width: 1200px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-bottom: 20px;
   }
- 
-  /* Estilo de la tabla */
-  .tbc_table {
+
+  /* Tabla de productos */
+  table.verproduct {
     width: 100%;
     border-collapse: collapse;
-    margin: 0 auto;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #fff;
-    border-radius: 10px;
-    overflow: hidden;
+    font-family: Arial, sans-serif;
+    font-size: 0.95rem;
   }
 
-  /* Estilo de la cabecera */
-  .tbc_table thead tr {
-    background: linear-gradient(135deg, #0078d7, #00b0ff);
+  table.verproduct thead {
+    background: #42a5f5;
     color: #fff;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
   }
 
-  .tbc_table thead th {
-    padding: 12px;
+  table.verproduct th,
+  table.verproduct td {
+    padding: 15px;
     text-align: left;
-    border-bottom: 2px solid #e0e0e0;
+    border-bottom: 1px solid #ddd;
   }
 
-  /* Estilo de las celdas del cuerpo */
-  .tbc_table tbody tr {
+  table.verproduct th {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  table.verproduct tbody tr {
     transition: background 0.3s ease, transform 0.2s ease;
   }
 
-  .tbc_table tbody tr:nth-child(odd) {
+  table.verproduct tbody tr:hover {
+    background: #e8f0fe;
+    transform: scale(1.02);
+  }
+
+  table.verproduct tbody tr:nth-child(even) {
     background: #f9f9f9;
   }
 
-  .tbc_table tbody tr:hover {
-    background: #d4f0ff;
-    transform: scale(1.01);
+  table.verproduct td img {
+    max-width: 50px;
+    height: auto;
+    border-radius: 5px;
   }
 
-  .tbc_table tbody td {
-    padding: 10px 12px;
-    border-bottom: 1px solid #e0e0e0;
-    font-size: 0.95rem;
-    color: #333;
+  table.verproduct .codigo {
+    font-weight: bold;
+    color: #3f51b5;
   }
 
-  /* Estilo para celdas con acciones */
-  .tbc_table tbody td:last-child {
-    text-align: center;
+  table.verproduct .precio {
+    color: #4caf50;
+    font-weight: bold;
   }
 
-  /* Responsividad */
-  @media screen and (max-width: 768px) {
-    .tbc_table thead {
-      display: none;
-    }
-
-    .tbc_table tbody td {
-      display: block;
-      text-align: right;
-      padding: 10px 8px;
-      border-bottom: 1px solid #e0e0e0;
-    }
-
-    .tbc_table tbody td::before {
-      content: attr(data-label);
-      float: left;
-      font-weight: bold;
-      color: #0078d7;
-    }
+  table.verproduct .stock {
+    font-size: 0.9em;
+    color: #ff5722;
   }
+
 
 </style>
-<link rel="stylesheet" href="../css/style.css"> 
-<div class="bodyverproducTBC">
-
-  <div class="tbc_table-container">
-  <a href="<?php echo BASE_URL ?>nueva-persona">
- 
-      </svg>
-      <span>REGISTRAR NUEVA PERSONA</span>
-   
+<link rel="stylesheet" href="../css/style.css">
+<div class="bodyverproduc">
   
+  <a href="<?php echo BASE_URL ?>nueva-persona">
+    <span>REGISTRAR NUEVA PERSONA</span>
   </a>
-    <table class="tbc_table">
+  <div class="table-container">
+
+    <table class="verproduct">
       <thead>
         <tr>
-          <th class="asas">Id</th>
+          <th >Id</th>
           <th>Nro Identidad</th>
           <th>Razón Social</th>
           <th>Teléfono</th>
