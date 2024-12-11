@@ -1,168 +1,172 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel Administrativo</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+ 
+   <script>
+        const base_url = '<?php echo BASE_URL; ?>';
+    </script>
+    <style>
+        /* Estilos generales */
+        .bodyadmin {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f2f5;
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            color: #333;
+        }
 
+        /* Barra lateral */
+        .admin-sidebar {
+            width: 260px;
+            background: #42A5F5;
+            padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1), -5px -5px 15px rgba(255, 255, 255, 0.7);
+            border-radius: 15px;
+            margin: 20px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .admin-sidebar h2 {
+            font-size: 1.6em;
+            margin-bottom: 30px;
+            color: #B3E5FC;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .admin-menu-item {
+            width: 100%;
+            padding: 15px 20px;
+            cursor: pointer;
+            color: #FFF;
+            font-weight: 500;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            transition: background 0.3s, padding-left 0.3s;
+            text-decoration: none;
+        }
+
+        .admin-menu-item:hover, .admin-menu-item.active {
+            background-color: #B3E5FC;
+            color: #333;
+            padding-left: 30px;
+        }
+
+        .admin-menu-icon {
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        /* Contenedor principal */
+        .admin-content {
+            flex-grow: 1;
+            padding: 40px;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1), -5px -5px 15px rgba(255, 255, 255, 0.7);
+            margin: 20px;
+            border-radius: 15px;
+           
+        }
+        .admintablas{
+            margin-top: 80px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #666;
+            font-size: 1.1em;
+            max-width: 600px;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        /* Estilo de enlaces */
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #ffcc80;
+            font-weight: bold;
+        }
+
+    </style>
 </head>
-
 <body class="bodyadmin">
     <div class="admin-sidebar">
-
-
-        <a href="<?php echo BASE_URL ?>
-        ">
-            <button class="button">
-                <svg class="svgIcon" viewBox="0 0 384 512">
-                    <path
-                        d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"></path>
+        <a href="<?php echo BASE_URL ?>principal">
+            <button class="buttonatras">
+                <svg height="16" width="16" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024">
+                    <path d="M874.690416 495.52477c0 11.2973-9.168824 20.466124-20.466124 20.466124l-604.773963 0 188.083679 188.083679c7.992021 7.992021 7.992021 20.947078 0 28.939099-4.001127 3.990894-9.240455 5.996574-14.46955 5.996574-5.239328 0-10.478655-1.995447-14.479783-5.996574l-223.00912-223.00912c-3.837398-3.837398-5.996574-9.046027-5.996574-14.46955 0-5.433756 2.159176-10.632151 5.996574-14.46955l223.019353-223.029586c7.992021-7.992021 20.957311-7.992021 28.949332 0 7.992021 8.002254 7.992021 20.957311 0 28.949332l-188.073446 188.073446 604.753497 0C865.521592 475.058646 874.690416 484.217237 874.690416 495.52477z"></path>
                 </svg>
+                <span>Back</span>
             </button>
         </a>
-
-
-
         <h2>Admin Panel</h2>
 
-        <!-- Menú de Categorías -->
-        <div class="admin-menu-item" onclick="toggleMenu('categorias')">
-            <span class="admin-menu-icon">📁</span>Categorías
-        </div>
-        <div class="admin-submenu" id="categorias">
-            <a href="/Ventas2024/views/admin/categoria/listar.php">Ver Categorías</a>
-            <a href="#" onclick="mostrarFormulario('nueva-categoria.php')">Registrar Categoría</a>
-        </div>
-        <!-- Menú de Compras -->
-        <div class="admin-menu-item" onclick="toggleMenu('compras')">
-            <span class="admin-menu-icon">🛒</span>Compras
-        </div>
-        <div class="admin-submenu" id="compras">
-            <a href="/Ventas2024/views/admin/compras/listar.php">Ver Compras</a>
-            <a href="#" onclick="mostrarFormulario('nueva-compra.php')">Registrar Compra</a>
-        </div>
+        <a href="<?php echo BASE_URL ?>categorias" class="admin-menu-item">
+            <span class="admin-menu-icon">📁 Categorías</span>
+        </a>
 
-        <!-- Menú de Ventas -->
-        <div class="admin-menu-item" onclick="toggleMenu('ventas')">
-            <span class="admin-menu-icon">📊</span>Ventas
-        </div>
-        <div class="admin-submenu" id="ventas">
-            <a href="/Ventas2024/views/admin/venta/listar.php">Ver Ventas</a>
-            <a href="/Ventas2024/views/admin/venta/insertar.php">Registrar Venta</a>
-        </div>
+        <a href="<?php echo BASE_URL ?>compras" class="admin-menu-item">
+            <span class="admin-menu-icon">🛒 Compras</span>
+        </a>
 
-      <!--  Menú de Pagos -->
-        <div class="admin-menu-item" onclick="toggleMenu('pagos')">
-            <span class="admin-menu-icon">💳</span>Pagos
-        </div>
-        <div class="admin-submenu" id="pagos">
-            <a href="/Ventas2024/views/admin/pagos/listar.php">Ver Pagos</a>
-            <a href="/Ventas2024/views/admin/pagos/insertar.php">Registrar Pago</a>
-        </div>
+        <a href="<?php echo BASE_URL ?>personas" class="admin-menu-item">
+            <span class="admin-menu-icon">👥 Personas</span>
+        </a>
 
-        <!-- Menú de Personas -->
-        <div class="admin-menu-item" onclick="toggleMenu('personas')">
-            <span class="admin-menu-icon">👥</span>Personas
-        </div>
-        <div class="admin-submenu" id="personas">
-            <a href="/Ventas2024/views/admin/persona/listar.php">Ver Personas</a>
-            <a href="#" onclick="mostrarFormulario('nueva-persona.php')">Registrar Persona</a>
-
-        </div>
-
-        <!-- Menú de Productos -->
-        <div class="admin-menu-item" onclick="toggleMenu('productos')">
-            <span class="admin-menu-icon">📦</span>Productos
-        </div>
-        <div class="admin-submenu" id="productos">
-            <a href="/Ventas2024/views/admin/producto/listar.php">Ver Productos</a>
-            <a href="#" onclick="mostrarFormulario('nuevo-producto.php')">Registrar Producto</a>
-        </div>
-
-        <!-- Menú de Sesiones -->
-        <div class="admin-menu-item" onclick="toggleMenu('sesiones')">
-            <span class="admin-menu-icon">🔒</span>Sesiones
-        </div>
-        <div class="admin-submenu" id="sesiones">
-            <a href="/Ventas2024/views/admin/sesiones/listar.php">Ver Sesiones</a>
-            <a href="/Ventas2024/views/admin/sesiones/insertar.php">Registrar Sesión</a>
-        </div>
+        <a href="<?php echo BASE_URL ?>productos" class="admin-menu-item">
+            <span class="admin-menu-icon">📦 Productos</span>
+        </a>
     </div>
-
-    <div class="fondo-opaco" style="display:none;"></div>
 
     <div class="admin-content">
-        <h1>Bienvenido al Panel Administrativo</h1>
-        <p>Selecciona una opción en el menú de la izquierda para comenzar.</p>
-    </div>
-
-    <!-- Fondo opaco y contenedor del formulario -->
-    <div id="fondo-opaco" class="fondo-opaco" onclick="ocultarFormulario()"></div>
-    <div id="contenedor-formulario" class="contenedor-formulario">
-
-        <div id="contenido-formulario"></div>
-        <button class="boton-cancelar" onclick="ocultarFormulario()">Cancelar</button>
-    </div>
- 
-   <!--  <script>
-        function mostrarFormulario(url) {
-            fetch(`/Ventas2024/views/${url}`)
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('contenido-formulario').innerHTML = data;
-                    document.getElementById('fondo-opaco').style.display = 'block';
-                    document.getElementById('contenedor-formulario').style.display = 'block';
-
-                    // Ahora que el formulario está cargado, ejecutamos las funciones para listar productos y trabajadores
-                    listar_productos(); // Llamada para cargar los productos
-                    listar_trabajadores(); // Llamada para cargar los trabajadores
-
-                    listar_categorias();
-                    listar_proveedores();
-                })
-                .catch(error => console.error("Error al cargar el formulario:", error));
-        }
-
-        function ocultarFormulario() {
-            document.getElementById('fondo-opaco').style.display = 'none';
-            document.getElementById('contenedor-formulario').style.display = 'none';
-        }
-    </script> -->
-<!-- 
-    <script>
-        // Función para mostrar y ocultar submenús con animación suave
-        function toggleMenu(id) {
-            var submenu = document.getElementById(id);
-            submenu.classList.toggle("admin-submenu-active");
-        }
-    </script> -->
-  <!--   <script>
-        function togglePassword() {
-            const passwordField = document.getElementById('password');
-            const toggleButton = document.getElementById('togglePasswordButton');
-
-            if (passwordField.type === 'password') {
-                passwordField.type = 'text';
-                toggleButton.textContent = '🙈';
-            } else {
-                passwordField.type = 'password';
-                toggleButton.textContent = '👁️';
+      <div class="admintablas">
+        <?php
+        if (isset($_GET['views'])) {
+            $ruta = explode("/", $_GET['views']);
+            if (in_array($ruta[0], ['categorias', 'editar-categoria', 'nueva-categoria', 'compras', 'productos','personas','nuevo-producto','nueva-compra','nueva-persona', 'editar-producto','editar-persona','editar-compra',])) {
+                include "./views/admin/" . $ruta[0] . ".php";
             }
         }
-    </script> -->
-
+        ?>
+    </div>
+    </div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<!-- <script>
-    const base_url = "/Ventas2024/"; // Asegúrate de ajustar esta ruta según tu proyecto
-</script> -->
-<!-- <script src="/Ventas2024/views/js/functions_categorias.js"></script>
+<script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<script src="/Ventas2024/views/js/functions_compras.js"></script>
-<script src="<?php echo BASE_URL ?>views/js/functions_personas.js"></script>
-<script src="/Ventas2024/views/js/functions_productos.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="<?php echo BASE_URL?>views/js/functions_login.js"></script>
+
 
 </html>

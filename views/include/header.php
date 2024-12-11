@@ -84,7 +84,9 @@
               </button>
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenuButton">
                 <li><a class="dropdown-item" href="<?php echo BASE_URL ?>miperfil">Mi Perfil</a></li>
-                <li>
+                <li> <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="<?php echo BASE_URL ?>admin">Panel Administrativo</a></li>
                   <hr class="dropdown-divider">
                 </li>
                 <li><a class="dropdown-item" href="#" onclick="cerrar_sesion();">Cerrar Sesión</a></li>

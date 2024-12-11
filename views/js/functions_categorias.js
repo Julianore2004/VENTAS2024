@@ -11,12 +11,10 @@ async function listar_categorias() {
                 nueva_fila.id = "fila" + item.id;
                 cont += 1;
                 nueva_fila.innerHTML = `
-                <tr>
-                       <th>${cont}</th>
-                       <td>${item.nombre}</td>
-                       <td>${item.detalle}</td>
-                       <td>${item.options}</td>
-                   </tr>
+                    <td>${cont}</td>
+                    <td>${item.nombre}</td>
+                    <td>${item.detalle}</td>
+                    <td>${item.options}</td>
                 `;
                 document.querySelector("#tbl_categoria").appendChild(nueva_fila);
             });
@@ -108,10 +106,11 @@ async function actualizar_categoria() {
         console.error("Oops, ocurrió un error: " + e);
     }
 }
+
 async function eliminar_categoria(id) {
     const formData = new FormData();
     formData.append('id_categoria', id);
-      
+
     try {
         let respuesta = await fetch(base_url + 'controller/Categoria.php?tipo=eliminar_categoria', {
             method: 'POST',
@@ -123,10 +122,8 @@ async function eliminar_categoria(id) {
         let json = await respuesta.json();
 
         if (json.status) {
-
             swal.fire("Eliminación exitosa", json.mensaje, 'success');
             document.querySelector(`#fila${id}`).remove();
-
         } else {
             swal.fire("Eliminación fallida", json.mensaje, 'error');
         }
@@ -135,5 +132,3 @@ async function eliminar_categoria(id) {
         console.log("Error al eliminar categoría: " + error);
     }
 }
-
-// Resto de tus funciones...

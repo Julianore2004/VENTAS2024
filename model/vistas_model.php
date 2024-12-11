@@ -2,7 +2,6 @@
 session_start();
 class vistaModelo
 {
-
     protected static function obtener_vistas($vista)
     {
         $palabras_permitidas = [
@@ -10,8 +9,7 @@ class vistaModelo
             'usuarios',
             'nuevo-usuario',
             'modificar-usuario',
-            'productos',
-            'nuevo-producto',
+
             'producto',
             'carrito',
             'index',
@@ -25,41 +23,28 @@ class vistaModelo
             'detalleaccesorio',
             'centroayuda',
             'registrarse',
-            'nuevo-producto',
-            'nueva-categoria',
-            'nueva-compra',
-            'nueva-persona',
-           
+            
             'principal',
-            'productos',
-            'categorias',
-            'personas',
-            'compras',
+
             'listar-compras',
-            'editar-producto',
-            'editar-categoria',
-            'editar-persona',
-            'editar-compra',
            
         ];
-          if (!isset($_SESSION['sesion_venta_id'])) {
+
+        if (!isset($_SESSION['sesion_venta_id'])) {
             return "login";
-         }
+        }
 
         if (in_array($vista, $palabras_permitidas)) {
             if (is_file("./views/" . $vista . ".php")) {
                 $contenido = "./views/" . $vista . ".php";
-
             } else {
-                       
                 $contenido = "404";
             }
         } elseif ($vista == "admin") {
             $contenido = "admin";
-        
-            
-        }else{
-
+        } elseif (in_array($vista, ['categorias', 'editar-categoria', 'nueva-categoria', 'compras', 'productos','personas','nuevo-producto','nueva-compra','nueva-persona', 'editar-producto','editar-persona','editar-compra',])) {
+            $contenido = "admin/" . $vista;
+        } else {
             $contenido = "404";
         }
         return $contenido;

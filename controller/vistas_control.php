@@ -1,5 +1,4 @@
 <?php
-
 require_once "./model/vistas_model.php";
 
 class vistasControlador extends vistaModelo
@@ -8,30 +7,16 @@ class vistasControlador extends vistaModelo
     {
         return require_once "./views/plantilla.php";
     }
+
     public function obtenerVistaControlador()
     {
         if (isset($_GET['views'])) {
             $ruta = explode("/", $_GET['views']);
             $respuesta = vistaModelo::obtener_vistas($ruta[0]);
         } else {
-            $respuesta = "login";
+            $respuesta = "principal";
         }
-       
 
         return $respuesta;
     }
-/*     public function obtenervistaadmin()
-    {
-     
-        if (isset($_GET['admin'])) {
-            $ruta = explode("/", $_GET['admin']);
-            $respuesta = vistaModelo::obtener_vistas($ruta[0]);
-        } else {
-            $respuesta = "admin";
-        }
-       
-
-        return $respuesta;
-    } */
 }
-
