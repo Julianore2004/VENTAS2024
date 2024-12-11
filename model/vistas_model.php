@@ -42,7 +42,7 @@ class vistaModelo
             }
         } elseif ($vista == "admin") {
             $contenido = "admin";
-        } elseif (in_array($vista, ['categorias', 'editar-categoria', 'nueva-categoria', 'compras', 'productos','personas','nuevo-producto','nueva-compra','nueva-persona', 'editar-producto','editar-persona','editar-compra',])) {
+        } elseif (in_array($vista, ['categorias', 'editar-categoria', 'nueva-categoria', 'compras', 'productos','personas','nuevo-producto','nueva-compra','nueva-persona', 'editar-producto','editar-persona','editar-compra'])) {
             $contenido = "admin/" . $vista;
         } else {
             $contenido = "404";

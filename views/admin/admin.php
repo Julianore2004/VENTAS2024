@@ -152,7 +152,7 @@
         <?php
         if (isset($_GET['views'])) {
             $ruta = explode("/", $_GET['views']);
-            if (in_array($ruta[0], ['categorias', 'editar-categoria', 'nueva-categoria', 'compras', 'productos','personas','nuevo-producto','nueva-compra','nueva-persona', 'editar-producto','editar-persona','editar-compra',])) {
+            if (in_array($ruta[0], ['categorias', 'editar-categoria', 'nueva-categoria', 'compras', 'productos','personas','nuevo-producto','nueva-compra','nueva-persona', 'editar-producto','editar-persona','editar-compra'])) {
                 include "./views/admin/" . $ruta[0] . ".php";
             }
         }
