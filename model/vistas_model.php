@@ -23,9 +23,7 @@ class vistaModelo
             'detalleaccesorio',
             'centroayuda',
             'registrarse',
-            
             'principal',
-
             'listar-compras',
            
         ];
