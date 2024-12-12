@@ -75,11 +75,9 @@
         /* Contenedor principal */
         .admin-content {
             flex-grow: 1;
-            padding: 40px;
             display: flex;
             margin: 20px;
             border-radius: 15px;
-            overflow-y: auto;
         }
 
         .admintablas {
