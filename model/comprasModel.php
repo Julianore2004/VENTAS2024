@@ -60,16 +60,7 @@ class comprasModel
     
         return $sql;
     }
-    public function toggleEstado($id, $nuevo_estado)
-{
-    $sql = $this->conexion->query("UPDATE compras SET estado = '{$nuevo_estado}' WHERE id = '{$id}'");
 
-    if (!$sql) {
-        die("Error en la consulta: " . $this->conexion->error);
-    }
-
-    return $sql;
-}
 public function habilitarCompra($id)
 {
     $sql = $this->conexion->query("UPDATE compras SET estado = 1 WHERE id = '{$id}'");

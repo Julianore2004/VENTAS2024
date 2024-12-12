@@ -109,20 +109,7 @@ if ($tipo == "actualizar_compra") {
        echo json_encode($arr_Respuesta);
    }
 }
-if ($tipo == "toggle_estado") {
-   if ($_POST) {
-       $id_compra = $_POST['id_compra'];
-       $nuevo_estado = $_POST['nuevo_estado'];
-       $arrCompra = $objCompra->toggleEstado($id_compra, $nuevo_estado);
 
-       if ($arrCompra) {
-           $arr_Respuesta = array('status' => true, 'mensaje' => 'Operación Exitosa');
-       } else {
-           $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, inténtelo de nuevo');
-       }
-       echo json_encode($arr_Respuesta);
-   }
-}
 if ($tipo == "habilitar_compra") {
    if ($_POST) {
        $id_compra = $_POST['id_compra'];
