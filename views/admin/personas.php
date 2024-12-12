@@ -11,13 +11,15 @@
 
   /* Contenedor de la tabla */
   .table-container {
-    width: auto;
+    width: 100%;
     max-width: 1200px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background-color: #f9f9f9;
     padding: 20px;
     margin-bottom: 20px;
+    overflow-y: auto;
+    max-height: 80vh; /* Ajusta esta altura según tus necesidades */
   }
 
   /* Tabla de productos */
@@ -78,23 +80,21 @@
     font-size: 0.9em;
     color: #ff5722;
   }
-
-
 </style>
 <link rel="stylesheet" href="../css/style.css">
 <div class="bodyverproduc">
-<button class="btnregistrar"> 
-<a href="<?php echo BASE_URL ?>nueva-persona">
-    <span>REGISTRAR NUEVA PERSONA</span>
-  </a></button>
-<br>
- 
-  <div class="table-container">
+  <button class="btnregistrar">
+    <a href="<?php echo BASE_URL ?>nueva-persona">
+      <span>REGISTRAR NUEVA PERSONA</span>
+    </a>
+  </button>
+  <br>
 
+  <div class="table-container">
     <table class="verproduct">
       <thead>
         <tr>
-          <th >Id</th>
+          <th>Nro</th>
           <th>Nro Identidad</th>
           <th>Razón Social</th>
           <th>Teléfono</th>
