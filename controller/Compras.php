@@ -29,7 +29,8 @@ if ($tipo == "listar_compras") {
            $id_Compras = $arr_Compras[$i]->id;
 
            $opciones = '<a href="' . BASE_URL . 'editar-compra/' . $id_Compras . '" class="btn btn-success"><i class="fa fa-pencil"> </i> </a>
-              <button onclick="deshabilitar_compra(' . $id_Compras . ');" class="btn btn-danger"><i class="fa fa-trash"></i></button>';
+              <button onclick="deshabilitar_compra(' . $id_Compras . ');" class="btn btn-danger"><i class="fa fa-ban"></i></button>';
+
 
            $arr_Compras[$i]->options = $opciones;
        }
