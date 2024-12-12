@@ -70,6 +70,27 @@ class comprasModel
 
     return $sql;
 }
+public function habilitarCompra($id)
+{
+    $sql = $this->conexion->query("UPDATE compras SET estado = 1 WHERE id = '{$id}'");
+
+    if (!$sql) {
+        die("Error en la consulta: " . $this->conexion->error);
+    }
+
+    return $sql;
+}
+
+public function deshabilitarCompra($id)
+{
+    $sql = $this->conexion->query("UPDATE compras SET estado = 2 WHERE id = '{$id}'");
+
+    if (!$sql) {
+        die("Error en la consulta: " . $this->conexion->error);
+    }
+
+    return $sql;
+}
 
 
 }

@@ -12,6 +12,13 @@ async function listar_compras() {
                 let nueva_fila = document.createElement("tr");
                 nueva_fila.id = "fila" + item.id;
                 cont += 1;
+                let botones = `
+                    <a href="${base_url}editar-compra/${item.id}" class="btn btn-success"><i class="fa fa-pencil"></i></a>
+                    ${item.estado == 1 ?
+                        `<button onclick="deshabilitar_compra(${item.id});" class="btn btn-danger"><i class="fa fa-trash"></i></button>` :
+                        `<button onclick="habilitar_compra(${item.id});" class="btn btn-success"><i class="fa fa-check"></i></button>`
+                    }
+                `;
                 nueva_fila.innerHTML = `
                     <td>${cont}</td>
                     <td>${item.producto.nombre}</td>
@@ -19,11 +26,8 @@ async function listar_compras() {
                     <td>${item.precio}</td>
                     <td>${item.fecha_compra}</td>
                     <td>${item.trabajador.razon_social}</td>
-                    <td>${item.estado == 1 ? 'Habilitado' : 'Deshabilitado'}</td> <!-- Mostrar el estado -->
-                    <td>
-                        <a href="${base_url}editar-compra/${item.id}" class="btn btn-success"><i class="fa fa-pencil"></i></a>
-                        <button onclick="toggle_estado(${item.id}, ${item.estado == 1 ? 2 : 1});" class="btn btn-warning"><i class="fa fa-${item.estado == 1 ? 'ban' : 'check'}"></i></button>
-                    </td>
+                    <td>${item.estado == 1 ? 'Habilitado' : 'Deshabilitado'}</td>
+                    <td>${botones}</td>
                 `;
                 tbody.appendChild(nueva_fila);
             });
@@ -37,11 +41,6 @@ async function listar_compras() {
 if (document.querySelector('#tbl_compras')) {
     listar_compras();
 }
-
-if (document.querySelector('#tbl_compras')) {
-    listar_compras();
-}
-
 
 
 async function registrar_compras() {
@@ -164,6 +163,52 @@ async function actualizar_compra() {
     }
 }
 
+async function habilitar_compra(id) {
+    swal.fire({
+        title: '¿Está seguro de habilitar la compra?',
+        text: "",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, habilitar!',
+        cancelButtonText: 'Cancelar',
+        buttons: true,
+        dangerMode: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            fnt_habilitar_compra(id);
+        }
+    });
+
+    async function fnt_habilitar_compra(id) {
+        const formData = new FormData();
+        formData.append('id_compra', id);
+
+        try {
+            let respuesta = await fetch(base_url + 'controller/Compras.php?tipo=habilitar_compra', {
+                method: 'POST',
+                mode: 'cors',
+                cache: 'no-cache',
+                body: formData
+            });
+            let json = await respuesta.json();
+            if (json.status) {
+                swal.fire("Habilitación exitosa", json.mensaje, 'success');
+                document.querySelector(`#fila${id} td:nth-child(7)`).textContent = 'Habilitado'; // Actualizar el estado en la tabla
+                document.querySelector(`#fila${id} td:nth-child(8)`).innerHTML = `
+                    <a href="${base_url}editar-compra/${id}" class="btn btn-success"><i class="fa fa-pencil"></i></a>
+                    <button onclick="deshabilitar_compra(${id});" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                `; // Actualizar los botones de acción
+            } else {
+                swal.fire("Habilitación fallida", json.mensaje, 'error');
+            }
+            console.log(json);
+        } catch (error) {
+            console.error("Error al habilitar compra: " + error);
+        }
+    }
+}
 
 async function deshabilitar_compra(id) {
     swal.fire({
@@ -198,6 +243,10 @@ async function deshabilitar_compra(id) {
             if (json.status) {
                 swal.fire("Deshabilitación exitosa", json.mensaje, 'success');
                 document.querySelector(`#fila${id} td:nth-child(7)`).textContent = 'Deshabilitado'; // Actualizar el estado en la tabla
+                document.querySelector(`#fila${id} td:nth-child(8)`).innerHTML = `
+                    <a href="${base_url}editar-compra/${id}" class="btn btn-success"><i class="fa fa-pencil"></i></a>
+                    <button onclick="habilitar_compra(${id});" class="btn btn-success"><i class="fa fa-check"></i></button>
+                `; // Actualizar los botones de acción
             } else {
                 swal.fire("Deshabilitación fallida", json.mensaje, 'error');
             }
@@ -207,6 +256,8 @@ async function deshabilitar_compra(id) {
         }
     }
 }
+
+
 async function toggle_estado(id, nuevo_estado) {
     swal.fire({
         title: `¿Está seguro de ${nuevo_estado == 1 ? 'habilitar' : 'deshabilitar'} la compra?`,

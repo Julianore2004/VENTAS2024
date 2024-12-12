@@ -123,3 +123,30 @@ if ($tipo == "toggle_estado") {
        echo json_encode($arr_Respuesta);
    }
 }
+if ($tipo == "habilitar_compra") {
+   if ($_POST) {
+       $id_compra = $_POST['id_compra'];
+       $arrCompra = $objCompra->habilitarCompra($id_compra);
+
+       if ($arrCompra) {
+           $arr_Respuesta = array('status' => true, 'mensaje' => 'Habilitación Exitosa');
+       } else {
+           $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, inténtelo de nuevo');
+       }
+       echo json_encode($arr_Respuesta);
+   }
+}
+
+if ($tipo == "deshabilitar_compra") {
+   if ($_POST) {
+       $id_compra = $_POST['id_compra'];
+       $arrCompra = $objCompra->deshabilitarCompra($id_compra);
+
+       if ($arrCompra) {
+           $arr_Respuesta = array('status' => true, 'mensaje' => 'Deshabilitación Exitosa');
+       } else {
+           $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, inténtelo de nuevo');
+       }
+       echo json_encode($arr_Respuesta);
+   }
+}
