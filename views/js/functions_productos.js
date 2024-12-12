@@ -215,17 +215,15 @@ async function eliminar_producto(id) {
         cancelButtonColor: '#d33',
         confirmButtonText: 'Si, eliminar!',
         cancelButtonText: 'Cancelar',
-       buttons: true,
-       dangerMode: true
-
-    }).then((willDelete) => {
-        if (willDelete) {
+        buttons: true,
+        dangerMode: true
+    }).then((result) => {
+        if (result.isConfirmed) {
             fnt_eliminar(id);
         }
-    })
+    });
 
     async function fnt_eliminar(id) {
-        /*  swal.fire("Producto eliminado: id =" + id); */
         const formdata = new FormData();
         formdata.append('id_producto', id);
 
@@ -239,7 +237,7 @@ async function eliminar_producto(id) {
             let json = await respuesta.json();
             if (json.status) {
                 swal.fire("Eliminación exitosa", json.mensaje, 'success');
-                document.querySelector('#fila'+id).remove();
+                document.querySelector('#fila' + id).remove();
             } else {
                 swal.fire("Eliminación fallida", json.mensaje, 'error');
             }

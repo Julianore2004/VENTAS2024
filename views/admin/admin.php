@@ -143,8 +143,7 @@
         }
 
         .buttonatras:hover {
-            box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;
-            transform: translateY(-2px);
+          transform: translateY(-2px);
         }
 
         /* Estilos para las tablas */
@@ -264,6 +263,7 @@
 
     <div class="admin-content">
         <div class="admintablas">
+        
             <?php
             if (isset($_GET['views'])) {
                 $ruta = explode("/", $_GET['views']);
@@ -271,7 +271,9 @@
                     include "./views/admin/" . $ruta[0] . ".php";
                 }
             }
+            
             ?>
+            
         </div>
     </div>
 </body>

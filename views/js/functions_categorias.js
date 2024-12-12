@@ -106,29 +106,45 @@ async function actualizar_categoria() {
         console.error("Oops, ocurrió un error: " + e);
     }
 }
-
 async function eliminar_categoria(id) {
-    const formData = new FormData();
-    formData.append('id_categoria', id);
-
-    try {
-        let respuesta = await fetch(base_url + 'controller/Categoria.php?tipo=eliminar_categoria', {
-            method: 'POST',
-            mode: 'cors',
-            cache: 'no-cache',
-            body: formData
-        });
-
-        let json = await respuesta.json();
-
-        if (json.status) {
-            swal.fire("Eliminación exitosa", json.mensaje, 'success');
-            document.querySelector(`#fila${id}`).remove();
-        } else {
-            swal.fire("Eliminación fallida", json.mensaje, 'error');
+    swal.fire({
+        title: '¿Está seguro de eliminar la categoría?',
+        text: "",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, eliminar!',
+        cancelButtonText: 'Cancelar',
+        buttons: true,
+        dangerMode: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            fnt_eliminar_categoria(id);
         }
-        console.log(json);
-    } catch (error) {
-        console.log("Error al eliminar categoría: " + error);
+    });
+
+    async function fnt_eliminar_categoria(id) {
+        const formData = new FormData();
+        formData.append('id_categoria', id);
+
+        try {
+            let respuesta = await fetch(base_url + 'controller/Categoria.php?tipo=eliminar_categoria', {
+                method: 'POST',
+                mode: 'cors',
+                cache: 'no-cache',
+                body: formData
+            });
+            let json = await respuesta.json();
+            if (json.status) {
+                swal.fire("Eliminación exitosa", json.mensaje, 'success');
+                document.querySelector(`#fila${id}`).remove();
+            } else {
+                swal.fire("Eliminación fallida", json.mensaje, 'error');
+            }
+            console.log(json);
+        } catch (error) {
+            console.error("Error al eliminar categoría: " + error);
+        }
     }
 }

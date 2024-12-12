@@ -85,7 +85,7 @@
 
   <button class="btnregistrar"> 
   <a href="<?php echo BASE_URL ?>nuevo-producto">
-    <span>REGISTRAR NUEVA PRODUCTOS</span>
+    <span>REGISTRAR NUEVO PRODUCTOS</span>
   </a></button>
 <br>
  

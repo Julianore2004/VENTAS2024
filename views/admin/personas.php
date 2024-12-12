@@ -85,7 +85,7 @@
 <div class="bodyverproduc">
   <button class="btnregistrar">
     <a href="<?php echo BASE_URL ?>nueva-persona">
-      <span>REGISTRAR NUEVA PERSONA</span>
+      <span>REGISTRAR NUEVAS PERSONA</span>
     </a>
   </button>
   <br>
