@@ -137,7 +137,7 @@ async function actualizar_persona() {
         console.error("Oops, ocurrió un error: " + e);
     }
 }
-async function eliminar_persona(id) {
+/* async function eliminar_persona(id) {
     swal.fire({
         title: '¿Está seguro de eliminar la persona?',
         text: "",
@@ -176,6 +176,48 @@ async function eliminar_persona(id) {
             console.log(json);
         } catch (error) {
             console.error("Error al eliminar persona: " + error);
+        }
+    }
+} */
+async function eliminar_persona(id) {
+    swal.fire({
+        title: '¿Está seguro de eliminar la persona?',
+        text: "",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, eliminar!',
+        cancelButtonText: 'Cancelar',
+        buttons: true,
+        dangerMode: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            fnt_eliminar_persona(id);
+        }
+    });
+
+    async function fnt_eliminar_persona(id) {
+        const formData = new FormData();
+        formData.append('id_persona', id);
+
+        try {
+            let respuesta = await fetch(base_url + 'controller/Categoria.php?tipo=eliminar_persona', {
+                method: 'POST',
+                mode: 'cors',
+                cache: 'no-cache',
+                body: formData
+            });
+            let json = await respuesta.json();
+            if (json.status) {
+                swal.fire("Eliminación exitosa", json.mensaje, 'success');
+                document.querySelector(`#fila${id}`).remove();
+            } else {
+                swal.fire("Eliminación fallida", json.mensaje, 'error');
+            }
+            console.log(json);
+        } catch (error) {
+            console.error("Error al eliminar categoría: " + error);
         }
     }
 }
