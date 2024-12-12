@@ -100,6 +100,7 @@
           <th>Precio</th>
           <th>Fecha_compra</th>
           <th>Trabajador</th>
+          <th>Estado</th>
           <th>Acciones</th>
         </tr>
       </thead>

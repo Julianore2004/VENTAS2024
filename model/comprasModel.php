@@ -50,9 +50,19 @@ class comprasModel
         return $sql->fetch_object();
     }
     
-    public function actualizarCompra($id, $producto, $cantidad, $precio, $trabajador)
+    public function actualizarCompra($id, $producto, $cantidad, $precio, $trabajador, $estado)
+    {
+        $sql = $this->conexion->query("UPDATE compras SET id_producto = '{$producto}', cantidad = '{$cantidad}', precio = '{$precio}', id_trabajador = '{$trabajador}', estado = '{$estado}' WHERE id = '{$id}'");
+    
+        if (!$sql) {
+            die("Error en la consulta: " . $this->conexion->error);
+        }
+    
+        return $sql;
+    }
+    public function toggleEstado($id, $nuevo_estado)
 {
-    $sql = $this->conexion->query("UPDATE compras SET id_producto = '{$producto}', cantidad = '{$cantidad}', precio = '{$precio}', id_trabajador = '{$trabajador}' WHERE id = '{$id}'");
+    $sql = $this->conexion->query("UPDATE compras SET estado = '{$nuevo_estado}' WHERE id = '{$id}'");
 
     if (!$sql) {
         die("Error en la consulta: " . $this->conexion->error);
@@ -62,15 +72,4 @@ class comprasModel
 }
 
 
-    
-    public function eliminarCompra($id)
-    {
-        $sql = $this->conexion->query("CALL eliminar_compra('{$id}')");
-
-        if (!$sql) {
-            die("Error en la consulta: " . $this->conexion->error);
-        }
-
-        return $sql;
-    }
 }

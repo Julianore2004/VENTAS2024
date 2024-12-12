@@ -10,15 +10,12 @@ $objCompra = new comprasModel();
 
 $tipo = $_REQUEST['tipo'];
 
-
 if ($tipo == "listar_compras") {
-   //respuesta 
+   //respuesta
    $arr_Respuesta = array('status' => false, 'contenido' => '');
    $arr_Compras = $objCompra->obtener_compras();
    if (!empty($arr_Compras)) {
-
       for ($i = 0; $i < count($arr_Compras); $i++) {
-
          // Obtener producto
          $id_producto = $arr_Compras[$i]->id_producto;
          $r_producto = $objproducto->obtener_producto_por_id($id_producto);
@@ -32,7 +29,7 @@ if ($tipo == "listar_compras") {
          $id_Compras = $arr_Compras[$i]->id;
 
          $opciones = '<a href="' . BASE_URL . 'editar-compra/' . $id_Compras . '" class="btn btn-success"><i class="fa fa-pencil"> </i> </a>
-         <button onclick="eliminar_compra(' . $id_Compras . ');" class="btn btn-danger"><i class="fa fa-trash"></i></button>';
+           <button onclick="deshabilitar_compra(' . $id_Compras . ');" class="btn btn-danger"><i class="fa fa-trash"></i></button>';
 
          $arr_Compras[$i]->options = $opciones;
       }
@@ -82,9 +79,9 @@ if ($tipo == "ver_compras") {
    $id_Compras = $_POST['id_compra'];
    $arr_Respuesta = $objCompra->verCompras($id_Compras);
    if (empty($arr_Respuesta)) {
-       $response = array('status' => false, 'mensaje' => 'Error, no hay información');
+      $response = array('status' => false, 'mensaje' => 'Error, no hay información');
    } else {
-       $response = array('status' => true, 'mensaje' => 'Datos encontrados', 'contenido' => $arr_Respuesta);
+      $response = array('status' => true, 'mensaje' => 'Datos encontrados', 'contenido' => $arr_Respuesta);
    }
    echo json_encode($response);
 }
@@ -97,11 +94,12 @@ if ($tipo == "actualizar_compra") {
        $cantidad = $_POST['cantidad'];
        $precio = $_POST['precio'];
        $trabajador = $_POST['trabajador'];
+       $estado = $_POST['estado']; // Obtener el estado
 
        if ($producto == '' || $cantidad == '' || $precio == '' || $trabajador == '') {
            $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacíos');
        } else {
-           $arrCompra = $objCompra->actualizarCompra($id_compra, $producto, $cantidad, $precio, $trabajador);
+           $arrCompra = $objCompra->actualizarCompra($id_compra, $producto, $cantidad, $precio, $trabajador, $estado); // Pasar el estado
            if ($arrCompra) {
                $arr_Respuesta = array('status' => true, 'mensaje' => 'Actualización Exitosa');
            } else {
@@ -111,17 +109,14 @@ if ($tipo == "actualizar_compra") {
        echo json_encode($arr_Respuesta);
    }
 }
-
-
-
-
-if ($tipo == "eliminar_compra") {
+if ($tipo == "toggle_estado") {
    if ($_POST) {
        $id_compra = $_POST['id_compra'];
-       $arrCompra = $objCompra->eliminarCompra($id_compra);
+       $nuevo_estado = $_POST['nuevo_estado'];
+       $arrCompra = $objCompra->toggleEstado($id_compra, $nuevo_estado);
 
        if ($arrCompra) {
-           $arr_Respuesta = array('status' => true, 'mensaje' => 'Eliminación Exitosa');
+           $arr_Respuesta = array('status' => true, 'mensaje' => 'Operación Exitosa');
        } else {
            $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, inténtelo de nuevo');
        }

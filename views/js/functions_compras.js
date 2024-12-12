@@ -1,5 +1,3 @@
-
-
 async function listar_compras() {
     try {
         let respuesta = await fetch(base_url + 'controller/Compras.php?tipo=listar_compras');
@@ -21,7 +19,11 @@ async function listar_compras() {
                     <td>${item.precio}</td>
                     <td>${item.fecha_compra}</td>
                     <td>${item.trabajador.razon_social}</td>
-                    <td>${item.options}</td>
+                    <td>${item.estado == 1 ? 'Habilitado' : 'Deshabilitado'}</td> <!-- Mostrar el estado -->
+                    <td>
+                        <a href="${base_url}editar-compra/${item.id}" class="btn btn-success"><i class="fa fa-pencil"></i></a>
+                        <button onclick="toggle_estado(${item.id}, ${item.estado == 1 ? 2 : 1});" class="btn btn-warning"><i class="fa fa-${item.estado == 1 ? 'ban' : 'check'}"></i></button>
+                    </td>
                 `;
                 tbody.appendChild(nueva_fila);
             });
@@ -35,6 +37,12 @@ async function listar_compras() {
 if (document.querySelector('#tbl_compras')) {
     listar_compras();
 }
+
+if (document.querySelector('#tbl_compras')) {
+    listar_compras();
+}
+
+
 
 async function registrar_compras() {
     let producto = document.getElementById('producto').value;
@@ -122,6 +130,7 @@ async function ver_compras(id) {
             document.getElementById('cantidad').value = json.contenido.cantidad;
             document.getElementById('precio').value = json.contenido.precio;
             document.getElementById('trabajador').value = json.contenido.id_trabajador;
+            document.getElementById('estado').value = json.contenido.estado; // Cargar el estado
         } else {
             window.location = base_url + "compras";
         }
@@ -131,10 +140,10 @@ async function ver_compras(id) {
     }
 }
 
-
 async function actualizar_compra() {
     const datos = new FormData(document.getElementById('frm_editar'));
     datos.append('id_compra', document.getElementById('id_compra').value); // Asegúrate de que el id_compra se envíe
+    datos.append('estado', document.getElementById('estado').value); // Enviar el estado
 
     try {
         let respuesta = await fetch(base_url + 'controller/Compras.php?tipo=actualizar_compra', {
@@ -156,28 +165,90 @@ async function actualizar_compra() {
 }
 
 
-async function eliminar_compra(id) {
-    const formData = new FormData();
-    formData.append('id_compra', id);
-
-    try {
-        let respuesta = await fetch(base_url + 'controller/Compras.php?tipo=eliminar_compra', {
-            method: 'POST',
-            mode: 'cors',
-            cache: 'no-cache',
-            body: formData
-        });
-        let json = await respuesta.json();
-        if (json.status) {
-            swal.fire("Eliminación exitosa", json.mensaje, 'success');
-            document.querySelector(`#fila${id}`).remove();
-        } else {
-            swal.fire("Eliminación fallida", json.mensaje, 'error');
+async function deshabilitar_compra(id) {
+    swal.fire({
+        title: '¿Está seguro de deshabilitar la compra?',
+        text: "",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, deshabilitar!',
+        cancelButtonText: 'Cancelar',
+        buttons: true,
+        dangerMode: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            fnt_deshabilitar_compra(id);
         }
-        console.log(json);
-    } catch (error) {
-        console.error("Error al eliminar compra: " + error);
+    });
+
+    async function fnt_deshabilitar_compra(id) {
+        const formData = new FormData();
+        formData.append('id_compra', id);
+
+        try {
+            let respuesta = await fetch(base_url + 'controller/Compras.php?tipo=deshabilitar_compra', {
+                method: 'POST',
+                mode: 'cors',
+                cache: 'no-cache',
+                body: formData
+            });
+            let json = await respuesta.json();
+            if (json.status) {
+                swal.fire("Deshabilitación exitosa", json.mensaje, 'success');
+                document.querySelector(`#fila${id} td:nth-child(7)`).textContent = 'Deshabilitado'; // Actualizar el estado en la tabla
+            } else {
+                swal.fire("Deshabilitación fallida", json.mensaje, 'error');
+            }
+            console.log(json);
+        } catch (error) {
+            console.error("Error al deshabilitar compra: " + error);
+        }
+    }
+}
+async function toggle_estado(id, nuevo_estado) {
+    swal.fire({
+        title: `¿Está seguro de ${nuevo_estado == 1 ? 'habilitar' : 'deshabilitar'} la compra?`,
+        text: "",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, continuar!',
+        cancelButtonText: 'Cancelar',
+        buttons: true,
+        dangerMode: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            fnt_toggle_estado(id, nuevo_estado);
+        }
+    });
+
+    async function fnt_toggle_estado(id, nuevo_estado) {
+        const formData = new FormData();
+        formData.append('id_compra', id);
+        formData.append('nuevo_estado', nuevo_estado);
+
+        try {
+            let respuesta = await fetch(base_url + 'controller/Compras.php?tipo=toggle_estado', {
+                method: 'POST',
+                mode: 'cors',
+                cache: 'no-cache',
+                body: formData
+            });
+            let json = await respuesta.json();
+            if (json.status) {
+                swal.fire("Operación exitosa", json.mensaje, 'success');
+                document.querySelector(`#fila${id} td:nth-child(7)`).textContent = nuevo_estado == 1 ? 'Habilitado' : 'Deshabilitado'; // Actualizar el estado en la tabla
+                document.querySelector(`#fila${id} td:nth-child(8) button i`).className = `fa fa-${nuevo_estado == 1 ? 'ban' : 'check'}`; // Actualizar el ícono del botón
+            } else {
+                swal.fire("Operación fallida", json.mensaje, 'error');
+            }
+            console.log(json);
+        } catch (error) {
+            console.error("Error al cambiar el estado de la compra: " + error);
+        }
     }
 }
 
-// Resto de tus funciones...
