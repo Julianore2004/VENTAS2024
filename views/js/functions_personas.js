@@ -179,7 +179,3 @@ async function eliminar_persona(id) {
         }
     }
 }
-
-
-// Resto de tus funciones...
-

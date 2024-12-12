@@ -187,4 +187,5 @@ if ($tipo == "eliminar_persona") {
         echo json_encode($arr_Respuesta);
     }
 }
+
 ?>
