@@ -34,13 +34,13 @@
                 <option class="entrada-destacada">Seleccione</option>
             </select>
         </div>
-        <div class="campo-contenedor">
+     <!--    <div class="campo-contenedor">
             <label for="estado" class="etiqueta-flotante">Estado:</label>
             <select name="estado" id="estado" class="entrada-destacada">
                 <option value="1">Habilitado</option>
                 <option value="2">Deshabilitado</option>
             </select>
-        </div>
+        </div> -->
 
         <button type="button" class="boton-registro" onclick="actualizar_compra();">Actualizar</button>
     </form>

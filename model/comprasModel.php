@@ -20,7 +20,7 @@ class comprasModel
         $trabajador
     ) {
         $sql = "INSERT INTO compras (id_producto, cantidad, precio, id_trabajador) VALUES ('{$producto}','{$cantidad}','{$precio}','{$trabajador}')";
-       
+
         $resultado = $this->conexion->query($sql);
 
         if ($resultado) {
@@ -32,36 +32,48 @@ class comprasModel
             return false;
         }
     }
-    
+
     public function obtener_compras()
     {
         $arrRespuesta = array();
         $respuesta = $this->conexion->query(" SELECT * FROM compras");
         while ($objeto = $respuesta->fetch_object()) {
             array_push($arrRespuesta, $objeto);
-            
         }
         return $arrRespuesta;
     }
 
-    
-    public function verCompras($id) {
+
+    public function verCompras($id)
+    {
         $sql = $this->conexion->query("SELECT * FROM compras WHERE id = '{$id}'");
         return $sql->fetch_object();
     }
-    
-    public function actualizarCompra($id, $producto, $cantidad, $precio, $trabajador, $estado)
+
+    public function actualizarCompra($id, $producto, $cantidad, $precio, $trabajador)
     {
-        $sql = $this->conexion->query("UPDATE compras SET id_producto = '{$producto}', cantidad = '{$cantidad}', precio = '{$precio}', id_trabajador = '{$trabajador}', estado = '{$estado}' WHERE id = '{$id}'");
-    
+        $sql = $this->conexion->query("UPDATE compras SET id_producto = '{$producto}', cantidad = '{$cantidad}', precio = '{$precio}', id_trabajador = '{$trabajador}'WHERE id = '{$id}'");
+
         if (!$sql) {
             die("Error en la consulta: " . $this->conexion->error);
         }
-    
+
         return $sql;
     }
 
-public function habilitarCompra($id)
+    public function obtener_compras_habilitadas()
+    {
+        $arrRespuesta = array();
+        $respuesta = $this->conexion->query("SELECT * FROM compras WHERE estado = 1");
+        while ($objeto = $respuesta->fetch_object()) {
+            array_push($arrRespuesta, $objeto);
+        }
+        return $arrRespuesta;
+    }
+
+
+
+   /*  public function habilitarCompra($id)
 {
     $sql = $this->conexion->query("UPDATE compras SET estado = 1 WHERE id = '{$id}'");
 
@@ -70,7 +82,7 @@ public function habilitarCompra($id)
     }
 
     return $sql;
-}
+} */
 
 public function deshabilitarCompra($id)
 {
@@ -82,6 +94,4 @@ public function deshabilitarCompra($id)
 
     return $sql;
 }
-
-
 }
