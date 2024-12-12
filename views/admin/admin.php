@@ -75,7 +75,7 @@
         .admin-content {
             flex-grow: 1;
             display: flex;
-            margin: 20px;
+
             border-radius: 15px;
         }
 
@@ -106,15 +106,12 @@
             transition: color 0.3s;
         }
 
-        a:hover {
-            color: black;
-            font-weight: bold;
-        }
+       
 
         /* From Uiverse.io by Jedi-hongbin */
         .buttonatras {
             display: flex;
-            height: 3em;
+            height: 30PX;
             width: 100px;
             align-items: center;
             justify-content: center;
@@ -211,7 +208,7 @@
         .btnregistrar {
             color: #090909;
             padding: 0.7em 1.7em;
-            font-size: 18px;
+            font-size: 15px;
             border-radius: 0.5em;
             background: #e8e8e8;
             cursor: pointer;

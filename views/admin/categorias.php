@@ -82,29 +82,29 @@
 
 </style>
 
-<div class="bodyverproduc">
+              <div class="bodyverproduc">
 
-<button class="btnregistrar"> 
-  <a href="<?php echo BASE_URL ?>nueva-categoria"> 
-        <span>REGISTRAR NUEVA CATEGORIA</span>
-    </a></button>
-<br>
-   
-    <!-- Tabla de productos -->
-    <div class="table-container">
-        <table class="verproduct">
-            <thead>
-                <tr>
-                    <th>Nro</th>
-                    <th>Nombre</th>
-                    <th>Detalle</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody id="tbl_categoria">
-                <!-- Aquí se generarán las filas de datos dinámicamente -->
-            </tbody>
-        </table>
-    </div>
-</div>
-<script src="<?php echo BASE_URL ?>views/js/functions_categorias.js"></script>
+              <button class="btnregistrar"> 
+                <a href="<?php echo BASE_URL ?>nueva-categoria"> 
+                      <span>REGISTRAR NUEVA CATEGORIA</span>
+                  </a></button>
+              <br>
+                
+                  <!-- Tabla de productos -->
+                  <div class="table-container">
+                      <table class="verproduct">
+                          <thead>
+                              <tr>
+                                  <th>Nro</th>
+                                  <th>Nombre</th>
+                                  <th>Detalle</th>
+                                  <th>Acciones</th>
+                              </tr>
+                          </thead>
+                          <tbody id="tbl_categoria">
+                              <!-- Aquí se generarán las filas de datos dinámicamente -->
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+              <script src="<?php echo BASE_URL ?>views/js/functions_categorias.js"></script>

@@ -106,6 +106,8 @@ async function actualizar_categoria() {
         console.error("Oops, ocurrió un error: " + e);
     }
 }
+
+
 async function eliminar_categoria(id) {
     swal.fire({
         title: '¿Está seguro de eliminar la categoría?',
@@ -148,3 +150,4 @@ async function eliminar_categoria(id) {
         }
     }
 }
+

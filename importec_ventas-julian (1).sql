@@ -311,7 +311,8 @@ CREATE TABLE `compras` (
   `cantidad` int(5) NOT NULL,
   `precio` decimal(6,2) NOT NULL,
   `fecha_compra` datetime NOT NULL DEFAULT current_timestamp(),
-  `id_trabajador` int(11) NOT NULL
+  `id_trabajador` int(11) NOT NULL,
+    `estado` int(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish2_ci;
 
 

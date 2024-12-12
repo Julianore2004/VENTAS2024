@@ -79,14 +79,21 @@ if ($tipo == "actualizar_categoria") {
 if ($tipo == "eliminar_categoria") {
     if ($_POST) {
         $id_categoria = $_POST['id_categoria'];
-        $arrCategoria = $objCategoria->eliminarCategoria($id_categoria);
 
-        if ($arrCategoria) {
-            $arr_Respuesta = array('status' => true, 'mensaje' => 'Eliminación Exitosa');
+        // Verificar si la categoría tiene productos asociados
+        if ($objCategoria->categoriaTieneProductos($id_categoria)) {
+            $arr_Respuesta = array('status' => false, 'mensaje' => 'No se puede eliminar la categoría porque tiene productos asociados');
         } else {
-            $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, inténtelo de nuevo');
+            $arrCategoria = $objCategoria->eliminarCategoria($id_categoria);
+
+            if ($arrCategoria) {
+                $arr_Respuesta = array('status' => true, 'mensaje' => 'Eliminación Exitosa');
+            } else {
+                $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, inténtelo de nuevo');
+            }
         }
         echo json_encode($arr_Respuesta);
     }
 }
+
 ?>
