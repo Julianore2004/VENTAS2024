@@ -153,7 +153,7 @@ if ($tipo == "actualizar") {
             if ($arrProducto) {
                 $arr_Respuesta = array(
                     'status' => true,
-                    'mensaje' => 'Registro Exitoso'
+                    'mensaje' => 'Actualizacon Exitosa'
                 );
 
                 // Verificar si se ha subido un nuevo archivo
