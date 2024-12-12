@@ -26,7 +26,7 @@
         </div>
         <div class="campo-contenedor">
             <label for="precio" class="etiqueta-flotante">Precio:</label>
-            <input type="detalle" name="precio" id="precio" class="entrada-destacada">
+            <input type="decimal" name="precio" id="precio" class="entrada-destacada">
         </div>
         <div class="campo-contenedor">
             <label for="stock" class="etiqueta-flotante">Stock:</label>

@@ -17,7 +17,7 @@
             <div class="fp1">
                 <div class="campo-contenedor">
                     <label for="nro_identidad" class="etiqueta-flotante">Nro_identidad:</label>
-                    <input type="text" name="nro_identidad" id="nro_identidad" class="entrada-destacada" readonly>
+                    <input type="number" name="nro_identidad" id="nro_identidad" class="entrada-destacada" readonly>
                 </div>
                 <div class="campo-contenedor">
                     <label for="razon_social" class="etiqueta-flotante">Razon_social:</label>
