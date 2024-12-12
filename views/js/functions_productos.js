@@ -190,11 +190,12 @@ async function actualizar_producto() {
         // convertimos la respuesta en formato JSON
         json = await respuesta.json();
         if (json.status) {
-            swal.fire("Registro exitoso", json.mensaje, 'success');
+            swal.fire("Actualización exitosa", json.mensaje, 'success');
 
         } else {
-            swal.fire("Registro fallido", json.mensaje, 'error');
+            swal.fire("Actualización fallida", json.mensaje, 'error');
         }
+       
 
         //console.log(json);
         console.log(json);
