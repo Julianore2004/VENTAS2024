@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel Administrativo</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
@@ -77,15 +76,15 @@
         .admin-content {
             flex-grow: 1;
             padding: 40px;
-           
             display: flex;
-             margin: 20px;
+            margin: 20px;
             border-radius: 15px;
-
+            overflow-x: auto;
         }
 
         .admintablas {
             margin-top: 20px;
+            width: 100%;
         }
 
         h1 {
@@ -110,10 +109,7 @@
             transition: color 0.3s;
         }
 
-        a:hover {
-            color: black;
-            font-weight: bold;
-        }
+      
 
         /* From Uiverse.io by Jedi-hongbin */
         .buttonatras {
@@ -144,9 +140,91 @@
         }
 
         .buttonatras:hover {
-            box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;
             transform: translateY(-2px);
         }
+
+        /* Estilos para las tablas */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        table.verproduct {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+            font-size: 0.95rem;
+        }
+
+        table.verproduct thead {
+            background: #42a5f5;
+            color: #fff;
+        }
+
+        table.verproduct th,
+        table.verproduct td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table.verproduct th {
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        table.verproduct tbody tr {
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        table.verproduct tbody tr:hover {
+            background: #e8f0fe;
+            transform: scale(1.02);
+        }
+
+        table.verproduct tbody tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        table.verproduct td img {
+            max-width: 50px;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        table.verproduct .codigo {
+            font-weight: bold;
+            color: #3f51b5;
+        }
+
+        table.verproduct .precio {
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        table.verproduct .stock {
+            font-size: 0.9em;
+            color: #ff5722;
+        }
+
+        /* From Uiverse.io by ke1221 */ 
+.btnregistrar {
+  color: #090909;
+  padding: 0.7em 1.7em;
+  font-size: 18px;
+  border-radius: 0.5em;
+  background: #e8e8e8;
+  cursor: pointer;
+  border: 1px solid #e8e8e8;
+  transition: all 0.3s;
+  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+}
+
+.btnregistrar:active {
+  color: #666;
+  box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+}
+
     </style>
 </head>
 
@@ -195,12 +273,8 @@
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-<script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="<?php echo BASE_URL ?>views/js/functions_login.js"></script>
-
 
 </html>

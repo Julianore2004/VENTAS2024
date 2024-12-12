@@ -82,9 +82,13 @@
   }
 </style>
 <div class="bodyverproduc">
-  <a href="<?php echo BASE_URL ?>nueva-compra">
+<button class="btnregistrar"> 
+<a href="<?php echo BASE_URL ?>nueva-compra">
     <span>REGISTRAR NUEVA COMPRA</span>
-  </a>
+  </a></button>
+<br>
+   
+  
   <!-- Tabla de productos -->
   <div class="table-container">
     <table class="verproduct">

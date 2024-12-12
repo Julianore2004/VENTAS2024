@@ -82,9 +82,13 @@
 </style>
 
 <div class="bodyverproduc">
+
+  <button class="btnregistrar"> 
   <a href="<?php echo BASE_URL ?>nuevo-producto">
     <span>REGISTRAR NUEVA PRODUCTOS</span>
-  </a>
+  </a></button>
+<br>
+ 
   <!-- Tabla de productos -->
   <div class="table-container">
     <table class="verproduct">

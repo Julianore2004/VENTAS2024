@@ -83,10 +83,12 @@
 </style>
 <link rel="stylesheet" href="../css/style.css">
 <div class="bodyverproduc">
-  
-  <a href="<?php echo BASE_URL ?>nueva-persona">
+<button class="btnregistrar"> 
+<a href="<?php echo BASE_URL ?>nueva-persona">
     <span>REGISTRAR NUEVA PERSONA</span>
-  </a>
+  </a></button>
+<br>
+ 
   <div class="table-container">
 
     <table class="verproduct">
