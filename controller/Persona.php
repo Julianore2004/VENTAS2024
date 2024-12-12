@@ -177,12 +177,18 @@ if ($tipo == "actualizar_persona") {
 if ($tipo == "eliminar_persona") {
     if ($_POST) {
         $id_persona = $_POST['id_persona'];
-        $arrPersona = $objPersona->eliminarPersona($id_persona);
 
-        if ($arrPersona) {
-            $arr_Respuesta = array('status' => true, 'mensaje' => 'Eliminación Exitosa');
+        // Verificar si la persona tiene asociaciones
+        if ($objPersona->personaTieneAsociaciones($id_persona)) {
+            $arr_Respuesta = array('status' => false, 'mensaje' => 'No se puede eliminar la persona porque tiene compras o productos asociados');
         } else {
-            $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, inténtelo de nuevo');
+            $arrPersona = $objPersona->eliminarPersona($id_persona);
+
+            if ($arrPersona) {
+                $arr_Respuesta = array('status' => true, 'mensaje' => 'Eliminación Exitosa');
+            } else {
+                $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, inténtelo de nuevo');
+            }
         }
         echo json_encode($arr_Respuesta);
     }

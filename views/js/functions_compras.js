@@ -23,7 +23,6 @@ async function listar_compras() {
                     <td>${item.precio}</td>
                     <td>${item.fecha_compra}</td>
                     <td>${item.trabajador.razon_social}</td>
-                    <td>${item.estado == 1 ? 'Habilitado' : 'Deshabilitado'}</td>
                     <td>${botones}</td>
                 `;
                 tbody.appendChild(nueva_fila);
