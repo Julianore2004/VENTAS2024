@@ -95,7 +95,13 @@ class ProductoModel
         return $sql;
     }
     
-    
+    public function productoTieneCompras($id)
+{
+    $sql = $this->conexion->query("SELECT COUNT(*) as count FROM compras WHERE id_producto = '{$id}'");
+    $resultado = $sql->fetch_object();
+    return $resultado->count > 0;
+}
+
     public function eliminarProducto($id)
     {
         $sql = $this->conexion->query("CALL eliminarproducto('{$id}')");

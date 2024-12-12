@@ -250,4 +250,3 @@ async function eliminar_producto(id) {
 
 
 
-

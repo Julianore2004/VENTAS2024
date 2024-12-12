@@ -188,13 +188,22 @@ if ($tipo == "actualizar") {
     }
 }
 if ($tipo == "eliminar_producto") {
+    if ($_POST) {
+        $id_Producto = $_POST['id_producto'];
 
-    $id_Producto = $_POST['id_producto'];
-    $arr_Respuesta = $objproducto->eliminarProducto($id_Producto);
-    if (empty($arr_Respuesta)) {
-        $response = array('status' => false, 'mensaje' => 'Error, no hay información');
-    } else {
-        $response = array('status' => true, 'mensaje' => 'Datos encontrados', 'contenido' => $arr_Respuesta);
+        // Verificar si el producto tiene compras asociadas
+        if ($objproducto->productoTieneCompras($id_Producto)) {
+            $arr_Respuesta = array('status' => false, 'mensaje' => 'No se puede eliminar el producto porque tiene compras asociadas');
+        } else {
+            $arrProducto = $objproducto->eliminarProducto($id_Producto);
+
+            if ($arrProducto) {
+                $arr_Respuesta = array('status' => true, 'mensaje' => 'Eliminación Exitosa');
+            } else {
+                $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, inténtelo de nuevo');
+            }
+        }
+        echo json_encode($arr_Respuesta);
     }
-    echo json_encode($response);
 }
+
